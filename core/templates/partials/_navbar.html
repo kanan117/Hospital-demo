@@ -1,0 +1,67 @@
+{% load static %}
+
+
+<header class="header-area">
+    <div class="container-md">
+        <div class="row">
+            <div class="col-12">
+                <nav class="header-navbar">
+                    <div class="header-logo">
+                        <a href="index-2.html"><img src="{% static 'img/logo.png' %}" alt="Logo"></a>
+                    </div>
+                    <div class="header-nav">    #
+                        <div class="header-contact-number d-none d-lg-block">
+                            <span>Emergency Line: <a href="tel:+00123456789">+(00) 123 456 789</a></span>
+                        </div>
+                        <a class="mobile-menu" href="#menu"><span></span></a>
+                        <nav class="menu" id="menu">
+                            <ul class="nav-list">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index_2' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                                </li>
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="services.html">Services</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="service.html">Service Page</a></li>
+                                        <li><a href="service-details.html">Service Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="doctors.html">Doctors</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="doctor.html">Doctors Page</a></li>
+                                        <li><a href="doctor-details.html">Doctors Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="#">Pages</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog.html">Blog Page</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                        <li><a href="appointment.html">Appointment Page</a></li>
+                                        <li><a href="booking-list.html">Booking Page</a></li>
+                                        <li><a href="error.html">404 Page</a></li>
+                                        <li><a href="login.html">Login Page</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="faq.html">FAQ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-btn d-none d-xl-block">
+                        <a href="appointment.html" class="btn btn-outline-white btn-xl btn-round">Book
+                            Appointment</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

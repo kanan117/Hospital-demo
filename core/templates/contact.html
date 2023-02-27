@@ -1,0 +1,377 @@
+
+{%extends  'base.html'%}
+
+{%load static%}
+{% block content %}     
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <header class="header-area">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="header-navbar">
+                        <div class="header-logo">
+                            <a href="index-2.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                        </div>
+                        <div class="header-nav">
+                            <div class="header-contact-number d-none d-lg-block">
+                                <span>Emergency Line: <a href="tel:+00123456789">+(00) 123 456 789</a></span>
+                            </div>
+                            <a class="mobile-menu" href="#menu"><span></span></a>
+                            <nav class="menu" id="menu">
+                                <ul class="nav-list">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-2.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.html">About Us</a>
+                                    </li>
+                                    <li class="nav-item menu-dropdown">
+                                        <a class="nav-link" href="service.html">Services</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="service.html">Service Page</a></li>
+                                            <li><a href="service-details.html">Service Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item menu-dropdown">
+                                        <a class="nav-link" href="doctors.html">Doctors</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="doctor.html">Doctors Page</a></li>
+                                            <li><a href="doctor-details.html">Doctors Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item menu-dropdown">
+                                        <a class="nav-link" href="#">Pages</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog.html">Blog Page</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="appointment.html">Appointment Page</a></li>
+                                            <li><a href="booking-list.html">Booking Page</a></li>
+                                            <li><a href="error.html">404 Page</a></li>
+                                            <li><a href="login.html">Login Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="faq.html">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-btn d-none d-xl-block">
+                            <a href="appointment.html" class="btn btn-outline-white btn-xl btn-round">Book
+                                Appointment</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner Section  -->
+        <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12">
+                        <div class="breadcrumbs">
+                            <nav aria-label="breadcrumb text-center">
+                                <h2 class="text-white">Conatct</h2>
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Section  -->
+
+        <!-- Counter Section  -->
+        <section class="counter-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="500">
+                            <div class="counter-item">
+                                <h2 class="counter counter-number">125+</h2>
+                                <span class="counter-text">Expert Doctors</span>
+                            </div>
+                            <div class="counter-item">
+                                <h2 class="counter counter-number">275+</h2>
+                                <span class="counter-text">Total Medical Stuff</span>
+                            </div>
+                            <div class="counter-item">
+                                <h2 class="counter counter-number">462k</h2>
+                                <span class="counter-text">Online Appointments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Counter Section  -->
+
+        <!-- Contact Section  -->
+        <section class="contact-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-title text-center text-lg-start" data-cues="slideInLeft" data-delay="500">
+                            <h2 class="title">Our Office Inforamtion</h2>
+                            <p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration
+                                some form, by injected humour, or randomized.</p>
+                        </div>
+                        <div class="contact-left-content">
+                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Email Address:</h3>
+                                </div>
+                                <hr>
+                                <div class="contact-content">
+                                    <p>contactinfo@gmail.com</p>
+                                    <p>support@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Phone Number:</h3>
+                                </div>
+                                <hr>
+                                <div class="contact-content">
+                                    <p>+ 00 (00 ) 12345 67890
+                                    </p>
+                                    <p>+ 00 (00) 09876 54321</p>
+                                </div>
+                            </div>
+                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Our Location:</h3>
+                                </div>
+                                <hr>
+                                <div class="contact-content">
+                                    <p>USA, New year - 5012
+                                    </p>
+                                    <p>Str. First Avenue</p>
+                                </div>
+                            </div>
+                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+                                <div class="contact-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Open Hour:</h3>
+                                </div>
+                                <hr>
+                                <div class="contact-content">
+                                    <p>08:00 am to 10:00 pm
+                                    </p>
+                                    <p>Sunday to Thursday</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="section-title text-center text-lg-start mt-5 mt-lg-0" data-cues="slideInRight"
+                            data-delay="500">
+                            <h2 class="title">Contact for Any Inquiry</h2>
+                            <p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration
+                                form, by injected humour, or randomised words.</p>
+                        </div>
+                        <div class="booking-wrapper">
+                            <div class="booking-form">
+                                <form data-cues="slideInUp" data-delay="500">
+                                    <div class="pseudo-icon icon-user">
+                                        <input class="form-control" type="text" placeholder="Your Name"
+                                            aria-label="form-control">
+                                    </div>
+                                    <div class="pseudo-icon icon-envelope">
+                                        <input class="form-control" type="email" placeholder="Your Email"
+                                            aria-label="form-control">
+                                    </div>
+                                    <div class="pseudo-icon icon-phone">
+                                        <input class="form-control" type="text" placeholder="Enter phone number"
+                                            aria-label="form-control">
+                                    </div>
+                                    <select class="select-control pseudo-icon icon-list">
+                                        <option data-display="Choose doctor">Select Service Type</option>
+                                        <option value="1">Some option</option>
+                                        <option value="2">Another option</option>
+                                        <option value="4">Potato</option>
+                                    </select>
+                                    <div>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                            placeholder="Describe your problem"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Get
+                                        Appointment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section  -->
+
+        <!-- Map Area -->
+        <div class="map-area overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830843218!2d-74.11976411191142!3d40.69766374883451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1639760821808!5m2!1sen!2sbd"
+                width="1920" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <!-- Map Area -->
+    </main>
+
+    <!-- Footer Section Start  -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-client-logo">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="swiper client-slider-active">
+                            <div class="swiper-wrapper client-logo-list">
+                                <div class="swiper-slide">
+                                    <img src="assets/img/client/client.png" alt="Client Logo">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/client/client2.png" alt="Client Logo">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/client/client3.png" alt="Client Logo">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/client/client4.png" alt="Client Logo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-top section-padding">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index-2.html"><img src="assets/img/logo2.png" alt="Logo"></a>
+                            </div>
+                            <p class="text-white">Lorem Ipsum is simply dummy text of the printing
+                            and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy.</p>
+                            <div class="footer-contact-info">
+                                <div class="icon">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <span>Themeforest, Envanto HQ <br>24 Fifth st., Los Angeles, USA</span>
+                            </div>
+                            <div class="footer-contact-info">
+                                <div class="icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <span>+00 (00) 123 456 789 <br>+00 (00) 123 456 789</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="footer-widget footer-padding pt-md-0">
+                            <h3 class="footer-title">Our Services</h3>
+                            <ul class="footer-links">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="service.html">Service</a></li>
+                                <li><a href="faq.html">FAQ's</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="footer-widget footer-padding">
+                            <h3 class="footer-title">Important Link</h3>
+                            <ul class="footer-links">
+                                <li><a href="doctor.html">Doctors</a></li>
+                                <li><a href="appointment.html">Appointment</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="booking-list.html">Booking List</a></li>
+                                <li><a href="error.html">404 Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="footer-widget footer-padding footer-booking-hour">
+                            <h3 class="footer-title">Opening Hours</h3>
+                            <ul class="footer-info">
+                                <li>Monday - Wednesday 6.00 - 10.30 pm</li>
+                                <li>Thursday - Saturday 8.00 - 12.00 am</li>
+                            </ul>
+                            <div class="off-day">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="38.474" height="38.474" viewBox="0 0 38.474 38.474">
+                                    <path id="_24_7_icon" data-name="24/7 icon"
+                                        d="M21.237,23.161a5.771,5.771,0,0,1,4,9.93l-3.674,3.536h5.444v3.847H15.466V37.157l7.1-6.839a1.924,1.924,0,1,0-3.257-1.387H15.466A5.771,5.771,0,0,1,21.237,23.161Zm11.542,0v7.695h3.847V23.161h3.847V40.474H36.626V34.7H28.932V23.161ZM5.847,21.237a15.361,15.361,0,0,0,5.771,12.015V37.9A19.227,19.227,0,0,1,2,21.237ZM21.237,2A19.238,19.238,0,0,1,40.378,19.313h-3.87a15.391,15.391,0,0,0-28-6.733h5.03v3.847H2V4.886H5.847V9.695A19.2,19.2,0,0,1,21.237,2Z"
+                                        transform="translate(-2 -2)" fill="#0463fa" />
+                                </svg>
+                                <span class="btn btn-blue btn-xl btn-round">Sunday - Holiday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-6 col-lg-7 col-xl-8">
+                        <div class="footer-bottom-left">
+                            <ul class="footer-social">
+                                <li>Follow us:</li>
+                                <li><a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 col-xl-4">
+                        <div class="footer-copyright">
+                            <p>&copy; 2021 All Right Reserved by theme_crazy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="assets/img/shape/shape10.png" alt="Shape" class="shape">
+        <img src="assets/img/shape/shape11.png" alt="Shape" class="shape2">
+    </footer>
+    <!-- Footer Section End  -->
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/mmenu-light.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/counterup2.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/scrollCue.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<!-- Mirrored from themecrazy.net/html/mediclinis/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Dec 2022 09:23:48 GMT -->
+</html>

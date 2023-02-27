@@ -1,0 +1,215 @@
+
+{%extends  'base.html'%}
+
+{%load static%}
+{% block content %}     
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <header class="header-area">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="header-navbar">
+                        <div class="header-logo">
+                            <a href="index-2.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                        </div>
+                        <div class="header-nav">
+                            <div class="header-contact-number d-none d-lg-block">
+                                <span>Emergency Line: <a href="tel:+00123456789">+(00) 123 456 789</a></span>
+                            </div>
+                            <a class="mobile-menu" href="#menu"><span></span></a>
+                            <nav class="menu" id="menu">
+                                <ul class="nav-list">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-2.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.html">About Us</a>
+                                    </li>
+                                    <li class="nav-item menu-dropdown">
+                                        <a class="nav-link" href="service.html">Services</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="service.html">Service Page</a></li>
+                                            <li><a href="service-details.html">Service Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item menu-dropdown">
+                                        <a class="nav-link" href="doctors.html">Doctors</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="doctor.html">Doctors Page</a></li>
+                                            <li><a href="doctor-details.html">Doctors Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item menu-dropdown">
+                                        <a class="nav-link" href="#">Pages</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog.html">Blog Page</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="appointment.html">Appointment Page</a></li>
+                                            <li><a href="booking-list.html">Booking Page</a></li>
+                                            <li><a href="error.html">404 Page</a></li>
+                                            <li><a href="login.html">Login Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="faq.html">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-btn d-none d-xl-block">
+                            <a href="appointment.html" class="btn btn-outline-white btn-xl btn-round">Book
+                                Appointment</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner Section  -->
+        <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12">
+                        <div class="breadcrumbs">
+                            <nav aria-label="breadcrumb text-center">
+                                <h2 class="text-white">Booking List</h2>
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Booking List</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Section  -->
+
+        <!-- Counter Section  -->
+        <section class="counter-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="counter-wrapper counter-wrapper-2">
+                            <div class="counter-item">
+                                <h2 class="counter counter-number">125+</h2>
+                                <span class="counter-text">Expert Doctors</span>
+                            </div>
+                            <div class="counter-item">
+                                <h2 class="counter counter-number">275+</h2>
+                                <span class="counter-text">Total Medical Stuff</span>
+                            </div>
+                            <div class="counter-item">
+                                <h2 class="counter counter-number">462k</h2>
+                                <span class="counter-text">Online Appointments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Counter Section  -->
+
+        <!-- Booking List Section  -->
+        <section class="booking-list-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="doctor-booking-list">
+                            <div class="doctor-details">
+                                <div class="doctor-details-img">
+                                    <img src="assets/img/booking-list/booking-list.png" alt="">
+                                </div>
+                                <div class="doctor-details-content">
+                                    <h3>Dr. Tomas Mulli</h3>
+                                    <span>Doctor of Medicine</span>
+                                    <p>Lorem Ipsum available, but the majority
+                                        have suffered alteration in some form
+                                        by injected humour, or randomized
+                                        words which don't look even slightly
+                                        believable.</p>
+                                    <ul class="footer-social">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="booking-table table-responsive">
+                                <table class="table table-bordered border-primary">
+                                    <thead>
+                                      <tr>
+                                        <th class="table-width" scope="col">Name</th>
+                                        <th class="table-width" scope="col">Ages</th>
+                                        <th class="table-width" scope="col">Problem</th>
+                                        <th class="table-width" scope="col">Contact</th>
+                                        <th class="table-width" scope="col">Date & Time</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td><h5>Jackson Levi</h5><span>( New York)</span></td>
+                                        <td><h5>34</h5></td>
+                                        <td><p>Lorem Ipsum available, but the
+                                            majority have suffered alteration
+                                            in some form, by injected humour
+                                            randomised words.</p></td>
+                                        <td><h5>+ 00 12345 6789</h5></td>
+                                        <td><h5>7th Nov, 21- 8 pm</h5></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h5>Victoria Lily</h5><span>( New Jersy)</span></td>
+                                        <td><h5>25</h5></td>
+                                        <td><p>Lorem Ipsum available, but the
+                                            majority have suffered alteration
+                                            in some form, by injected humour
+                                            randomised words.</p></td>
+                                        <td><h5>+ 00 98765 4321</h5></td>
+                                        <td><h5>14th Nov, 21- 9 am</h5></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h5>Gabriella Eva</h5><span>( New York)</span></td>
+                                        <td><h5>64</h5></td>
+                                        <td><p>Lorem Ipsum available, but the
+                                            majority have suffered alteration
+                                            in some form, by injected humour
+                                            randomised words.</p></td>
+                                        <td><h5>+ 00 14689 1234</h5></td>
+                                        <td><h5>15th Nov, 21- 10 am</h5></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h5>Alex Carry</h5><span>( New York)</span></td>
+                                        <td><h5>40</h5></td>
+                                        <td><p>Lorem Ipsum available, but the
+                                            majority have suffered alteration
+                                            in some form, by injected humour
+                                            randomised words.</p></td>
+                                        <td><h5>+ 00 54321 6789</h5></td>
+                                        <td><h5>16th Nov, 21- 11 pm</h5></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                            <img class="position-absolute bottom-0 start-0" src="assets/img/shape/shape15.png" alt="Shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="shape1" src="assets/img/error/Graphic1.png" alt="">
+            <img class="shape2" src="assets/img/error/Graphic2.png" alt="">
+        </section>
+        <!-- Booking List Section  -->
+    </main>
+    {% endblock %}
