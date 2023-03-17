@@ -1,79 +1,8 @@
-
 {%extends  'base.html'%}
 
-{%load static%}
-{% block content %}     
-<body>
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
+{% load static custom_tags %}
 
-    <header class="header-area">
-        <div class="container-md">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="header-navbar">
-                        <div class="header-logo">
-                            <a href="index-2.html"><img src="assets/img/logo.png" alt="Logo"></a>
-                        </div>
-                        <div class="header-nav">
-                            <div class="header-contact-number d-none d-lg-block">
-                                <span>Emergency Line: <a href="tel:+00123456789">+(00) 123 456 789</a></span>
-                            </div>
-                            <a class="mobile-menu" href="#menu"><span></span></a>
-                            <nav class="menu" id="menu">
-                                <ul class="nav-list">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="index-2.html">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="about.html">About Us</a>
-                                    </li>
-                                    <li class="nav-item menu-dropdown">
-                                        <a class="nav-link" href="service.html">Services</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="service.html">Service Page</a></li>
-                                            <li><a href="service-details.html">Service Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item menu-dropdown">
-                                        <a class="nav-link" href="doctors.html">Doctors</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="doctor.html">Doctors Page</a></li>
-                                            <li><a href="doctor-details.html">Doctors Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item menu-dropdown">
-                                        <a class="nav-link" href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog Page</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="appointment.html">Appointment Page</a></li>
-                                            <li><a href="booking-list.html">Booking Page</a></li>
-                                            <li><a href="error.html">404 Page</a></li>
-                                            <li><a href="login.html">Login Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="faq.html">FAQ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="header-btn d-none d-xl-block">
-                            <a href="appointment.html" class="btn btn-outline-white btn-xl btn-round">Book
-                                Appointment</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+{% block content %}
 
     <main>
         <!-- Banner Section  -->
@@ -95,7 +24,6 @@
             </div>
         </div>
         <!-- Banner Section  -->
-
         <!-- Counter Section  -->
         <section class="counter-area">
             <div class="container">
@@ -120,214 +48,217 @@
             </div>
         </section>
         <!-- Counter Section  -->
-
-        <!-- Blog Section  -->
-        <section class="blog-area blog-area-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="blog-wrapper">
-                            <div class="blog-left-content">
-                                <div class="blog-item blog-item-2 mt-0" data-cues="slideInUp" data-delay="300">
-                                    <div class="blog-img">
-                                        <a href="blog-details.html"><img src="assets/img/blog-page/blog1.png" alt="Blog Image"></a>
-                                    </div>
-                                    <ul class="blog-meta">
-                                        <li class="author">
-                                            <i class="fas fa-user-alt"></i>
-                                            <span>By Admin</span>
-                                        </li>
-                                        <li class="meta-date">
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>January 25, 2022</span>
-                                        </li>
-                                    </ul>
-                                    <div class="blog-content">
-                                        <a href="blog-details.html"><h3>The art of medicine consists in amusing the patient while nature cures the
-                                            disease.</h3></a>
-                                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
-                                            randomised words which don't look even slightly believable. If you are going to use a passage of
-                                            lorem Ipsum, you need to be sure there isn't anything.</p>
-                                        <hr>
-                                        <div class="blog-btn">
-                                            <a href="blog-details.html" class="blog-link">Read More <i
-                                                    class="bi bi-arrow-right"></i></a>
-                                            <div class="blog-comment-share d-none d-md-block">
-                                                <span class="comment"><i class="far fa-comments"></i> Comment  120</span>
-                                                <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="blog-item blog-item-2 mt-9" data-cues="slideInUp">
-                                    <div class="blog-img">
-                                        <a href="blog-details.html"><img src="assets/img/blog-page/blog2.png" alt="Blog Image"></a>
-                                    </div>
-                                    <ul class="blog-meta">
-                                        <li class="author">
-                                            <i class="fas fa-user-alt"></i>
-                                            <span>By Admin</span>
-                                        </li>
-                                        <li class="meta-date">
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>January 25, 2022</span>
-                                        </li>
-                                    </ul>
-                                    <div class="blog-content">
-                                        <a href="blog-details.html"><h3>Modern medicine is a negation of health. It isn't organized to serve human
-                                            health, but only itself, as an institution.</h3></a>
-                                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
-                                            randomised words which don't look even slightly believable. If you are going to use a passage of
-                                            lorem Ipsum, you need to be sure there isn't anything.</p>
-                                        <hr>
-                                        <div class="blog-btn">
-                                            <a href="blog-details.html" class="blog-link">Read More <i
-                                                    class="bi bi-arrow-right"></i></a>
-                                            <div class="blog-comment-share d-none d-md-block">
-                                                <span class="comment"><i class="far fa-comments"></i> Comment  112</span>
-                                                <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="blog-item blog-item-2 mt-9" data-cues="slideInUp">
-                                    <div class="blog-img">
-                                        <a href="blog-details.html"><img src="assets/img/blog-page/blog3.png" alt="Blog Image"></a>
-                                    </div>
-                                    <ul class="blog-meta">
-                                        <li class="author">
-                                            <i class="fas fa-user-alt"></i>
-                                            <span>By Admin</span>
-                                        </li>
-                                        <li class="meta-date">
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>January 25, 2022</span>
-                                        </li>
-                                    </ul>
-                                    <div class="blog-content">
-                                        <a href="blog-details.html"><h3>My doctor gave me six months to live, but when I couldn't pay the bill he
-                                            gave me six months more.</h3></a>
-                                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
-                                            randomised words which don't look even slightly believable. If you are going to use a passage of
-                                            lorem Ipsum, you need to be sure there isn't anything.</p>
-                                        <hr>
-                                        <div class="blog-btn">
-                                            <a href="blog-details.html" class="blog-link">Read More <i
-                                                    class="bi bi-arrow-right"></i></a>
-                                            <div class="blog-comment-share d-none d-md-block">
-                                                <span class="comment"><i class="far fa-comments"></i> Comment  143</span>
-                                                <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
-                                            </div>
-                                        </div>
+<!-- Blog Section  -->
+<section class="blog-area blog-area-2">
+    <div class="container">
+        <div class="row">
+            {% get_blogs 0 3 as blogs %} 
+            {% for blog in blogs %}
+            <div class="col-12">
+                <div class="blog-wrapper">
+                    <div class="blog-left-content">
+                        <div class="blog-item blog-item-2 mt-0" data-cues="slideInUp" data-delay="300">
+                            <div class="blog-img">
+                                <a href="blog-details.html"><img src="{{ blog.image.url }}" alt="Blog Image"></a>
+                            </div>
+                            <ul class="blog-meta">
+                                <li class="author">
+                                    <i class="fas fa-user-alt"></i>
+                                    <span>By Admin</span>
+                                </li>
+                                <li class="meta-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>January 22, 2022</span>
+                                </li>
+                            </ul>
+                            <div class="blog-content">
+                                <a href="blog-details.html"><h3>
+                                   {{ blog.title }}</h3></a>
+                                <p>{{ blog.description|truncatechars:100 }}</p>
+                                <p>
+                                    {{ blog.created_at|date:"F/d"}}
+                                </p>
+                                <hr>
+                                <div class="blog-btn">
+                                    <a href="{% url 'blogdetails' blog.id %}" class="btn blog-link">Read More <i
+                                            class="bi bi-arrow-right"></i></a>
+                                    <div class="blog-comment-share d-none d-md-block">
+                                        <span class="comment"><i class="far fa-comments"></i> Comment  120</span>
+                                        <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog-right-content">
-                                <div class="sidebar-widget">
-                                    <div class="sidebar-search-form">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search">
-                                            <i class="fas fa-search"></i>
-                                        </form>
-                                        <img src="assets/img/blog-page/blog-shape1.png" alt="" class="shape1">
-                                        <img src="assets/img/blog-page/blog-shape2.png" alt="" class="shape2">
+                        </div>
+                        {% endfor %}
+                        <div class="blog-item blog-item-2 mt-9" data-cues="slideInUp">
+                            <div class="blog-img">
+                                <a href="blog-details.html"><img src="assets/img/blog-page/blog2.png" alt="Blog Image"></a>
+                            </div>
+                            <ul class="blog-meta">
+                                <li class="author">
+                                    <i class="fas fa-user-alt"></i>
+                                    <span>By Admin</span>
+                                </li>
+                                <li class="meta-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>January 25, 2022</span>
+                                </li>
+                            </ul>
+                            <div class="blog-content">
+                                <a href="blog-details.html"><h3>Modern medicine is a negation of health. It isn't organized to serve human
+                                    health, but only itself, as an institution.</h3></a>
+                                <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                                    randomised words which don't look even slightly believable. If you are going to use a passage of
+                                    lorem Ipsum, you need to be sure there isn't anything.</p>
+                                <hr>
+                                <div class="blog-btn">
+                                    <a href="blog-details.html" class="blog-link">Read More <i
+                                            class="bi bi-arrow-right"></i></a>
+                                    <div class="blog-comment-share d-none d-md-block">
+                                        <span class="comment"><i class="far fa-comments"></i> Comment  112</span>
+                                        <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
                                     </div>
                                 </div>
-                                <div class="sidebar-widget border mt-5">
-                                    <h4 class="sidebar-title">Recent Posts</h4>
-                                    <ul class="list-group post">
-                                        <li class="list-group-item post-item">
-                                            <div class="list-group-img">
-                                                <a href="blog-details.html"><img
-                                                        src="assets/img/blog-page/blog-img4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="list-group-content">
-                                                <h6 class="list-group-title"><a href="blog-details.html">Medicine is my
-                                                        lawful wife, and literature.</a></h6>
-                                                <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 26, 2022</span>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item post-item">
-                                            <div class="list-group-img">
-                                                <a href="blog-details.html"><img
-                                                        src="assets/img/blog-page/blog-img5.jpg" alt=""></a>
-                                            </div>
-                                            <div class="list-group-content">
-                                                <h6 class="list-group-title"><a href="blog-details.html">A medicine cat
-                                                        has no
-                                                    time for doubt.</a></h6>
-                                                <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 27, 2022</span>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item post-item">
-                                            <div class="list-group-img">
-                                                <a href="blog-details.html"><img
-                                                        src="assets/img/blog-page/blog-img6.jpg" alt=""></a>
-                                            </div>
-                                            <div class="list-group-content">
-                                                <h6 class="list-group-title"><a href="blog-details.html">Wherever the
-                                                        art of
-                                                    Medicine is loved.</a></h6>
-                                                <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 28, 2022</span>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item post-item">
-                                            <div class="list-group-img">
-                                                <a href="blog-details.html"><img
-                                                        src="assets/img/blog-page/blog-img7.jpg" alt=""></a>
-                                            </div>
-                                            <div class="list-group-content">
-                                                <h6 class="list-group-title"><a href="blog-details.html">We look for
-                                                        medicine to
-                                                    be an orderly field.</a></h6>
-                                                <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 29, 2022</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="sidebar-widget border mt-5">
-                                    <h4 class="sidebar-title">Categories</h4>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <a href="blog-details.html">Precise Diagnosis -</a>
-                                            <span class="list-number">15</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="blog-details.html">Annual Check-ups</a>
-                                            <span class="list-number">18</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="blog-details.html">Dental Implants</a>
-                                            <span class="list-number">24</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="blog-details.html">Birthing Care</a>
-                                            <span class="list-number">08</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="blog-details.html">Ophthalmology</a>
-                                            <span class="list-number">13</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="blog-details.html">Covid Vaccine</a>
-                                            <span class="list-number">16</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="sidebar-widget mt-5">
-                                    <ul class="sidebar-button">
-                                        <li class="btn border btn-xl btn-round">Medical</li>
-                                        <li class="btn border btn-xl btn-round">Health</li>
-                                        <li class="btn border btn-xl btn-round">Dental</li>
-                                        <li class="btn border btn-xl btn-round">Tips</li>
-                                    </ul>
+                            </div>
+                        </div>
+                        <div class="blog-item blog-item-2 mt-9" data-cues="slideInUp">
+                            <div class="blog-img">
+                                <a href="blog-details.html"><img src="assets/img/blog-page/blog3.png" alt="Blog Image"></a>
+                            </div>
+                            <ul class="blog-meta">
+                                <li class="author">
+                                    <i class="fas fa-user-alt"></i>
+                                    <span>By Admin</span>
+                                </li>
+                                <li class="meta-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>January 25, 2022</span>
+                                </li>
+                            </ul>
+                            <div class="blog-content">
+                                <a href="blog-details.html"><h3>My doctor gave me six months to live, but when I couldn't pay the bill he
+                                    gave me six months more.</h3></a>
+                                <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                                    randomised words which don't look even slightly believable. If you are going to use a passage of
+                                    lorem Ipsum, you need to be sure there isn't anything.</p>
+                                <hr>
+                                <div class="blog-btn">
+                                    <a href="blog-details.html" class="blog-link">Read More <i
+                                            class="bi bi-arrow-right"></i></a>
+                                    <div class="blog-comment-share d-none d-md-block">
+                                        <span class="comment"><i class="far fa-comments"></i> Comment  143</span>
+                                        <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="blog-right-content">
+                        <div class="sidebar-widget">
+                            <div class="sidebar-search-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Search">
+                                    <i class="fas fa-search"></i>
+                                </form>
+                                <img src="assets/img/blog-page/blog-shape1.png" alt="" class="shape1">
+                                <img src="assets/img/blog-page/blog-shape2.png" alt="" class="shape2">
+                            </div>
+                        </div>
+                        <div class="sidebar-widget border mt-5">
+                            <h4 class="sidebar-title">Recent Posts</h4>
+                            <ul class="list-group post">
+                                <li class="list-group-item post-item">
+                                    <div class="list-group-img">
+                                        <a href="blog-details.html"><img
+                                                src="assets/img/blog-page/blog-img4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="list-group-content">
+                                        <h6 class="list-group-title"><a href="blog-details.html">Medicine is my
+                                                lawful wife, and literature.</a></h6>
+                                        <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 26, 2022</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item post-item">
+                                    <div class="list-group-img">
+                                        <a href="blog-details.html"><img
+                                                src="assets/img/blog-page/blog-img5.jpg" alt=""></a>
+                                    </div>
+                                    <div class="list-group-content">
+                                        <h6 class="list-group-title"><a href="blog-details.html">A medicine cat
+                                                has no
+                                            time for doubt.</a></h6>
+                                        <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 27, 2022</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item post-item">
+                                    <div class="list-group-img">
+                                        <a href="blog-details.html"><img
+                                                src="assets/img/blog-page/blog-img6.jpg" alt=""></a>
+                                    </div>
+                                    <div class="list-group-content">
+                                        <h6 class="list-group-title"><a href="blog-details.html">Wherever the
+                                                art of
+                                            Medicine is loved.</a></h6>
+                                        <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 28, 2022</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item post-item">
+                                    <div class="list-group-img">
+                                        <a href="blog-details.html"><img
+                                                src="assets/img/blog-page/blog-img7.jpg" alt=""></a>
+                                    </div>
+                                    <div class="list-group-content">
+                                        <h6 class="list-group-title"><a href="blog-details.html">We look for
+                                                medicine to
+                                            be an orderly field.</a></h6>
+                                        <span class="list-group-date"><i class="far fa-calendar-alt"></i> January 29, 2022</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget border mt-5">
+                            <h4 class="sidebar-title">Categories</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="blog-details.html">Precise Diagnosis -</a>
+                                    <span class="list-number">15</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="blog-details.html">Annual Check-ups</a>
+                                    <span class="list-number">18</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="blog-details.html">Dental Implants</a>
+                                    <span class="list-number">24</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="blog-details.html">Birthing Care</a>
+                                    <span class="list-number">08</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="blog-details.html">Ophthalmology</a>
+                                    <span class="list-number">13</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="blog-details.html">Covid Vaccine</a>
+                                    <span class="list-number">16</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget mt-5">
+                            <ul class="sidebar-button">
+                                <li class="btn border btn-xl btn-round">Medical</li>
+                                <li class="btn border btn-xl btn-round">Health</li>
+                                <li class="btn border btn-xl btn-round">Dental</li>
+                                <li class="btn border btn-xl btn-round">Tips</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- Blog Section  -->
-    </main>
-    {% endblock %}
+        </div>
+    </div>
+</section>
+<!-- Blog Section  -->
+</main>
+{% endblock %}

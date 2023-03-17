@@ -7,7 +7,7 @@
             <div class="col-12">
                 <nav class="header-navbar">
                     <div class="header-logo">
-                        <a href="index-2.html"><img src="{% static 'img/logo.png' %}" alt="Logo"></a>
+                        <a href="{% url 'index_2' %}"><img src="{% static 'img/logo.png' %}" alt="Logo"></a>
                     </div>
                     <div class="header-nav">    #
                         <div class="header-contact-number d-none d-lg-block">
@@ -23,41 +23,41 @@
                                     <a class="nav-link" href="{% url 'about' %}">About Us</a>
                                 </li>
                                 <li class="nav-item menu-dropdown">
-                                    <a class="nav-link" href="services.html">Services</a>
+                                    <a class="nav-link" href="{% url 'services' %}">Services</a>
                                     <ul class="sub-menu">
-                                        <li><a href="service.html">Service Page</a></li>
-                                        <li><a href="service-details.html">Service Details</a></li>
+                                        <li><a href="{% url 'service' %}">Service Page</a></li>
+                                        <li><a href="{% url 'service_details' %}">Service Details</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item menu-dropdown">
-                                    <a class="nav-link" href="doctors.html">Doctors</a>
+                                    <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
                                     <ul class="sub-menu">
-                                        <li><a href="doctor.html">Doctors Page</a></li>
-                                        <li><a href="doctor-details.html">Doctors Details</a></li>
+                                        <li><a href="{% url 'doctor' %}">Doctors Page</a></li>
+                                        <li><a href="{% url 'doctor_details' %}">Doctors Details</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item menu-dropdown">
                                     <a class="nav-link" href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog Page</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="appointment.html">Appointment Page</a></li>
-                                        <li><a href="booking-list.html">Booking Page</a></li>
-                                        <li><a href="error.html">404 Page</a></li>
-                                        <li><a href="login.html">Login Page</a></li>
+                                        <li><a href="{% url 'blog' %}">Blog Page</a></li>
+                                        <li><a href="{% static 'blog_details' %}">Blog Details</a></li>
+                                        <li><a href="{% url 'appointment' %}">Appointment Page</a></li>
+                                        <li><a href="{% url 'booking_list' %}">Booking Page</a></li>
+                                        <li><a href="{% url 'error' %}">404 Page</a></li>
+                                        <li><a href="{% url 'login' %}">Login Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="faq.html">FAQ</a>
+                                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                     <div class="header-btn d-none d-xl-block">
-                        <a href="appointment.html" class="btn btn-outline-white btn-xl btn-round">Book
+                        <a href="{% url 'appointment' %}" class="btn btn-outline-white btn-xl btn-round">Book
                             Appointment</a>
                     </div>
                 </nav>

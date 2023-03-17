@@ -59,7 +59,7 @@
                             <div class="blog-left-content">
                                 <div class="blog-item mt-0">
                                     <div class="blog-img">
-                                        <a href="blog-details.html"><img src="assets/img/blog-page/blog1.png" alt="Blog Image"></a>
+                                        <a href="blog-details.html"><img src="{{ blogs.image.url }}" alt="Blog Image"></a>
                                     </div>
                                     <div class="blog-meta-comment">
                                         <ul class="blog-meta">
@@ -78,12 +78,8 @@
                                         </div>
                                     </div>
                                     <div class="blog-content">
-                                        <a href="blog-details.html"><h3>Modern medicine is a negation of health. It isn't organized to serve human
-                                            health, but only itself, as an institution.</h3></a>
-                                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
-                                            randomised words which don't look even slightly believable. If you are going to use a passage
-                                            lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                                            all the Lorem Ipsum generators on the Internet
+                                        <a href="blog-details.html"><h3>{{ blogs.title }}</h3></a>
+                                        <p>{{ blogs.description }}
                                             </p>
                                         <p>Tend to repeat predefined chunks as necessary, making this the first true generator on the Internet
                                                 It uses a dictionary of over 200 Latin words,</p>

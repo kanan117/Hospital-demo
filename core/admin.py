@@ -1,17 +1,13 @@
-# from django.contrib import admin
-
-# # Register your models here.
-
-# from core.models import Setting
-
-# admin.site.register(Setting)
-
 from django.contrib import admin
-from core.models import Setting, News, Category, Comment, Tag, NewsTag, Page
+
+# Register your models here.
+
+admin.site.site_header = 'Doctor Admin'
+from core.models import Setting, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
 
 admin.site.register(Setting)
 
-admin.site.register(News)
+# admin.site.register(News)
 
 admin.site.register(Category)
 
@@ -22,3 +18,23 @@ admin.site.register(Tag)
 admin.site.register(NewsTag)
 
 admin.site.register(Page)
+
+admin.site.register(Story)
+
+# admin.site.register(Blogs)
+
+admin.site.register(Contact)
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'created_at']
+    list_filter = ['created_at']
+    search_fields = ['title',]
+    # fields = ['title', 'image', 'content']
+    # readonly_fields = ['content', 'updated_at']
+
+@admin.register(Blogs)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'is_published')
+    list_editable = ('is_published',)

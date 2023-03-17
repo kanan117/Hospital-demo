@@ -45,7 +45,7 @@
                             <div class="icon">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
-                            <span>+00 (00) 123 456 789 <br>+00 (00) 123 456 789</span>
+                            <span>+ {{setting.number1 }}<br>+ {{setting.number2 }}</span>
                         </div>
                     </div>
                 </div>
@@ -98,10 +98,10 @@
                     <div class="footer-bottom-left">
                         <ul class="footer-social">
                             <li>Follow us:</li>
-                            <li><a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ setting.fb }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ setting.tw }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ setting.ig }}"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{ setting.ln }}"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                         <hr>
                     </div>
