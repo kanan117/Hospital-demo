@@ -1,51 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from phonenumber_field.modelfields import PhoneNumberField
 
-# Create your models here.
-
-# class Basemodel(models.Model):
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
-
-#     class Meta:
-#         abstract = True
-
-# class Setting(Basemodel):
-#     number1= models.IntegerField()
-#     number2=models.IntegerField()
-#     e_mail=models.EmailField()
-#     fb=models.URLField(max_length=100)
-#     ig=models.URLField(max_length=100)
-#     tw=models.URLField(max_length=100)
-#     logo=models.ImageField(upload_to="logo")
-
-# class News(Basemodel):
-#     title = models.CharField(max_length=200)
-#     content = models.TextField()
-#     pub_date = models.DateTimeField(auto_now_add=True)
-#     image = models.ImageField(upload_to='news_images', blank=True, null=True)
-#     author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-# class Category(Basemodel):
-#     name = models.CharField(max_length=100)
-
-# class Comment(Basemodel):
-#     text = models.TextField()
-#     pub_date = models.DateTimeField(auto_now_add=True)
-#     author = models.ForeignKey(User, on_delete=models.CASCADE)
-#     news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='comments')
-
-# class Tag(Basemodel):
-#     name = models.CharField(max_length=50)
-
-# class NewsTag(Basemodel):
-#     news = models.ForeignKey(News, on_delete=models.CASCADE)
-#     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
-
-# class Page(Basemodel):
-#     title = models.CharField(max_length=200)
-#     content = models.TextField()
-#     slug = models.SlugField(max_length=100, unique=True)
 
 class Basemodel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -55,28 +11,29 @@ class Basemodel(models.Model):
         abstract = True
 
 class Setting(Basemodel):
-    number1= models.IntegerField()
-    number2 = models.IntegerField()
+    number1 = models.IntegerField()
+    number2 = PhoneNumberField(blank=True)
     e_mail = models.EmailField()
-    fb = models.URLField(max_length=100)
-    ig = models.URLField(max_length=100)
-    tw = models.URLField(max_length=100)
-    ln = models.URLField(max_length=100)
-    logo = models.ImageField(upload_to="logo")
+    facebook = models.URLField(max_length=100)
+    instagram = models.URLField(max_length=100)
+    twitter = models.URLField(max_length=100)
+    linkedin = models.URLField(max_length=100)
+    logo = models.ImageField(upload_to="media/logo")
+
     
     def __str__(self):
-        return "Site Setting"
+        return "Setting"
     
     class Meta:
-        verbose_name = "Site setting"
-        verbose_name_plural = "Site setting"
+        verbose_name = "Setting"
+        verbose_name_plural = "Setting"
 
 
 class News(Basemodel):
     title = models.CharField(max_length=200)
     content = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='news_images', blank=True, null=True)
+    image = models.ImageField(upload_to='media/news_images', blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
     def __str__(self):
@@ -143,7 +100,7 @@ class Page(Basemodel):
 class Story(Basemodel):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to="stories")
+    image = models.ImageField(upload_to="media/stories")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
 
@@ -158,7 +115,7 @@ class Story(Basemodel):
 class Blogs(Basemodel):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to='Blogs')
+    image = models.ImageField(upload_to='media/Blogs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=False)
 

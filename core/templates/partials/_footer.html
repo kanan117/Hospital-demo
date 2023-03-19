@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index-2.html"><img src="{% static 'img/logo2.png'%} " alt="Logo"></a>
+                            <a href="{% url 'index_2' %}"><img src="{% static 'img/logo2.png'%} " alt="Logo"></a>
                         </div>
                         <p class="text-white">Lorem Ipsum is simply dummy text of the printing
                             and typesetting industry. Lorem Ipsum has been
@@ -45,7 +45,7 @@
                             <div class="icon">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
-                            <span>+ {{setting.number1 }}<br>+ {{setting.number2 }}</span>
+                            <span>{{setting.number1}}<br>{{setting.number2 }}</span>
                         </div>
                     </div>
                 </div>
@@ -53,10 +53,10 @@
                     <div class="footer-widget footer-padding pt-md-0">
                         <h3 class="footer-title">Our Services</h3>
                         <ul class="footer-links">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="service.html">Service</a></li>
-                            <li><a href="faq.html">FAQ's</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>   "{% url 'index_2' %}"
+                            <li><a href="{% url 'service' %}">Service</a></li>
+                            <li><a href="{% url 'faq' %}">FAQ's</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,11 +64,11 @@
                     <div class="footer-widget footer-padding">
                         <h3 class="footer-title">Important Link</h3>
                         <ul class="footer-links">
-                            <li><a href="doctor.html">Doctors</a></li>
-                            <li><a href="appointment.html">Appointment</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="booking-list.html">Booking List</a></li>
-                            <li><a href="error.html">404 Page</a></li>
+                            <li><a href="{% url 'doctor' %}">Doctors</a></li>
+                            <li><a href="{% url 'appointment' %}">Appointment</a></li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
+                            <li><a href="{% url 'booking_list' %}">Booking List</a></li>
+                            <li><a href="{% url 'error' %}">404 Page</a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,10 +98,10 @@
                     <div class="footer-bottom-left">
                         <ul class="footer-social">
                             <li>Follow us:</li>
-                            <li><a href="{{ setting.fb }}"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="{{ setting.tw }}"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="{{ setting.ig }}"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="{{ setting.ln }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ setting.Facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ setting.Twitter }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ setting.Instagram }}"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{ setting.Linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                         <hr>
                     </div>

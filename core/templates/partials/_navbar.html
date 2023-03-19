@@ -11,7 +11,7 @@
                     </div>
                     <div class="header-nav">    #
                         <div class="header-contact-number d-none d-lg-block">
-                            <span>Emergency Line: <a href="tel:+00123456789">+(00) 123 456 789</a></span>
+                            <span>Emergency Line: <a href="tel:{{setting.number1}}">{{setting.number1}}</a></span>
                         </div>
                         <a class="mobile-menu" href="#menu"><span></span></a>
                         <nav class="menu" id="menu">
@@ -40,7 +40,7 @@
                                     <a class="nav-link" href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog Page</a></li>
-                                        <li><a href="{% static 'blog_details' %}">Blog Details</a></li>
+                                        <li><a href="{% url 'blog_details' %}">Blog Details</a></li>
                                         <li><a href="{% url 'appointment' %}">Appointment Page</a></li>
                                         <li><a href="{% url 'booking_list' %}">Booking Page</a></li>
                                         <li><a href="{% url 'error' %}">404 Page</a></li>

@@ -1,7 +1,6 @@
 from core.models import Setting
 
-def settings(request):
+def setting(request):
     return{
-        'settings' : Setting.objects.all()
+        'setting' : Setting.objects.all()
     }
-
