@@ -1,32 +1,41 @@
-from django.urls import path
-# from core.views import base
-from core import views
 
-from core.views import (home, about, appointment, base, blog, 
-                        booking_list, contact, doctor_details, doctor, doctors,
-                        error, faq, index_2, login, service_details, service,
-                        services, blog_details)
+from core.views import base
+from core import views
+from django.urls import path
+from . import views
+from django.conf.urls import handler403
+from django.conf.urls.i18n import set_language
+from django.urls import path
+
+handler403 = 'myapp.views.my_custom_permission_denied_view'
+from core.views import (home, about, appointment, base, blog, booking_list,
+                        contact, doctor_details, doctor, doctors, error, faq,
+                        index_2, service_details, service, services,
+                        blog_details,set_language)
 
 urlpatterns = [
+    
   path('', home, name='home'),
   path('', views.about, name='about'),
   path('appointment/', appointment, name='appointment'),
   path('base/', base, name='base'),
+  path('i18n/', set_language, name='set_language'),
   # path('', views.blogs, name='blog'),
   # path('blogs/<int:pk>/', blogs, name= 'blogs'),
   path('blogs/', blog, name='blog'),
   path('blogs/<int:id>', views.blog_details, name='blogdetails'),
-  path('booking-list/', booking_list, name='booking_list'),
+  path('booking_list/', booking_list, name='booking_list'),
   path('contact/', contact, name='contact'),
-  path('doctor-details/', doctor_details, name='doctor_details'),
+  path('doctor_details/', doctor_details, name='doctor_details'),
   path('doctor/', doctor, name='doctor'),
   path('doctors/', doctors, name='doctors'),
   path('error/', error, name='error'),
   path('faq/', faq, name='faq'),
   path('index-2/', index_2, name='index_2'),
-  path('login/', login, name='login'),
   path('service-details/', service_details, name='service_details'),
   path('service/', service, name='service'),
   path('services/', services, name='services'),
-  path('blog_details/', blog_details, name='blog_details' )
+  path('blog_details/', blog_details, name='blog_details'),
+  
+  
 ]

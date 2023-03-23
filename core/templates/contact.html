@@ -5,15 +5,6 @@
 
 
 {% block content %}     
-<body>
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
- 
-
     <main>
         <!-- Banner Section  -->
         <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
@@ -24,7 +15,7 @@
                             <nav aria-label="breadcrumb text-center">
                                 <h2 class="text-white">Conatct</h2>
                                 <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="{% url 'index_2' %}">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Contact</li>
                                 </ol>
                             </nav>
@@ -80,8 +71,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact-content">
-                                    <p>contactinfo@gmail.com</p>
-                                    <p>support@gmail.com</p>
+                                    <p>{{setting.e_mail}}</p>
                                 </div>
                             </div>
                             <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
@@ -93,9 +83,9 @@
                                 </div>
                                 <hr>
                                 <div class="contact-content">
-                                    <p>+ 00 (00 ) 12345 67890
+                                    <p>{{setting.number1}}
                                     </p>
-                                    <p>+ 00 (00) 09876 54321</p>
+                                    <p>{{setting.number1}}</p>
                                 </div>
                             </div>
                             <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
@@ -107,9 +97,9 @@
                                 </div>
                                 <hr>
                                 <div class="contact-content">
-                                    <p>USA, New year - 5012
+                                    <p>{{setting.address1}}
                                     </p>
-                                    <p>Str. First Avenue</p>
+                                    <p>{{setting.address2}}</p>
                                 </div>
                             </div>
                             <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
@@ -142,31 +132,7 @@
                             <p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration
                                 form, by injected humour, or randomised words.</p>
                         </div>
-                        <!-- <div class="booking-wrapper">
-                            <div class="booking-form">
-                                <form data-cues="slideInUp" data-delay="500">
-                                    <div class="pseudo-icon icon-user">
-                                        <input class="form-control" type="text" placeholder="Your Name" name="name"
-                                            aria-label="form-control">
-                                    </div>
-                                    <div class="pseudo-icon icon-envelope">
-                                        <input class="form-control" type="email" placeholder="Your Email" name="email"
-                                            aria-label="form-control">
-                                    </div>
-                                    <div class="pseudo-icon icon-phone">
-                                        <input class="form-control" type="text" placeholder="Enter phone number" name="phone"
-                                            aria-label="form-control">
-                                    </div> -->
-                                    <!-- <select class="select-control pseudo-icon icon-list"> -->
-                                        <!-- <option data-display="Choose doctor">Select Service Type</option>
-                                        <option value="1">Some option</option>
-                                        <option value="2">Another option</option>
-                                        <option value="4">Potato</option>
-                                    </select>
-                                    <div> -->
-                                        <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                            placeholder="Describe your problem"></textarea>
-                                    </div> -->
+
                                     <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Get
                                         Appointment</button>
                                 </div>

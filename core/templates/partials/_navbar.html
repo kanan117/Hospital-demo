@@ -20,38 +20,67 @@
                                     <a class="nav-link" href="{% url 'index_2' %}">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
                                 </li>
                                 <li class="nav-item menu-dropdown">
-                                    <a class="nav-link" href="{% url 'services' %}">Services</a>
+                                    <a class="nav-link">Services</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'service' %}">Service Page</a></li>
                                         <li><a href="{% url 'service_details' %}">Service Details</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item menu-dropdown">
-                                    <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
+                                    <a class="nav-link">Doctors</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'doctor' %}">Doctors Page</a></li>
                                         <li><a href="{% url 'doctor_details' %}">Doctors Details</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item menu-dropdown">
-                                    <a class="nav-link" href="#">Pages</a>
+                                    <a class="nav-link" >Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog Page</a></li>
                                         <li><a href="{% url 'blog_details' %}">Blog Details</a></li>
                                         <li><a href="{% url 'appointment' %}">Appointment Page</a></li>
                                         <li><a href="{% url 'booking_list' %}">Booking Page</a></li>
                                         <li><a href="{% url 'error' %}">404 Page</a></li>
-                                        <li><a href="{% url 'login' %}">Login Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                    {% if user.is_authenticated %}
+
+                                    <li class="nav-item menu-dropdown black-text">
+                                        <a class="nav-link">Account</a>
+                                        
+                                        <ul class="sub-menu">
+                                            <form method="POST" action="{% url 'logout' %}" >
+                                            <li><a class="submit" href="{% url 'profile' %}" style="color:black;">Edit Profile</a>
+                                            <button type="submit" class="nav-link btn btn-link text-black">Logout</button>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                                                      
+                                            {% csrf_token %}
+                                        
+                                        </form>
+                                    </li>
+                                 {% else %}
+
+                                 <li class="nav-item menu-dropdown black-text">
+                                    <a class="nav-link">Account</a>
+                                    
+                                    <ul class="sub-menu black-text">
+                                        <a class="nav-link black-text" href="{% url 'login' %}" style="color:black;">Login</a>
+                                        <a class="nav-link" href="{% url 'register' %}" style="color:black;">Register</a>
+                                        
+                                    </ul>
+                                </li>
+                                   
+                                    </li>
+                                 {% endif %}
                                 </li>
                             </ul>
                         </nav>
