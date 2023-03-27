@@ -11,8 +11,10 @@ from django.contrib import messages
 # from .models import Subscriber
 from django.shortcuts import render
 
+
 def my_custom_permission_denied_view(request, exception=None):
-    return render(request, 'error.html', {})
+  return render(request, 'error.html', {})
+
 
 # Create your views here.
 def home(request):
@@ -22,7 +24,7 @@ def home(request):
 
 def about(request):
   blogs = Blogs.objects.first()
-  context = {'setting': Setting.objects.first(), "blogs": blogs}
+  context = {'setting': Setting.objects.first(),}
   return render(request, 'about.html', context)
 
 
@@ -176,43 +178,4 @@ def contact(request):
     'contact': form,
   }
   return render(request, 'contact.html', context)
-
-
-
-
-# def Subscribe(request):
-#     form = SubscribeForm(request.POST)
-
-#     if form.is_valid():
-#         email = form.cleaned_data['email']
-#         new_subscriber = Subscriber.objects.create(email=email)
-#         messages.success(request, 'Thanks for subscribing!')
-
-# from django.shortcuts import render
-# from django.core.mail import send_mail
-# from django.template.loader import render_to_string
-
-# def send_email(request):
-#     subject = 'Django ile e-posta gönderimi'
-#     message = render_to_string('email_template.html', {'name': 'Django'})
-#     sender = 'gonderen@example.com'
-#     recipient_list = ['alici@example.com']
-#     send_mail(subject, message, sender, recipient_list, html_message=message)
-#     return render(request, 'email_sent.html')
-from django.utils.translation import activate, gettext_lazy as _
-from django.http import HttpResponseBadRequest
-from django.http import HttpResponseRedirect
-from django.conf import settings
-
-def set_language(request):
-    lang_code = request.GET.get('language')
-    if lang_code:
-        activate(lang_code)
-        response = HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
-        messages.success(request, _('Language set to %(language)s.') % {'language': dict(settings.LANGUAGES)[lang_code]})
-        return response
-    else:
-        return HttpResponseBadRequest(_('Language code is required.'))
-
 

@@ -37,8 +37,8 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
-  "core",  
-  
+  "core",
+  'social_django',
   'baseuser.apps.BaseuserConfig',
 ]
 
@@ -51,6 +51,9 @@ MIDDLEWARE = [
   'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+SESSION_COOKIE_AGE = 100000
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 ROOT_URLCONF = 'KNN.urls'
 
@@ -115,12 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -143,12 +143,32 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'baseuser.BaseUser'
-LANGUAGES = [
-    ('en', 'English'),
-    ('tr', 'Türkçe'),
-]
+
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 from django.conf import settings
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+)
+SOCIAL_AUTH_FACEBOOK_KEY = "1576388096164321"
+SOCIAL_AUTH_FACEBOOK_SECRET = "bd78bbcd0bb2e1fd6338e13572afe84b"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '377448027316-aghj6iuu8e90hi26qpb0v0o4l01ef9ho.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+LOGIN_URL = ''
+LOGIN_URL = '/auth/login/google-oauth2/'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'

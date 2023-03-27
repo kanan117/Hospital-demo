@@ -12,15 +12,16 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class BaseUser(AbstractUser):
     location = models.CharField(max_length=50)
+    updated_at = models.DateTimeField(auto_now=True)
     date_of_birth = models.DateField(blank=True, null=True)
-    phone_number = PhoneNumberField(max_length=20,blank=True)
+    phone_number = models.CharField(max_length=20,blank=True)
     email = models.EmailField(max_length=255, unique=True)
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(BaseUser, on_delete=models.CASCADE, related_name='profile')
-    bio = models.TextField(max_length=500, blank=True)
-    website = models.URLField(blank=True)
-    phone_number = PhoneNumberField(max_length=20,blank=True)
-    first_name = models.CharField(max_length=20, blank=True)
-    last_name = models.CharField(max_length=20, blank=True)
+# class Profile(models.Model):
+#     user = models.OneToOneField(BaseUser, on_delete=models.CASCADE, related_name='profile')
+#     bio = models.TextField(max_length=500, blank=True)
+#     website = models.URLField(blank=True)
+#     phone_number = PhoneNumberField(max_length=20,blank=True)
+#     first_name = models.CharField(max_length=20, blank=True)
+#     last_name = models.CharField(max_length=20, blank=True)

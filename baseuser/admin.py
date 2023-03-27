@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import BaseUser
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import BaseUser, Profile
+from .models import BaseUser
 
 
 class BaseUserAdmin(UserAdmin):

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
   <div class="container">
     <div class="row justify-content-center">
@@ -11,7 +12,6 @@
             <form method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               {{ user_form.as_p }}
-              {{ profile_form.as_p }}
               <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Update</button>
             </form>
           </div>

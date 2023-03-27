@@ -13,17 +13,19 @@ class Basemodel(models.Model):
 
 
 class Setting(Basemodel):
-  number1 = PhoneNumberField(max_length=20,blank=True)
-  number2 = PhoneNumberField(max_length=20,blank=True)
+  number1 = PhoneNumberField(max_length=20,blank=False)
+  number2 = PhoneNumberField(max_length=20,blank=False)
   e_mail = models.EmailField()
   facebook = models.URLField(max_length=100)
   instagram = models.URLField(max_length=100)
   twitter = models.URLField(max_length=100)
   linkedin = models.URLField(max_length=100)
   logo = models.ImageField(upload_to="media/logo")
-  creator = models.TextField(max_length=20)
-  address1 = models.TextField(max_length=20)
-  address2 = models.TextField(max_length=20)
+  creator = models.CharField(max_length=20)
+  address1 = models.CharField(max_length=20)
+  address2 = models.CharField(max_length=20)
+  session = models.CharField(max_length=1000)
+  
   def __str__(self):
     return "Setting"
 
@@ -144,6 +146,7 @@ class Contact(Basemodel):
   email = models.EmailField()
   phone_number = models.CharField(max_length=100)
   message = models.TextField()
+  
 
   def __str__(self):
     return self.name
@@ -179,4 +182,5 @@ class Contact(Basemodel):
 
 #     def __str__(self):
 #         return self.email
+
 

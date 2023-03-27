@@ -17,9 +17,10 @@
 
                             </div>
                             <div class="social-button">
-                                <a href="#" class="btn btn-blue btn-xl btn-round facebook"><i class="fab fa-facebook-f"></i>Sign in with Facebook</a>
-                                <a href="#" class="btn btn-blue btn-xl btn-round twitter"><i class="fab fa-twitter"></i>Sign in with Twitter</a>
+                                <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-blue btn-xl btn-round facebook"><i class="fab fa-facebook-f"></i>Sign in with Facebook</a>
+                                <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-blue btn-xl btn-round google"><i class="fab fa-google"></i>Sign in with Google</a>
                             </div>
+
                             <div class="login-or">
                                 <hr>
                                 <span>or</span>

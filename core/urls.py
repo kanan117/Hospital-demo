@@ -4,22 +4,22 @@ from core import views
 from django.urls import path
 from . import views
 from django.conf.urls import handler403
-from django.conf.urls.i18n import set_language
+# from .views import set_language
 from django.urls import path
 
 handler403 = 'myapp.views.my_custom_permission_denied_view'
 from core.views import (home, about, appointment, base, blog, booking_list,
                         contact, doctor_details, doctor, doctors, error, faq,
                         index_2, service_details, service, services,
-                        blog_details,set_language)
+                        blog_details)
 
 urlpatterns = [
     
   path('', home, name='home'),
-  path('', views.about, name='about'),
+  path('about/', about, name='about'),
   path('appointment/', appointment, name='appointment'),
   path('base/', base, name='base'),
-  path('i18n/', set_language, name='set_language'),
+  # path('i18n/', set_language, name='set_language'),
   # path('', views.blogs, name='blog'),
   # path('blogs/<int:pk>/', blogs, name= 'blogs'),
   path('blogs/', blog, name='blog'),

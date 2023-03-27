@@ -3,27 +3,16 @@
 {% load i18n %}
 
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {% trans "Language" %}
-  </button>
-  <div class="dropdown-menu" aria-labelledby="languageDropdown">
-    {% for lang_code, lang_name in LANGUAGES %}
-      <a class="dropdown-item" href="{% url 'set_language' %}?language={{ lang_code }}">{{ lang_name }}</a>
-    {% endfor %}
-  </div>
-</div>
-
-<html lang="en">
+<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
-</head>
+</head> -->
 <body>
 
-<html class="no-js" lang="en"></html>    
+<html class="no-js" lang="tr"></html>    
 <!-- Mirrored from themecrazy.net/html/mediclinis/appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Dec 2022 09:23:29 GMT -->
 <head>
         <meta charset="utf-8">

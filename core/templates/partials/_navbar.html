@@ -17,7 +17,7 @@
                         <nav class="menu" id="menu">
                             <ul class="nav-list">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'index_2' %}">Home</a>
+                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -57,7 +57,7 @@
                                         
                                         <ul class="sub-menu">
                                             <form method="POST" action="{% url 'logout' %}" >
-                                            <li><a class="submit" href="{% url 'profile' %}" style="color:black;">Edit Profile</a>
+                                          
                                             <button type="submit" class="nav-link btn btn-link text-black">Logout</button>
                                         </ul>
                                     </li>
