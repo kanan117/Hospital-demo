@@ -4,50 +4,6 @@
 
 {% block content %}
 
-    <main>
-        <!-- Banner Section  -->
-        <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-12">
-                        <div class="breadcrumbs">
-                            <nav aria-label="breadcrumb text-center">
-                                <h2 class="text-white">Blog</h2>
-                                <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Banner Section  -->
-        <!-- Counter Section  -->
-        <section class="counter-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="500">
-                            <div class="counter-item">
-                                <h2 class="counter counter-number">125+</h2>
-                                <span class="counter-text">Expert Doctors</span>
-                            </div>
-                            <div class="counter-item">
-                                <h2 class="counter counter-number">275+</h2>
-                                <span class="counter-text">Total Medical Stuff</span>
-                            </div>
-                            <div class="counter-item">
-                                <h2 class="counter counter-number">462k</h2>
-                                <span class="counter-text">Online Appointments</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Counter Section  -->
 <!-- Blog Section  -->
 <section class="blog-area blog-area-2">
     <div class="container">
@@ -64,11 +20,11 @@
                             <ul class="blog-meta">
                                 <li class="author">
                                     <i class="fas fa-user-alt"></i>
-                                    <span>By Admin</span>
+                                    <span>{{blog.author}}</span>
                                 </li>
                                 <li class="meta-date">
                                     <i class="fas fa-calendar-alt"></i>
-                                    <span>January 22, 2022</span>
+                                    <span>{{blog.created_at|date:"F/d"}}</span>
                                 </li>
                             </ul>
                             <div class="blog-content">
@@ -90,37 +46,7 @@
                             </div>
                         </div>
                         {% endfor %}
-                        <div class="blog-item blog-item-2 mt-9" data-cues="slideInUp">
-                            <div class="blog-img">
-                                <a href="blog-details.html"><img src="assets/img/blog-page/blog2.png" alt="Blog Image"></a>
-                            </div>
-                            <ul class="blog-meta">
-                                <li class="author">
-                                    <i class="fas fa-user-alt"></i>
-                                    <span>By Admin</span>
-                                </li>
-                                <li class="meta-date">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <span>January 25, 2022</span>
-                                </li>
-                            </ul>
-                            <div class="blog-content">
-                                <a href="blog-details.html"><h3>Modern medicine is a negation of health. It isn't organized to serve human
-                                    health, but only itself, as an institution.</h3></a>
-                                <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
-                                    randomised words which don't look even slightly believable. If you are going to use a passage of
-                                    lorem Ipsum, you need to be sure there isn't anything.</p>
-                                <hr>
-                                <div class="blog-btn">
-                                    <a href="blog-details.html" class="blog-link">Read More <i
-                                            class="bi bi-arrow-right"></i></a>
-                                    <div class="blog-comment-share d-none d-md-block">
-                                        <span class="comment"><i class="far fa-comments"></i> Comment  112</span>
-                                        <span class="share"><i class="fas fa-share-alt"></i> Share  03</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="blog-item blog-item-2 mt-9" data-cues="slideInUp">
                             <div class="blog-img">
                                 <a href="blog-details.html"><img src="assets/img/blog-page/blog3.png" alt="Blog Image"></a>
@@ -153,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="blog-right-content">
+                                           <div class="blog-right-content">
                         <div class="sidebar-widget">
                             <div class="sidebar-search-form">
                                 <form action="#">

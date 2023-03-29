@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import render
-
+from django.views.generic import ListView
 
 def my_custom_permission_denied_view(request, exception=None):
   return render(request, 'error.html', {})
@@ -19,7 +19,6 @@ def home(request):
 
 
 def about(request):
-  blogs = Blogs.objects.first()
   context = {'setting': Setting.objects.first(),}
   return render(request, 'about.html', context)
 
@@ -119,47 +118,24 @@ def services(request):
   }
   return render(request, 'services.html', context)
 
+class BlogsListView(ListView):
+  model = Blogs
+  template_name = 'blog.html'
+  context_object_name = 'blog'
 
-# def Blog(request):
-#     context = {
-#         'title' : "Blogs",
-#         'blogs' : Blog.objects.all()
-#     }
-#     return render(request, 'blog.html', context)
-# django
+  # def get_queryset(self):
+  #   return Blogs.objects.filter(is_published=True)
 
-
-def blog(request):
-  blogs = Blogs.objects.filter(is_published=False).order_by('created_at')
-  context = {'setting': Setting.objects.first(), 'blogs': blogs}
-  return render(request, 'blog.html', context)
+# def blog(request):
+#   blogs = Blogs.objects.filter(is_published=False).order_by('created_at')
+#   context = {'setting': Setting.objects.first(), 'blogs': blogs}
+#   return render(request, 'blog.html', context)
 
 
 def blog_details(request, id):
   blogs = Blogs.objects.get(id=id)
   context = {'setting': Setting.objects.first(), 'blogs': blogs}
   return render(request, 'blog_details.html', context)
-
-
-# def blogs(request, pk):
-#     context = {
-#         'title' : 'Blogs',
-#         'blogs' : Blogs.objects.get(id=pk)
-#     }
-#     return render(request, 'blogs.html', context)
-
-# def contact(request):
-#     context = {
-#         'title' : "Contact",
-#         'contact' : ContactForm()
-#     }
-#     if request.method  == 'post':
-#         form = ContactForm(request.post)
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponse(reverse('home'))
-#     return render(request, 'contact.html', context)
-
 
 def contact(request):
   form = ContactForm()

@@ -7,7 +7,6 @@ from core.models import Setting, News, Category, Comment, Tag, NewsTag, Page, St
 
 admin.site.register(Setting)
 
-admin.site.register(Contact)
 
 admin.site.register(Category)
 
@@ -21,6 +20,16 @@ admin.site.register(Page)
 
 admin.site.register(Story)
 
+
+# admin.site.register(Contact)
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+  list_display = ['name', 'created_at']
+  list_filter = ['created_at']
+  search_fields = [
+    'name',
+  ]
+  
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
