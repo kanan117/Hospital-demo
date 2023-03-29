@@ -7,6 +7,7 @@ from baseuser.forms import BaseUserForm
 # from .forms import UserUpdateForm, ProfileUpdateForm
 from core.models import Setting
 from .forms import LoginForm
+from django.views.generic import ListView
 
 
 def register(request):
@@ -41,7 +42,7 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
-
+    
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
@@ -64,3 +65,4 @@ class CustomLoginView(LoginView):
 #     # }
 
 #     return render(request, 'profile.html')
+

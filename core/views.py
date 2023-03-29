@@ -1,14 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from .models import Blogs, Setting
 from core.forms import ContactForm
 from django.urls import reverse
-
 from django.shortcuts import render
 from django.contrib import messages
-# from .forms import SubscribeForm
-# from .models import Subscriber
 from django.shortcuts import render
 
 
