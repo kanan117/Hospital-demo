@@ -118,24 +118,30 @@ def services(request):
   }
   return render(request, 'services.html', context)
 
+
+
+# view.py
 class BlogsListView(ListView):
-  model = Blogs
-  template_name = 'blog.html'
-  context_object_name = 'blog'
+    model = Blogs
+    template_name = 'blog.html'
+    context_object_name = 'blog'
 
-  # def get_queryset(self):
-  #   return Blogs.objects.filter(is_published=True)
+    def get_queryset(self):
+        return Blogs.objects.filter(is_published=True)
 
-# def blog(request):
-#   blogs = Blogs.objects.filter(is_published=False).order_by('created_at')
-#   context = {'setting': Setting.objects.first(), 'blogs': blogs}
-#   return render(request, 'blog.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['setting'] = Setting.objects.first()
+        return context
+
+def blog_details(request, pk):
+    context = {
+        'title': 'Blogs',
+        'blogs': Blogs.objects.get(pk=pk)
+    }
+    return render(request, 'blog_details.html', context)
 
 
-def blog_details(request, id):
-  blogs = Blogs.objects.get(id=id)
-  context = {'setting': Setting.objects.first(), 'blogs': blogs}
-  return render(request, 'blog_details.html', context)
 
 def contact(request):
   form = ContactForm()

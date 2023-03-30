@@ -129,7 +129,7 @@ class Blogs(Basemodel):
   description = models.TextField()
   image = models.ImageField(upload_to='media/Blogs')
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
-  is_published = models.BooleanField(default=False)
+  is_published = models.BooleanField(default=True)
   author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 

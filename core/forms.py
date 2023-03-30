@@ -29,14 +29,3 @@ class ContactForm(forms.ModelForm):
                 'placeholder': 'Message'
             })
         }
-
-# class SubscribeForm(forms.Form):
-#      class Meta:
-#         model = Subscriber
-#         fields = ['email']
-#         widgets = {
-#                 'email': forms.EmailInput(attrs={
-#                 'class': 'form-control',
-#                 'placeholder': 'Email'
-#             }),}
-#         emaill = forms.EmailField(required=True)
