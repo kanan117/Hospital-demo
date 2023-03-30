@@ -121,23 +121,27 @@ def services(request):
 
 
 # view.py
+from django.views.generic import ListView
+from .models import Blogs, Setting
+
 class BlogsListView(ListView):
     model = Blogs
     template_name = 'blog.html'
     context_object_name = 'blog'
 
     def get_queryset(self):
-        return Blogs.objects.filter(is_published=True)
+        return Blogs.objects.filter(is_published=True).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['setting'] = Setting.objects.first()
         return context
 
+
 def blog_details(request, pk):
     context = {
-        'title': 'Blogs',
-        'blogs': Blogs.objects.get(pk=pk)
+        'title': 'blog',
+        'blog': Blogs.objects.get(pk=pk)
     }
     return render(request, 'blog_details.html', context)
 
