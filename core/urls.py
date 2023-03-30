@@ -1,4 +1,3 @@
-
 from core.views import base
 from core import views
 from django.urls import path
@@ -10,13 +9,12 @@ from django.urls import path
 from . import views
 
 handler403 = 'myapp.views.my_custom_permission_denied_view'
-from core.views import (home, about, appointment, base,  booking_list,
-                        contact, doctor_details, doctor, doctors, error, faq,
-                        index_2, service_details, service, services,
-                        blog_details,BlogsListView)
+from core.views import (home, about, appointment, base, booking_list, contact,
+                        doctor_details, doctor, doctors, error, faq, index_2,
+                        service_details, service, services, blog_details,
+                        BlogsListView)
 
 urlpatterns = [
-    
   path('', home, name='home'),
   path('about/', about, name='about'),
   path('appointment/', appointment, name='appointment'),
@@ -35,6 +33,4 @@ urlpatterns = [
   path('service/', service, name='service'),
   path('services/', services, name='services'),
   path('blog_details/', blog_details, name='blog_details'),
-
 ]
-

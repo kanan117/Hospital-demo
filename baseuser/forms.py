@@ -42,28 +42,30 @@ class BaseUserForm(UserCreationForm):
 
   password1 = forms.CharField(
     strip=False,
-    widget=forms.PasswordInput(
-      attrs={
-        'class': 'form-control',
-        'placeholder': 'Password'
-      }
-    ),)
-    #help_text='Your password must contain at least 8 characters, at least one digit, and can\'t be entirely alphabetical or entirely numeric.')
+    widget=forms.PasswordInput(attrs={
+      'class': 'form-control',
+      'placeholder': 'Password'
+    }),
+  )
+  #help_text='Your password must contain at least 8 characters, at least one digit, and can\'t be entirely alphabetical or entirely numeric.')
 
   password2 = forms.CharField(
     strip=False,
-    widget=forms.PasswordInput(
-      attrs={
-        'class': 'form-control',
-        'placeholder': 'Confirm Password'
-      }
-    ),
+    widget=forms.PasswordInput(attrs={
+      'class': 'form-control',
+      'placeholder': 'Confirm Password'
+    }),
     help_text='Enter the same password as before, for verification.')
 
   class Meta:
     model = BaseUser
     fields = [
-      'username', 'email', 'first_name', 'last_name', 'password1', 'password2',
+      'username',
+      'email',
+      'first_name',
+      'last_name',
+      'password1',
+      'password2',
       'date_of_birth',
     ]
     widgets = {
@@ -88,9 +90,10 @@ class BaseUserForm(UserCreationForm):
     elif password1.isnumeric():
       raise forms.ValidationError("Your password can't be entirely numeric.")
     elif not password1[0].isupper():
-        raise forms.ValidationError(
-            "Your password must start with a capital letter.")    
+      raise forms.ValidationError(
+        "Your password must start with a capital letter.")
     return password1
+
 
 #login form
 class LoginForm(AuthenticationForm):
@@ -104,6 +107,7 @@ class LoginForm(AuthenticationForm):
       'class': 'form-control',
       'placeholder': 'Password'
     }))
+
 
 #update user area
 
@@ -182,7 +186,6 @@ class LoginForm(AuthenticationForm):
 #   class Meta:
 #     model = BaseUser
 #     fields = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'confirm_password']
-
 
 # class ProfileUpdateForm(forms.ModelForm):
 #   class Meta:

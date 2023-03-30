@@ -11,41 +11,41 @@ from django.views.generic import ListView
 
 
 def register(request):
-    form = BaseUserForm()
-    if request.method == 'POST':
-        form = BaseUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('home')
-    context = {
-        'setting': Setting.objects.first(),
-        'title': "Register",
-        'form': form,
-    }
-    return render(request, "register.html", context)
+  form = BaseUserForm()
+  if request.method == 'POST':
+    form = BaseUserForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      username = form.cleaned_data.get('username')
+      password = form.cleaned_data.get('password1')
+      user = authenticate(username=username, password=password)
+      login(request, user)
+      return redirect('home')
+  context = {
+    'setting': Setting.objects.first(),
+    'title': "Register",
+    'form': form,
+  }
+  return render(request, "register.html", context)
 
 
 def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request=request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-    else:
-        form = LoginForm()
-    return render(request, 'login.html', {'form': form})
-    
+  if request.method == 'POST':
+    form = LoginForm(request=request, data=request.POST)
+    if form.is_valid():
+      username = form.cleaned_data.get('username')
+      password = form.cleaned_data.get('password')
+      user = authenticate(username=username, password=password)
+      if user is not None:
+        login(request, user)
+        return redirect('home')
+  else:
+    form = LoginForm()
+  return render(request, 'login.html', {'form': form})
+
 
 class CustomLoginView(LoginView):
-    template_name = 'login.html'
+  template_name = 'login.html'
 
 
 # @login_required
@@ -65,4 +65,3 @@ class CustomLoginView(LoginView):
 #     # }
 
 #     return render(request, 'profile.html')
-

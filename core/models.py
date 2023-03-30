@@ -13,8 +13,8 @@ class Basemodel(models.Model):
 
 
 class Setting(Basemodel):
-  number1 = PhoneNumberField(max_length=20,blank=False)
-  number2 = PhoneNumberField(max_length=20,blank=False)
+  number1 = PhoneNumberField(max_length=20, blank=False)
+  number2 = PhoneNumberField(max_length=20, blank=False)
   e_mail = models.EmailField()
   facebook = models.URLField(max_length=100)
   instagram = models.URLField(max_length=100)
@@ -25,7 +25,7 @@ class Setting(Basemodel):
   address1 = models.CharField(max_length=20)
   address2 = models.CharField(max_length=20)
   session = models.CharField(max_length=1000)
-  
+
   def __str__(self):
     return "Setting"
 
@@ -47,9 +47,11 @@ class News(Basemodel):
 
   def __str__(self):
     return self.title
+
   class Meta:
     verbose_name = "News"
     verbose_name_plural = "News"
+
 
 class Category(Basemodel):
   name = models.CharField(max_length=100)
@@ -148,11 +150,9 @@ class Contact(Basemodel):
   email = models.EmailField()
   phone_number = models.CharField(max_length=100)
   message = models.TextField()
-  
 
   def __str__(self):
     return self.name
 
   class Meta:
     verbose_name_plural = "Contact"
-

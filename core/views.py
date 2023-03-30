@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic import ListView
 
+
 def my_custom_permission_denied_view(request, exception=None):
   return render(request, 'error.html', {})
 
@@ -19,7 +20,9 @@ def home(request):
 
 
 def about(request):
-  context = {'setting': Setting.objects.first(),}
+  context = {
+    'setting': Setting.objects.first(),
+  }
   return render(request, 'about.html', context)
 
 
@@ -119,32 +122,32 @@ def services(request):
   return render(request, 'services.html', context)
 
 
-
 # view.py
 from django.views.generic import ListView
 from .models import Blogs, Setting
 
+
 class BlogsListView(ListView):
-    model = Blogs
-    template_name = 'blog.html'
-    context_object_name = 'blog'
+  model = Blogs
+  template_name = 'blog.html'
+  context_object_name = 'blog'
 
-    def get_queryset(self):
-        return Blogs.objects.filter(is_published=True).order_by('-created_at')
+  def get_queryset(self):
+    return Blogs.objects.filter(is_published=False).order_by('-created_at')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['setting'] = Setting.objects.first()
-        return context
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['setting'] = Setting.objects.first()
+    return context
 
 
 def blog_details(request, pk):
-    context = {
-        'title': 'blog',
-        'blog': Blogs.objects.get(pk=pk)
-    }
-    return render(request, 'blog_details.html', context)
-
+  context = {
+    'title': 'blog',
+    'blog': Blogs.objects.get(pk=pk),
+    'setting': Setting.objects.first()
+  }
+  return render(request, 'blog_details.html', context)
 
 
 def contact(request):
@@ -160,4 +163,3 @@ def contact(request):
     'contact': form,
   }
   return render(request, 'contact.html', context)
-

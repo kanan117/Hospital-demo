@@ -29,7 +29,7 @@ class BaseUserAdmin(UserAdmin):
       )
     }),
     ('Personal info', {
-      'fields': ('first_name', 'phone_number','last_name', 'date_of_birth')
+      'fields': ('first_name', 'phone_number', 'last_name', 'date_of_birth')
     }),
     ('Permissions', {
       'fields':
@@ -48,7 +48,6 @@ class BaseUserAdmin(UserAdmin):
 
 admin.site.register(BaseUser, BaseUserAdmin)
 
-
 # class ProfileInline(admin.StackedInline):
 #     model = Profile
 #     can_delete = False
@@ -58,4 +57,3 @@ admin.site.register(BaseUser, BaseUserAdmin)
 #     inlines = (ProfileInline, )
 
 # admin.site.unregister(BaseUser)
-

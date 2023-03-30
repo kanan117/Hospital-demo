@@ -10,12 +10,13 @@ from django.conf import settings
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class BaseUser(AbstractUser):
-    location = models.CharField(max_length=50)
-    updated_at = models.DateTimeField(auto_now=True)
-    date_of_birth = models.DateField(blank=True, null=True)
-    phone_number = models.CharField(max_length=20,blank=True)
-    email = models.EmailField(max_length=255, unique=True)
+  location = models.CharField(max_length=50)
+  updated_at = models.DateTimeField(auto_now=True)
+  date_of_birth = models.DateField(blank=True, null=True)
+  phone_number = models.CharField(max_length=20, blank=True)
+  email = models.EmailField(max_length=255, unique=True)
 
 
 # class Profile(models.Model):

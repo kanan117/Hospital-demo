@@ -1,43 +1,50 @@
 {% extends 'base.html' %}
 
-{% load static custom_tags %}
+{% load static %}
 
 {% block content %}
 
-<!-- Blog Details Section -->
-<section class="blog-details-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="blog-details-wrapper">
-                    <div class="blog-details-header">
-                        <div class="blog-details-header-img">
-                            <img src="{{ blog.image.url }}" alt="Blog Image">
+<div class="col-12">        
+    <div class="blog-wrapper">
+        <div class="blog-left-content">
+            <div class="blog-item blog-item-2 mt-0" data-cues="" data-delay="">
+                <div class="blog-img">
+                    <a href=>
+                        <img src="{{ blog.image.url }}" alt=""style="width: 70%;">
+                    </a>
+                </div>
+                <ul class="blog-meta">
+                    <li class="author">
+                        <i class="fas fa-user-alt"></i>
+                        <span>{{ blog.author }}</span>
+                    </li>
+                    <li class="meta-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>{{ blog.created_at|date:"F/d" }}</span>
+                    </li>
+                </ul>
+                <div class="blog-content">
+                    <a><h3>{{ blog.title }}</h3></a>
+                    <p>{{ blog.description }}</p>
+
+                    {% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            {{ comment.name }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+          </p>
+          {{ comment.body | linebreaks }}
+        </div>
+        {% endfor %}
+                            <span class="comment"><i class="far fa-comments"></i> Comment 120</span>
                         </div>
-                        <div class="blog-details-header-content">
-                            <ul class="blog-meta">
-                                <li class="author"><i class="fas fa-user-alt"></i>{{ blog.author }}</li>
-                                <li class="date"><i class="fas fa-calendar-alt"></i>{{ blog.created_at|date:"F/d/Y" }}</li>
-                            </ul>
-                            <h2>{{ blog.title }}</h2>
-                        </div>
                     </div>
-                    <div class="blog-details-body">
-                        <p>{{ blog.content }}</p>
-                    </div>
-                    <div class="blog-details-footer">
-                        <ul class="blog-share">
-                            <li><span>Share:</span></li>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
+                    <hr>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
+</div>
 {% endblock %}
