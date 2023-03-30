@@ -6,6 +6,8 @@ from . import views
 from django.conf.urls import handler403
 # from .views import set_language
 from django.urls import path
+from django.urls import path
+from . import views
 
 handler403 = 'myapp.views.my_custom_permission_denied_view'
 from core.views import (home, about, appointment, base,  booking_list,
@@ -33,6 +35,6 @@ urlpatterns = [
   path('service/', service, name='service'),
   path('services/', services, name='services'),
   path('blog_details/', blog_details, name='blog_details'),
-  
-  
+
 ]
+
