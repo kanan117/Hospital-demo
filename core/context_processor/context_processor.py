@@ -4,3 +4,4 @@ def settings(request):
     return{
         'setting' : Setting.objects.all()
     }
+

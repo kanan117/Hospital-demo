@@ -1,12 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Blogs, Setting
-from core.forms import ContactForm
-from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
 from django.contrib import messages
-from django.shortcuts import render
+from django.urls import reverse
+from django.core.paginator import Paginator
 from django.views.generic import ListView
+from .models import Blogs, Doctors, Setting
+from core.forms import ContactForm
 
 
 def my_custom_permission_denied_view(request, exception=None):
@@ -20,9 +19,7 @@ def home(request):
 
 
 def about(request):
-  context = {
-    'setting': Setting.objects.first(),
-  }
+  context = {'setting': Setting.objects.first(),}
   return render(request, 'about.html', context)
 
 
@@ -122,13 +119,7 @@ def services(request):
   return render(request, 'services.html', context)
 
 
-# view.py
-from django.views.generic import ListView
-from .models import Blogs, Setting
 
-from django.views.generic import ListView
-from .models import Blogs ,Doctors
-from django.shortcuts import get_object_or_404
 
 
 class BlogsListView(ListView):
@@ -149,9 +140,6 @@ class BlogsListView(ListView):
     return self.request.GET.get('paginate_by', self.paginate_by)
 
 
-from django.shortcuts import render
-from django.http import Http404
-from .models import Blogs, Setting
 
 
 def blog_details(request, slug):
@@ -161,22 +149,35 @@ def blog_details(request, slug):
 
 
 
+
 class DoctorsListView(ListView):
-  model = Doctors
-  template_name = 'doctor.html'
-  context_object_name = 'doctor'
-  paginate_by = 6
+    model = Doctors
+    template_name = 'doctor.html'
+    context_object_name = 'doctor'
+    paginate_by = 6
 
-  def get_queryset(self):
-    return Doctors.objects.filter(is_published=True)
+    def get_queryset(self):
+        return Doctors.objects.filter(is_published=True)
 
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['setting'] = Setting.objects.first()
-    return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['setting'] = Setting.objects.first()
 
-  def get_paginate_by(self, queryset):
-    return self.request.GET.get('paginate_by', self.paginate_by)
+        # Retrieve doctors queryset and create a paginator
+        doctors_queryset = self.get_queryset()
+        paginator = Paginator(doctors_queryset, self.paginate_by)
+
+        # Get current page number from the request query parameters
+        page_number = self.request.GET.get('page')
+
+        # Get the page object for the current page number
+        current_page = paginator.get_page(page_number)
+
+        # Add current page and paginator object to the context
+        context['page_obj'] = current_page
+        context['paginator'] = paginator
+
+        return context
 
 
 def doctor_details(request, slug):
@@ -199,3 +200,14 @@ def contact(request):
     'contact': form,
   }
   return render(request, 'contact.html', context)
+
+
+
+def search_doctors(request):
+    query = request.GET.get('q')
+    if query:
+        doctors = Doctors.objects.filter(name__icontains=query)
+    else:
+        doctors = []
+    context = {'doctors': doctors, 'query': query , 'setting': Setting.objects.first()}
+    return render(request, 'search_doctors.html', context )

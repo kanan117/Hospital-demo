@@ -1,11 +1,7 @@
 from core.views import base
 from core import views
 from django.urls import path
-from . import views
 from django.conf.urls import handler403
-# from .views import set_language
-from django.urls import path
-from django.urls import path
 from . import views
 
 handler403 = 'myapp.views.my_custom_permission_denied_view'
@@ -26,6 +22,7 @@ urlpatterns = [
   path('doctor/', DoctorsListView.as_view(), name='doctor'),
   path('doctor/<slug:slug>/', doctor_details, name='doctor_details'),
   path('error/', error, name='error'),
+  path('doctors/search/', views.search_doctors, name='search_doctors'),
   path('faq/', faq, name='faq'),
   path('index-2/', index_2, name='index_2'),
   path('service-details/', service_details, name='service_details'),

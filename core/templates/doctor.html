@@ -3,68 +3,25 @@
 {% load static custom_tags %}
 
 {% block content %}
-        <main>
-            <!-- Banner Section  -->
-            <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-12">
-                            <div class="breadcrumbs">
-                                <nav aria-label="breadcrumb text-center">
-                                    <h2 class="text-white">Our Doctor</h2>
-                                    <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="{% url 'index_2' %}">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Our Doctor</li>
-                                    </ol>
-                                </nav>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Banner Section  -->
-
-            <!-- Counter Section  -->
-            <section class="counter-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="counter-wrapper counter-wrapper-2">
-                                <div class="counter-item">
-                                    <h2 class="counter counter-number">125+</h2>
-                                    <span class="counter-text">Expert Doctors</span>
-                                </div>
-                                <div class="counter-item">
-                                    <h2 class="counter counter-number">275+</h2>
-                                    <span class="counter-text">Total Medical Stuff</span>
-                                </div>
-                                <div class="counter-item">
-                                    <h2 class="counter counter-number">462k</h2>
-                                    <span class="counter-text">Online Appointments</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Counter Section  -->
-
-            <!-- Doctor-start-->
+<form action="{% url 'search_doctors' %}" method="GET">
+    <div class="input-group" style="width: 400px;">
+      <input type="text" class="form-control" name="q" placeholder="Search Doctor by name..." style="height: 40px; font-size: 16px; padding: 10px;">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit" style="height: 4px; font-size: 4px; padding: 4px;"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+</form>
+        <main>    <!-- Doctor-start-->
             <section class="doctor-area section-padding">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6 offset-xl-3">
                             <div class="section-title text-center mb-3">
                                 <span class="subtitle wow animate__animated animate__fadeInUp">Our Doctor</span>
-                                <h2 class="title wow animate__animated animate__fadeInUp animate__delay-1">Highly
-                                    Qualified doctorals</h2>
-                                <p class="pt-3 wow animate__animated animate__fadeInUp animate__delay-2">Lorem Ipsum
-                                    available but the majority have suffered alteration in some
-                                    form, by injected humour, or randomized words.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="row" data-cues="slideInLeft" data-delay="500">
+                    <div class="row" data-cues="slideInLeft" data-delay="50">
                         {% get_doctors 0 6 as doctors %} 
                         {% for doctor in doctors %}
                         <div class="col-sm-6 col-lg-4">
@@ -80,8 +37,8 @@
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="#">"{{ doctor.name }}"</a></h3>
-                                    <span>"{{doctor.Positions}}"</span>
+                                    <h3 class="title"><a href="#">{{ doctor.name }}</a></h3>
+                                    <span>{{doctor.positions}}</span>
                                     <a href="{% url 'doctor_details' doctor.slug %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
                                         <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
@@ -89,62 +46,10 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
                         {% endfor %}
                     </div>
                 </div>
             </section>
-            <!-- Doctor-end -->
-
-            <!-- Service Section  -->
-            <section class="service-area mt-0 overflow-hidden">
-                <div class="container">
-                    <div class="service-wrapper">
-                        <div class="row">
-                            <div class="col-md-6 col-xl-4" data-cues="slideInRight">
-                                <div class="service-item">
-                                    <div class="service-title">
-                                        <div class="service-icon">
-                                            <i class="fas fa-tooth"></i>
-                                        </div>
-                                        <h3>Implant Dentistry</h3>
-                                    </div>
-                                    <p>Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form
-                                        injected humour, or randomized.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4" data-cues="slideInRight">
-                                <div class="service-item">
-                                    <div class="service-title">
-                                        <div class="service-icon">
-                                            <i class="bi bi-shield-plus"></i>
-                                        </div>
-                                        <h3>Safe Observation</h3>
-                                    </div>
-                                    <p>Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form
-                                        injected humour, or randomized.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4 d-md-none d-xl-block" data-cues="slideInRight">
-                                <div class="service-item">
-                                    <div class="service-title">
-                                        <div class="service-icon">
-                                            <i class="bi bi-calendar-check"></i>
-                                        </div>
-                                        <h3>Schedule Appointment</h3>
-                                    </div>
-                                    <p>Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form
-                                        injected humour, or randomized.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Service Section  -->
         </main>
 
         {% endblock %}
