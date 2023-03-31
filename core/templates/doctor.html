@@ -14,10 +14,10 @@
                                 <nav aria-label="breadcrumb text-center">
                                     <h2 class="text-white">Our Doctor</h2>
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'index_2' %}">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Our Doctor</li>
                                     </ol>
-                                </nav>
+                                </nav>                                
                             </div>
                         </div>
                     </div>
@@ -69,23 +69,23 @@
                         <div class="col-sm-6 col-lg-4">
                             <div class="doctor-item">
                                 <div class="doctor-thumb">
-                                    <div class="doctor-img">
-                                        <img src="assets/img/doctor/doctor-img1.jpg" alt="Image">
+                                    <div class="doctor-img">   
+                                        <img src="{% static 'img/doctor/doctor-img1.jpg' %}" alt="Image">
                                     </div>
                                     <ul class="social-link">
-                                        <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="doctor-details.html">Dr. Michael Brian</a></h3>
+                                    <h3 class="title"><a href="{% url 'doctor_details' %}">Dr. Michael Brian</a></h3>
                                     <span>Doctor of Medicine</span>
                                     <p>I'm a doctor; we work in teams. I'm very committed to problem solving</p>
-                                    <a href="doctor-details.html" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="{% url 'doctor_details' %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
-                                        <img src="assets/img/shape/shape15.png" alt="Shape">
+                                        <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
                                     </div>
                                 </div>
                             </div>
@@ -94,22 +94,22 @@
                             <div class="doctor-item">
                                 <div class="doctor-thumb">
                                     <div class="doctor-img">
-                                        <img src="assets/img/doctor/doctor-img2.jpg" alt="Image">
+                                        <img src="{% static 'img/doctor/doctor-img2.jpg' %}" alt="Image">
                                     </div>
                                     <ul class="social-link">
-                                        <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="doctor-details.html">Dr. Edward Angel</a></h3>
+                                    <h3 class="title"><a href="{% url 'doctor_details' %}">Dr. Edward Angel</a></h3>
                                     <span>Family Physician</span>
                                     <p>I'm a doctor; we work in teams. I'm very committed to problem solving</p>
-                                    <a href="doctor-details.html" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="{% url 'doctor_details' %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
-                                        <img src="assets/img/shape/shape15.png" alt="Shape">
+                                        <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
                                     </div>
                                 </div>
                             </div>
@@ -118,22 +118,22 @@
                             <div class="doctor-item">
                                 <div class="doctor-thumb">
                                     <div class="doctor-img">
-                                        <img src="assets/img/doctor/doctor-img3.jpg" alt="Image">
+                                        <img src="{% static 'img/doctor/doctor-img3.jpg' %}" alt="Image">
                                     </div>
                                     <ul class="social-link">
-                                        <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="doctor-details.html">Dr. Jony Bristow</a></h3>
+                                    <h3 class="title"><a href="{% url 'doctor_details' %}">Dr. Jony Bristow</a></h3>
                                     <span>Dental Medicine</span>
                                     <p>I'm a doctor; we work in teams. I'm very committed to problem solving</p>
-                                    <a href="doctor-details.html" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="{% url 'doctor_details' %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
-                                        <img src="assets/img/shape/shape15.png" alt="Shape">
+                                        <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
                                     </div>
                                 </div>
                             </div>
@@ -142,22 +142,22 @@
                             <div class="doctor-item">
                                 <div class="doctor-thumb">
                                     <div class="doctor-img">
-                                        <img src="assets/img/doctor/doctor-img4.jpg" alt="Image">
+                                        <img src="{% static 'img/doctor/doctor-img4.jpg' %}" alt="Image">
                                     </div>
                                     <ul class="social-link">
-                                        <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="doctor-details.html">Dr. Amalia Assur</a></h3>
+                                    <h3 class="title"><a href="{% url 'doctor_details' %}">Dr. Amalia Assur</a></h3>
                                     <span>Physician Assistant</span>
                                     <p>I'm a doctor; we work in teams. I'm very committed to problem solving</p>
-                                    <a href="doctor-details.html" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="{% url 'doctor_details' %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
-                                        <img src="assets/img/shape/shape15.png" alt="Shape">
+                                        <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
                                     </div>
                                 </div>
                             </div>
@@ -166,22 +166,22 @@
                             <div class="doctor-item">
                                 <div class="doctor-thumb">
                                     <div class="doctor-img">
-                                        <img src="assets/img/doctor/doctor-img5.jpg" alt="Image">
+                                        <img src="{% static 'img/doctor/doctor-img5.jpg' %}" alt="Image">
                                     </div>
                                     <ul class="social-link">
-                                        <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="doctor-details.html">Dr. Tomas Mulli</a></h3>
+                                    <h3 class="title"><a href="{% url 'doctor_details' %}">Dr. Tomas Mulli</a></h3>
                                     <span>Doctor of Medicine</span>
                                     <p>I'm a doctor; we work in teams. I'm very committed to problem solving</p>
-                                    <a href="doctor-details.html" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="{% url 'doctor_details' %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
-                                        <img src="assets/img/shape/shape15.png" alt="Shape">
+                                        <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
                                     </div>
                                 </div>
                             </div>
@@ -190,22 +190,22 @@
                             <div class="doctor-item">
                                 <div class="doctor-thumb">
                                     <div class="doctor-img">
-                                        <img src="assets/img/doctor/doctor-img6.jpg" alt="Image">
+                                        <img src="{% static 'img/doctor/doctor-img6.jpg' %}" alt="Image">
                                     </div>
                                     <ul class="social-link">
-                                        <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{% url 'index_2' %}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="doctor-content">
-                                    <h3 class="title"><a href="doctor-details.html">Dr. Angel Tylor</a></h3>
+                                    <h3 class="title"><a href="{% url 'doctor_details' %}">Dr. Angel Tylor</a></h3>
                                     <span>Doctor of Medicine</span>
                                     <p>I'm a doctor; we work in teams. I'm very committed to problem solving</p>
-                                    <a href="doctor-details.html" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="{% url 'doctor_details' %}" class="doctor-link"><i class="fas fa-arrow-right"></i></a>
                                     <div class="doctor-shape">
-                                        <img src="assets/img/shape/shape15.png" alt="Shape">
+                                        <img src="{% static 'img/shape/shape15.png' %}" alt="Shape">
                                     </div>
                                 </div>
                             </div>

@@ -126,24 +126,29 @@ class Story(Basemodel):
     verbose_name_plural = "Story"
 
 
-class Blogs(Basemodel):
-  title = models.CharField(max_length=100)
-  description = models.TextField()
-  image = models.ImageField(upload_to='media/Blogs')
-  category = models.ForeignKey(Category, on_delete=models.CASCADE)
-  is_published = models.BooleanField(default=True)
-  author = models.ForeignKey(settings.AUTH_USER_MODEL,
+from django.db import models
+from django.conf import settings
+from django.urls import reverse
+class Blogs(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+    description = models.TextField(max_length=10000)
+    image = models.ImageField(upload_to='media/Blogs')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    is_published = models.BooleanField(default=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
-  def __str__(self):
-    return self.title
 
-  def get_absolute_url(self):
-    return self.id
 
-  class Meta:
-    verbose_name_plural = "Blogs"
+    def __str__(self):
+        return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog_detail', args=[str(self.slug)])
+
+    class Meta:
+        verbose_name_plural = "Blogs"
 
 class Contact(Basemodel):
   name = models.CharField(max_length=100)
@@ -156,3 +161,33 @@ class Contact(Basemodel):
 
   class Meta:
     verbose_name_plural = "Contact"
+
+
+class Positions(Basemodel):
+  name = models.CharField(max_length=100)
+
+  def __str__(self):
+    return self.name
+
+  class Meta:
+    verbose_name_plural = "Positions"
+
+    
+class Doctors(Basemodel):
+  name = models.CharField(max_length=50)
+  age = models.CharField(max_length=2)
+  email = models.EmailField()
+  phone_number = models.CharField(max_length=15)
+  facebook = models.URLField(max_length=100)
+  instagram = models.URLField(max_length=100)
+  twitter = models.URLField(max_length=100)
+  experience =models.CharField(max_length=2)
+  image = models.ImageField(upload_to='media/Doctors')
+  Educational_History = models.CharField(max_length=100, null=True, default="N/A")
+  Positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.name
+
+  class Meta:
+    verbose_name_plural = "Doctors"

@@ -168,12 +168,12 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('picture', 'picture'),
     ('link', 'profile_url'),
 ]
-LOGIN_URL = ''
-LOGIN_URL = '/auth/login/google-oauth2/'
+# LOGIN_URL = ''
+# LOGIN_URL = '/auth/login/google-oauth2/'
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/'
+# SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
