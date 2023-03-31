@@ -1,7 +1,5 @@
 from django import forms
 from core.models import Contact
-from django import forms
-# from core.models import Subscriber
 
 
 class ContactForm(forms.ModelForm):

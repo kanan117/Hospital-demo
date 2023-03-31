@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 
 admin.site.site_header = 'Doctor Admin'
-from core.models import Setting,Doctors,Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
+from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
 
 admin.site.register(Setting)
 
@@ -44,11 +44,18 @@ class NewsAdmin(admin.ModelAdmin):
 class BlogAdmin(admin.ModelAdmin):
   list_display = ('title', 'is_published')
   list_editable = ('is_published', )
+  fields = [
+    'title', 'description', 'image', 'category', 'author', 'is_published'
+  ]
+
 
 @admin.register(Doctors)
 class DoctorAdmin(admin.ModelAdmin):
-  list_display = ['name', 'created_at']
-
+    fields = [
+    'name', 'age', 'email', 'number', 'facebook', 'instagram', 'twitter', 'experience', 'is_published', 'image', 'educational_History', 'positions'
+  ]
+    list_display = ('name', 'age',  'number','is_published','email', 'positions')
+    list_editable = ('is_published',)
 
 
 # admin.site.register(Subscriber)

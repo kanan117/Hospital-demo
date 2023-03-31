@@ -10,9 +10,9 @@ from . import views
 
 handler403 = 'myapp.views.my_custom_permission_denied_view'
 from core.views import (home, about, appointment, base, booking_list, contact,
-                        doctor_details, doctor, doctors, error, faq, index_2,
+                        doctor_details, error, faq, index_2,
                         service_details, service, services, blog_details,
-                        BlogsListView)
+                        BlogsListView,DoctorsListView)
 
 urlpatterns = [
   path('', home, name='home'),
@@ -23,9 +23,8 @@ urlpatterns = [
   path('blogs/<slug:slug>/', blog_details, name='blog_details'),
   path('booking_list/', booking_list, name='booking_list'),
   path('contact/', contact, name='contact'),
-  path('doctor_details/', doctor_details, name='doctor_details'),
-  path('doctor/', doctor, name='doctor'),
-  path('doctors/', doctors, name='doctors'),
+  path('doctor/', DoctorsListView.as_view(), name='doctor'),
+  path('doctor/<slug:slug>/', doctor_details, name='doctor_details'),
   path('error/', error, name='error'),
   path('faq/', faq, name='faq'),
   path('index-2/', index_2, name='index_2'),

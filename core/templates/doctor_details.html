@@ -3,6 +3,9 @@
 
 {%load static%}
 {% block content %}    
+
+
+{{ blog.author }}
 <body>
     <div class="loader-wrapper">
         <div class="loader"></div>
@@ -62,19 +65,18 @@
                         <div class="col-lg-6">
                             <div class="details-left-content">
                                 <div class="doctor-image"> 
-                                    <img src="{% static 'img/doctor/doctor.png' %}" alt="Doctor Image">
+                                    <img src="{{ doctor.image.url }}" alt="Doctor Image">
                                 </div>
                                 <div class="doctor-info d-md-flex align-items-center justify-content-between">
                                     <div class="doctor-wrapper">
-                                        <h3 class="doctor-name">Dr. John Doe</h3>
-                                        <span class="doctor-designation">Doctor of Medicine</span>
+                                        <h3 class="doctor-name">"{{doctor.name}}"</h3>
+                                        <span class="doctor-designation">"{{doctor.positions}}"</span>
                                     </div>
                                     <ul class="footer-social">
                                         <li>Follow us:</li>
-                                        <li><a href="url '#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="url '#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="url '#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="url '#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{{ doctor.facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{{ doctor.twitter }}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{{ doctor.instagram }}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -89,27 +91,25 @@
                                 <ul class="doctor-details-position">
                                     <li>
                                         <h4>Positions:</h4>
-                                        <span>Senior Doctor of Medicine</span>
+                                        <span>{{doctor.positions}}</span>
                                     </li>
                                     <li>
                                         <h4>Experience:</h4>
-                                        <span>Almost 24 Year</span>
+                                        <span>Almost {{doctor.experience}} Year</span>
                                     </li>
                                     <li>
                                         <h4>Ages:</h4>
-                                        <span>55+</span>
-                                    </li>
-                                    <li>
-                                        <h4>Location:</h4>
-                                        <span>NYC, 30ft 30/A</span>
+                                        <span>{{doctor.age}}</span>
                                     </li>
                                     <li>
                                         <h4>Email:</h4>
-                                        <span>yourdemo@gmail.com</span>
+                                        <a href="mailto:{{doctor.email}}">{{doctor.email}}</a>
+
+
                                     </li>
                                     <li>
                                         <h4>Phone:</h4>
-                                        <span>+00 (00) 12345 6789</span>
+                                        <span><a href="tel:{{doctor.number}}">{{doctor.number}}</a></span>
                                     </li>
                                 </ul>
                                 <h3 class="pt-5">Educational History</h3>

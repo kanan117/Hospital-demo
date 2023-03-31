@@ -126,45 +126,63 @@ def services(request):
 from django.views.generic import ListView
 from .models import Blogs, Setting
 
-
 from django.views.generic import ListView
-from .models import Blogs
+from .models import Blogs ,Doctors
 from django.shortcuts import get_object_or_404
 
 
 class BlogsListView(ListView):
-    model = Blogs
-    template_name = 'blog.html'
-    context_object_name = 'blog'
-    paginate_by = 3
+  model = Blogs
+  template_name = 'blog.html'
+  context_object_name = 'blog'
+  paginate_by = 3
 
-    def get_queryset(self):
-        return Blogs.objects.filter(is_published=True)
+  def get_queryset(self):
+    return Blogs.objects.filter(is_published=True)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['setting'] = Setting.objects.first()
-        return context
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['setting'] = Setting.objects.first()
+    return context
 
-    def get_paginate_by(self, queryset):
-        return self.request.GET.get('paginate_by', self.paginate_by)
+  def get_paginate_by(self, queryset):
+    return self.request.GET.get('paginate_by', self.paginate_by)
 
-
-from django.shortcuts import render
-from django.http import Http404
-from .models import Blogs, Setting
 
 from django.shortcuts import render
 from django.http import Http404
 from .models import Blogs, Setting
+
 
 def blog_details(request, slug):
-    blog = Blogs.objects.get(slug=slug)
-    context = {
-        'blog': blog,
-        'setting': Setting.objects.first()
-    }
-    return render(request, 'blog_details.html', context)
+  blog = Blogs.objects.get(slug=slug)
+  context = {'blog': blog, 'setting': Setting.objects.first()}
+  return render(request, 'blog_details.html', context)
+
+
+
+class DoctorsListView(ListView):
+  model = Doctors
+  template_name = 'doctor.html'
+  context_object_name = 'doctor'
+  paginate_by = 6
+
+  def get_queryset(self):
+    return Doctors.objects.filter(is_published=True)
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['setting'] = Setting.objects.first()
+    return context
+
+  def get_paginate_by(self, queryset):
+    return self.request.GET.get('paginate_by', self.paginate_by)
+
+
+def doctor_details(request, slug):
+  doctor = Doctors.objects.get(slug=slug)
+  context = {'doctor': doctor, 'setting': Setting.objects.first()}
+  return render(request, 'doctor_details.html', context)
 
 
 

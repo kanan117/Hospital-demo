@@ -2,6 +2,10 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
+from .utils import slugify_KNN
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.utils.text import slugify
 
 
 class Basemodel(models.Model):
@@ -129,26 +133,34 @@ class Story(Basemodel):
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
-class Blogs(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(max_length=10000)
-    image = models.ImageField(upload_to='media/Blogs')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    is_published = models.BooleanField(default=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL,
+
+from django.utils.text import slugify
+
+
+class Blogs(Basemodel):
+  title = models.CharField(max_length=100)
+  slug = models.SlugField(unique=True, blank=True)
+  description = models.TextField(max_length=10000)
+  image = models.ImageField(upload_to='media/Blogs')
+  category = models.ForeignKey(Category, on_delete=models.CASCADE)
+  is_published = models.BooleanField(default=True)
+  author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.title
 
+  def save(self, *args, **kwargs):
+    if not self.slug:
+      self.slug = slugify_KNN(self.title)
+    super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.title
+  def get_absolute_url(self):
+    return reverse('blog_detail', args=[str(self.slug)])
 
-    def get_absolute_url(self):
-        return reverse('blog_detail', args=[str(self.slug)])
+  class Meta:
+    verbose_name_plural = "Blogs"
 
-    class Meta:
-        verbose_name_plural = "Blogs"
 
 class Contact(Basemodel):
   name = models.CharField(max_length=100)
@@ -162,32 +174,41 @@ class Contact(Basemodel):
   class Meta:
     verbose_name_plural = "Contact"
 
+class Positions(models.Model):
+    name = models.CharField(max_length=100)
 
-class Positions(Basemodel):
-  name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
-  def __str__(self):
-    return self.name
+    class Meta:
+        verbose_name_plural = "Positions"
 
-  class Meta:
-    verbose_name_plural = "Positions"
 
-    
-class Doctors(Basemodel):
-  name = models.CharField(max_length=50)
-  age = models.CharField(max_length=2)
-  email = models.EmailField()
-  phone_number = models.CharField(max_length=15)
-  facebook = models.URLField(max_length=100)
-  instagram = models.URLField(max_length=100)
-  twitter = models.URLField(max_length=100)
-  experience =models.CharField(max_length=2)
-  image = models.ImageField(upload_to='media/Doctors')
-  Educational_History = models.CharField(max_length=100, null=True, default="N/A")
-  Positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
+class Doctors(models.Model):
+    name = models.CharField(max_length=50)
+    age = models.CharField(max_length=2)
+    email = models.EmailField()
+    slug = models.SlugField(unique=True, blank=True)
+    number = models.CharField(max_length=15)
+    facebook = models.URLField(max_length=100)
+    instagram = models.URLField(max_length=100)
+    twitter = models.URLField(max_length=100)
+    experience = models.CharField(max_length=2)
+    is_published = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='media/Doctors')
+    educational_History = models.CharField(max_length=100, null=True, default="N/A")
+    positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
 
-  def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-  class Meta:
-    verbose_name_plural = "Doctors"
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify_KNN(self.name)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('doctor_detail', args=[str(self.slug)])
+
+    class Meta:
+        verbose_name_plural = "Doctors"

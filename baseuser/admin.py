@@ -48,12 +48,4 @@ class BaseUserAdmin(UserAdmin):
 
 admin.site.register(BaseUser, BaseUserAdmin)
 
-# class ProfileInline(admin.StackedInline):
-#     model = Profile
-#     can_delete = False
-#     verbose_name_plural = 'Profile'
 
-# class BaseUserAdmin(UserAdmin):
-#     inlines = (ProfileInline, )
-
-# admin.site.unregister(BaseUser)

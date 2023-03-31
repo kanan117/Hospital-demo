@@ -9,7 +9,7 @@
                     <div class="header-logo">
                         <a href="{% url 'index_2' %}"><img src="{% static 'img/logo.png' %}" alt="Logo"></a>
                     </div>
-                    <div class="header-nav">    #
+                    <div class="header-nav">    
                         <div class="header-contact-number d-none d-lg-block">
                             <span>Emergency Line: <a href="tel:{{setting.number1}}">{{setting.number1}}</a></span>
                         </div>
@@ -29,12 +29,8 @@
                                         <li><a href="{% url 'service_details' %}">Service Details</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item menu-dropdown">
-                                    <a class="nav-link">Doctors</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'doctor' %}">Doctors Page</a></li>
-                                        <li><a href="{% url 'doctor_details' %}">Doctors Details</a></li>
-                                    </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'doctor' %}">Doctors</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'blog' %}">Blog</a>

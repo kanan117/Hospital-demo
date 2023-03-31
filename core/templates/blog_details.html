@@ -19,31 +19,19 @@
                         <span>{{ blog.author }}</span>
                     </li>
                     <li class="meta-date">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>{{ blog.created_at|date:"F/d" }}</span>
+                        <i class="fas fa-user-alt"></i>
+                        <span>{{ blog.created_at }}</span>
                     </li>
                 </ul>
                 <div class="blog-content">
-                    <a><h3>{{ blog.title }}</h3></a>
-                    <p>{{ blog.description }}</p>
-
-                    {% for comment in comments %}
-        <div class="comments" style="padding: 10px;">
-          <p class="font-weight-bold">
-            {{ comment.name }}
-            <span class=" text-muted font-weight-normal">
-              {{ comment.created_on }}
-            </span>
-          </p>
-          {{ comment.body | linebreaks }}
-        </div>
-        {% endfor %}
-                            <span class="comment"><i class="far fa-comments"></i> Comment 120</span>
-                        </div>
-                    </div>
-                    <hr>
+                    <div style="padding: 15px;">
+                        <a><h3>{{ blog.title }}</h3></a>
+                        <p>{{ blog.description }}</p>
+                      </div>
+                    <span class="comment"><i class="far fa-comments"></i> Comment 120</span>
                 </div>
             </div>
+            <hr>
         </div>
     </div>
 </div>
