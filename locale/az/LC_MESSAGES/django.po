@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-01 12:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: KNN/settings.py:127
+msgid "English"
+msgstr ""
+
+#: KNN/settings.py:128
+msgid "Azerbaijani"
+msgstr ""
+
+#: core/models.py:29
+msgid "creator"
+msgstr "Yaradici"
+
+#: core/models.py:38
+msgid "Setting"
+msgstr "Ayarlar"
+
+#: core/models.py:39
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: core/models.py:53 core/models.py:54
+msgid "News"
+msgstr "Xeberler"
+
+#: core/models.py:63
+msgid "Category"
+msgstr "Kateqoryalar"
+
+#: core/models.py:75
+msgid "Comment"
+msgstr ""
+
+#: core/models.py:84
+msgid "Tag"
+msgstr ""
+
+#: core/models.py:94
+msgid "NewsTag"
+msgstr ""
+
+#: core/models.py:104
+msgid "Page"
+msgstr ""
+
+#: core/models.py:105
+msgid "Pages"
+msgstr ""
+
+#: core/models.py:119
+msgid "Story"
+msgstr ""
+
+#: core/models.py:120
+msgid "Stories"
+msgstr ""
+
+#: core/models.py:145 core/templates/partials/_navbar.html:55
+msgid "Blog"
+msgstr ""
+
+#: core/models.py:146
+msgid "Blogs"
+msgstr ""
+
+#: core/models.py:159 core/templates/partials/_navbar.html:59
+msgid "Contact"
+msgstr "Elaqe"
+
+#: core/models.py:160
+msgid "Contacts"
+msgstr "Əlaqələr"
+
+#: core/models.py:170
+msgid "Position"
+msgstr ""
+
+#: core/models.py:171
+msgid "Positions"
+msgstr ""
+
+#: core/models.py:201
+msgid "Doctor"
+msgstr "Hekim"
+
+#: core/models.py:202 core/templates/partials/_navbar.html:52
+msgid "Doctors"
+msgstr "Hekimler"
+
+#: core/templates/partials/_navbar.html:39
+msgid "Home"
+msgstr "Ana Sehife"
+
+#: core/templates/partials/_navbar.html:42
+msgid "About"
+msgstr "Haqqimizda"
+
+#: core/templates/partials/_navbar.html:47
+msgid "Service Page"
+msgstr ""
+
+#: core/templates/partials/_navbar.html:48
+msgid "Service Details"
+msgstr ""
+
+#: core/templates/partials/_navbar.html:65
+msgid "Account"
+msgstr "Hesab"
+
+#: core/templates/partials/_navbar.html:70
+msgid "Logout"
+msgstr "Çıxış"
+
+#: core/templates/partials/_navbar.html:85
+msgid "Login"
+msgstr "Giriş"
+
+#: core/templates/partials/_navbar.html:86
+msgid "Register"
+msgstr "Qeydiyyat"

@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 
 <header class="header-area">
     <div class="container-md">
@@ -9,6 +9,25 @@
                     <div class="header-logo">
                         <a href="{% url 'home' %}"><img src="{{setting.logo}}" alt="Logo"></a>
                     </div>
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>My Website</title>
+                        <style>
+                            a[hreflang="az"], a[hreflang="en"] {
+                                color: black;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div>
+                            <a hreflang="az" href="http://127.0.0.1:8000/az/">AZ</a> | 
+                            <a hreflang="en" href="http://127.0.0.1:8000/en/">EN</a>
+                        </div>
+                    </body>
+                    </html>
+                    
                     <div class="header-nav">    
                         <div class="header-contact-number d-none d-lg-block">
                             <span>Emergency Line: <a href="tel:{{setting.number1}}">{{setting.number1}}</a></span>
@@ -17,38 +36,38 @@
                         <nav class="menu" id="menu">
                             <ul class="nav-list">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                    <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                                    <a class="nav-link" href="{% url 'about' %}">{% trans 'About' %}</a>
                                 </li>
                                 <li class="nav-item menu-dropdown">
                                     <a class="nav-link">Services</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{% url 'service' %}">Service Page</a></li>
-                                        <li><a href="{% url 'service_details' %}">Service Details</a></li>
+                                        <li><a href="{% url 'service' %}">{% trans 'Service Page' %}</a></li>
+                                        <li><a href="{% url 'service_details' %}">S{% trans 'Service Details' %}</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'doctor' %}">Doctors</a>
+                                    <a class="nav-link" href="{% url 'doctor' %}">{% trans 'Doctors' %}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                                    <a class="nav-link" href="{% url 'blog' %}">{% trans 'Blog' %}</a>
                                 </li>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">{% trans 'Contact' %}</a>
                                 </li>
                                 <li class="nav-item">
                                     {% if user.is_authenticated %}
 
                                     <li class="nav-item menu-dropdown black-text">
-                                        <a class="nav-link">Account</a>
+                                        <a class="nav-link">{% trans 'Account' %}</a>
                                         
                                         <ul class="sub-menu">
                                             <form method="POST" action="{% url 'logout' %}" >
                                           
-                                            <button type="submit" class="nav-link btn btn-link text-black">Logout</button>
+                                            <button type="submit" class="nav-link btn btn-link text-black">{% trans 'Logout' %}</button>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
@@ -63,8 +82,8 @@
                                     <a class="nav-link">Account</a>
                                     
                                     <ul class="sub-menu black-text">
-                                        <a class="nav-link black-text" href="{% url 'login' %}" style="color:black;">Login</a>
-                                        <a class="nav-link" href="{% url 'register' %}" style="color:black;">Register</a>
+                                        <a class="nav-link black-text" href="{% url 'login' %}" style="color:black;">{% trans 'Login' %}</a>
+                                        <a class="nav-link" href="{% url 'register' %}" style="color:black;">{% trans 'Register' %}</a>
                                         
                                     </ul>
                                 </li>

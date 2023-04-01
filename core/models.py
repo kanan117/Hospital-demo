@@ -7,168 +7,158 @@ from django.db.models.signals import pre_save
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
-
+from django.utils.translation import gettext as _
 
 
 class Basemodel(models.Model):
-  created_at = models.DateTimeField(auto_now_add=True)
-  updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-  class Meta:
-    abstract = True
-
+    class Meta:
+        abstract = True
 
 class Setting(Basemodel):
-  number1 = PhoneNumberField(max_length=20, blank=False)
-  number2 = PhoneNumberField(max_length=20, blank=False)
-  e_mail = models.EmailField()
-  facebook = models.URLField(max_length=100)
-  instagram = models.URLField(max_length=100)
-  twitter = models.URLField(max_length=100)
-  linkedin = models.URLField(max_length=100)
-  logo = models.ImageField(upload_to="media/logo")
-  creator = models.CharField(max_length=20)
-  address1 = models.CharField(max_length=20)
-  address2 = models.CharField(max_length=20)
-  session = models.CharField(max_length=1000)
+    number1 = PhoneNumberField(max_length=20, blank=False)
+    number2 = PhoneNumberField(max_length=20, blank=False)
+    e_mail = models.EmailField()
+    facebook = models.URLField(max_length=100)
+    instagram = models.URLField(max_length=100)
+    twitter = models.URLField(max_length=100)
+    linkedin = models.URLField(max_length=100)
+    logo = models.ImageField(upload_to="media/logo")
+    creator = models.CharField(_("creator"), max_length=20)
+    address1 = models.CharField(max_length=20)
+    address2 = models.CharField(max_length=20)
+    session = models.CharField(max_length=1000)
 
-  def __str__(self):
-    return "Setting"
+    def __str__(self):
+        return "Setting"
 
-  class Meta:
-    verbose_name = "Setting"
-    verbose_name_plural = "Setting"
-
+    class Meta:
+        verbose_name = _("Setting")
+        verbose_name_plural = _("Settings")
 
 class News(Basemodel):
-  title = models.CharField(max_length=200)
-  content = models.TextField()
-  pub_date = models.DateTimeField(auto_now_add=True)
-  image = models.ImageField(upload_to='media/news_images',
-                            blank=True,
-                            null=True)
-  author = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
-  category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='media/news_images', blank=True, null=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
 
-  def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
-  class Meta:
-    verbose_name = "News"
-    verbose_name_plural = "News"
-
+    class Meta:
+        verbose_name = _("News")
+        verbose_name_plural = _("News")
 
 class Category(Basemodel):
-  name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
 
-  def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-  class Meta:
-    verbose_name_plural = "Category"
-
+    class Meta:
+        verbose_name_plural = _("Category")
 
 class Comment(Basemodel):
-  text = models.TextField()
-  pub_date = models.DateTimeField(auto_now_add=True)
-  author = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
-  news = models.ForeignKey(News,
-                           on_delete=models.CASCADE,
-                           related_name='comments')
+    text = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='comments')
 
-  def __str__(self):
-    return f"Comment by {self.author} on {self.news}"
+    def __str__(self):
+        return f"{self.news} haberi için {self.author} tarafından yapılan yorum"
 
-  class Meta:
-    verbose_name_plural = "Comment"
-
+    class Meta:
+        verbose_name_plural = _("Comment")
 
 class Tag(Basemodel):
-  name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
 
-  def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-  class Meta:
-    verbose_name_plural = "Tag"
-
+    class Meta:
+        verbose_name_plural = _("Tag")
 
 class NewsTag(Basemodel):
-  news = models.ForeignKey(News, on_delete=models.CASCADE)
-  tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    news = models.ForeignKey(News, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
-  def __str__(self):
-    return f"{self.tag} in {self.news}"
+    def __str__(self):
+        return f"{self.news} haberi için {self.tag} etiketi"
 
-  class Meta:
-    verbose_name_plural = "New Tag"
-
-
+    class Meta:
+        verbose_name_plural = _("NewsTag")
 class Page(Basemodel):
-  title = models.CharField(max_length=200)
-  content = models.TextField()
-  slug = models.SlugField(max_length=100, unique=True)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    slug = models.SlugField(max_length=100, unique=True)
 
-  def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
-  class Meta:
-    verbose_name_plural = "Page"
+    class Meta:
+        verbose_name = _("Page")
+        verbose_name_plural = _("Pages")
 
 
 class Story(Basemodel):
-  title = models.CharField(max_length=100)
-  description = models.TextField()
-  image = models.ImageField(upload_to="media/stories")
-  category = models.ForeignKey(Category, on_delete=models.CASCADE)
-  tags = models.ManyToManyField(Tag)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to="media/stories")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag)
 
-  def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
-  class Meta:
-    verbose_name_plural = "Story"
-
+    class Meta:
+        verbose_name = _("Story")
+        verbose_name_plural = _("Stories")
 
 
 class Blogs(Basemodel):
-  title = models.CharField(max_length=100)
-  slug = models.SlugField(unique=True, blank=True)
-  description = models.TextField(max_length=10000)
-  image = models.ImageField(upload_to='media/Blogs')
-  category = models.ForeignKey(Category, on_delete=models.CASCADE)
-  is_published = models.BooleanField(default=True)
-  author = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)
+    description = models.TextField(max_length=10000)
+    image = models.ImageField(upload_to='media/Blogs')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    is_published = models.BooleanField(default=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL,
+                               on_delete=models.CASCADE)
 
-  def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
-  def save(self, *args, **kwargs):
-    if not self.slug:
-      self.slug = slugify_KNN(self.title)
-    super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify_KNN(self.title)
+        super().save(*args, **kwargs)
 
-  def get_absolute_url(self):
-    return reverse('blog_detail', args=[str(self.slug)])
+    def get_absolute_url(self):
+        return reverse('blog_detail', args=[str(self.slug)])
 
-  class Meta:
-    verbose_name_plural = "Blogs"
+    class Meta:
+        verbose_name = _("Blog")
+        verbose_name_plural = _("Blogs")
 
 
 class Contact(Basemodel):
-  name = models.CharField(max_length=100)
-  email = models.EmailField()
-  phone_number = models.CharField(max_length=100)
-  message = models.TextField()
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=100)
+    message = models.TextField()
 
-  def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-  class Meta:
-    verbose_name_plural = "Contact"
+    class Meta:
+        verbose_name = _("Contact")
+        verbose_name_plural = _("Contacts")
+
 
 class Positions(models.Model):
     name = models.CharField(max_length=100)
@@ -177,7 +167,8 @@ class Positions(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = "Positions"
+        verbose_name = _("Position")
+        verbose_name_plural = _("Positions")
 
 
 class Doctors(models.Model):
@@ -207,4 +198,5 @@ class Doctors(models.Model):
         return reverse('doctor_detail', args=[str(self.slug)])
 
     class Meta:
-        verbose_name_plural = "Doctors"
+        verbose_name = _("Doctor")
+        verbose_name_plural = _("Doctors")
