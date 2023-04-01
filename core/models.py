@@ -25,7 +25,7 @@ class Setting(Basemodel):
     instagram = models.URLField(max_length=100)
     twitter = models.URLField(max_length=100)
     linkedin = models.URLField(max_length=100)
-    logo = models.ImageField(upload_to="media/logo")
+    logo = models.ImageField(upload_to="logo")
     creator = models.CharField(_("creator"), max_length=20)
     address1 = models.CharField(max_length=20)
     address2 = models.CharField(max_length=20)
@@ -42,7 +42,7 @@ class News(Basemodel):
     title = models.CharField(max_length=200)
     content = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='media/news_images', blank=True, null=True)
+    image = models.ImageField(upload_to='news_images', blank=True, null=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
 
@@ -108,7 +108,7 @@ class Page(Basemodel):
 class Story(Basemodel):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to="media/stories")
+    image = models.ImageField(upload_to="stories")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
 
@@ -124,7 +124,7 @@ class Blogs(Basemodel):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(max_length=10000)
-    image = models.ImageField(upload_to='media/Blogs')
+    image = models.ImageField(upload_to='Blogs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -182,7 +182,7 @@ class Doctors(models.Model):
     twitter = models.URLField(max_length=100)
     experience = models.CharField(max_length=2)
     is_published = models.BooleanField(default=True)
-    image = models.ImageField(upload_to='media/Doctors')
+    image = models.ImageField(upload_to='Doctors')
     educational_History = models.CharField(max_length=100, null=True, default="N/A")
     positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
 

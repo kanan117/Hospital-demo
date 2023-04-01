@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,7 +142,7 @@ USE_TZ = True
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR , "media")
 
 
 # Default primary key field type
@@ -152,7 +153,6 @@ AUTH_USER_MODEL = 'baseuser.BaseUser'
 
 
 
-from django.conf import settings
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
