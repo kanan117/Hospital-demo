@@ -43,6 +43,8 @@ INSTALLED_APPS = [
   "core",
   'social_django',
   'baseuser.apps.BaseuserConfig',
+      'modeltranslation',
+
 ]
 SITE_ID = 1
 
@@ -122,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 LANGUAGE_CODE = 'az'
 LANGUAGES = (
     ("en" , _("English")),

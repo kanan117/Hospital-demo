@@ -25,7 +25,7 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
 path('', include('social_django.urls', namespace='social')),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 urlpatterns += i18n_patterns (
@@ -33,6 +33,6 @@ urlpatterns += i18n_patterns (
   path('user/', include(baseuser_urlpatterns)),
   path('', include(core_urls)),
   path('i18n/', include('django.conf.urls.i18n')),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) 
 
 

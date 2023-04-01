@@ -9,7 +9,23 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
+from django.db import models
 
+
+class BlogImage(models.Model):
+    blog = models.ForeignKey("Blogs", on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='blogs')
+
+    class Meta:
+        verbose_name = 'Blog Image'
+        verbose_name_plural = 'Blog Images'
+
+    def __str__(self):
+        return self.blog.title + ' Image'
+    
+    def __str__(self):
+         return f"{self.blog.title} - {self.image.name}"
+    
 class Basemodel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -26,7 +42,7 @@ class Setting(Basemodel):
     twitter = models.URLField(max_length=100)
     linkedin = models.URLField(max_length=100)
     logo = models.ImageField(upload_to="logo")
-    creator = models.CharField(_("creator"), max_length=20)
+    creator = models.CharField(max_length=20)
     address1 = models.CharField(max_length=20)
     address2 = models.CharField(max_length=20)
     session = models.CharField(max_length=1000)
@@ -120,16 +136,14 @@ class Story(Basemodel):
         verbose_name_plural = _("Stories")
 
 
-class Blogs(Basemodel):
+class Blogs(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(max_length=10000)
-    image = models.ImageField(upload_to='Blogs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL,
-                               on_delete=models.CASCADE)
-
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.title
 
@@ -140,11 +154,6 @@ class Blogs(Basemodel):
 
     def get_absolute_url(self):
         return reverse('blog_detail', args=[str(self.slug)])
-
-    class Meta:
-        verbose_name = _("Blog")
-        verbose_name_plural = _("Blogs")
-
 
 class Contact(Basemodel):
     name = models.CharField(max_length=100)

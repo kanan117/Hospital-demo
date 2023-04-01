@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
+from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact,BlogImage
 
 # Register your models here.
 
@@ -31,11 +31,19 @@ class NewsAdmin(admin.ModelAdmin):
     # readonly_fields = ['content', 'updated_at']
 
 
+
 @admin.register(Blogs)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_published')
     list_editable = ('is_published', )
-    fields = ['title', 'description', 'image', 'category', 'author', 'is_published']
+    fields = ['title', 'description', 'category', 'author', 'is_published']
+
+    # define inline for BlogImage
+    class BlogImageInline(admin.TabularInline):
+        model = BlogImage
+
+    inlines = [BlogImageInline]
+
 
 
 @admin.register(Doctors)

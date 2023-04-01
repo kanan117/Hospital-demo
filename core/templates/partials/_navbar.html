@@ -11,7 +11,7 @@
                     </div>
                     <!DOCTYPE html>
                     <html>
-                    <head>
+                    <!-- <head>
                         <meta charset="UTF-8">
                         <title>My Website</title>
                         <style>
@@ -19,13 +19,28 @@
                                 color: black;
                             }
                         </style>
-                    </head>
-                    <body>
+                    </head> -->
+                    <!-- <body>
                         <div>
                             <a hreflang="az" href="http://127.0.0.1:8000/az/">AZ</a> | 
                             <a hreflang="en" href="http://127.0.0.1:8000/en/">EN</a>
                         </div>
-                    </body>
+                    </body> -->
+                    <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {{ LANGUAGE_CODE }}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ language.code }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </form>
                     </html>
                     
                     <div class="header-nav">    
