@@ -17,74 +17,73 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
 #: KNN/settings.py:127
 msgid "English"
-msgstr ""
+msgstr "İngiliscə"
 
 #: KNN/settings.py:128
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Azərbaycanca"
 
 #: core/models.py:29
 msgid "creator"
-msgstr "Yaradici"
+msgstr "Yaradıcı"
 
 #: core/models.py:38
 msgid "Setting"
-msgstr "Ayarlar"
+msgstr "Tənzimləmə"
 
 #: core/models.py:39
 msgid "Settings"
-msgstr "Ayarlar"
+msgstr "Tənzimləmələr"
 
 #: core/models.py:53 core/models.py:54
 msgid "News"
-msgstr "Xeberler"
+msgstr "Xəbərlər"
 
 #: core/models.py:63
 msgid "Category"
-msgstr "Kateqoryalar"
+msgstr "Kateqoriyalar"
 
 #: core/models.py:75
 msgid "Comment"
-msgstr ""
+msgstr "Şərh"
 
 #: core/models.py:84
 msgid "Tag"
-msgstr ""
+msgstr "Etiket"
 
 #: core/models.py:94
 msgid "NewsTag"
-msgstr ""
+msgstr "Xəbər etiketi"
 
 #: core/models.py:104
 msgid "Page"
-msgstr ""
+msgstr "Səhifə"
 
 #: core/models.py:105
 msgid "Pages"
-msgstr ""
+msgstr "Səhifələr"
 
 #: core/models.py:119
 msgid "Story"
-msgstr ""
+msgstr "Hekayə"
 
 #: core/models.py:120
 msgid "Stories"
-msgstr ""
+msgstr "Hekayələr"
 
 #: core/models.py:145 core/templates/partials/_navbar.html:55
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: core/models.py:146
 msgid "Blogs"
-msgstr ""
+msgstr "Bloglar"
 
 #: core/models.py:159 core/templates/partials/_navbar.html:59
 msgid "Contact"
-msgstr "Elaqe"
+msgstr "Əlaqə"
 
 #: core/models.py:160
 msgid "Contacts"
@@ -92,35 +91,35 @@ msgstr "Əlaqələr"
 
 #: core/models.py:170
 msgid "Position"
-msgstr ""
+msgstr "Vəzifə"
 
 #: core/models.py:171
 msgid "Positions"
-msgstr ""
+msgstr "Vəzifələr"
 
 #: core/models.py:201
 msgid "Doctor"
-msgstr "Hekim"
+msgstr "Həkim"
 
 #: core/models.py:202 core/templates/partials/_navbar.html:52
 msgid "Doctors"
-msgstr "Hekimler"
+msgstr "Həkimlər"
 
 #: core/templates/partials/_navbar.html:39
 msgid "Home"
-msgstr "Ana Sehife"
+msgstr "Əsas səhifə"
 
 #: core/templates/partials/_navbar.html:42
 msgid "About"
-msgstr "Haqqimizda"
+msgstr "Haqqımızda"
 
 #: core/templates/partials/_navbar.html:47
 msgid "Service Page"
-msgstr ""
+msgstr "Xidmət səhifəsi"
 
 #: core/templates/partials/_navbar.html:48
 msgid "Service Details"
-msgstr ""
+msgstr "Xidmət məlumatları"
 
 #: core/templates/partials/_navbar.html:65
 msgid "Account"
@@ -132,7 +131,7 @@ msgstr "Çıxış"
 
 #: core/templates/partials/_navbar.html:85
 msgid "Login"
-msgstr "Giriş"
+msgstr "Daxil ol"
 
 #: core/templates/partials/_navbar.html:86
 msgid "Register"

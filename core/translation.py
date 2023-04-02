@@ -4,9 +4,9 @@ from modeltranslation.translator import translator, TranslationOptions
 from modeltranslation.translator import TranslationOptions, translator
 from .models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact, BlogImage
 
-class SettingTranslationOptions(TranslationOptions):
-    fields = ('number1','number2','creator','address1','address2')
-translator.register(Setting, SettingTranslationOptions)
+# class SettingTranslationOptions(TranslationOptions):
+#     fields = ('number1','number2','creator','address1','address2')
+# translator.register(Setting, SettingTranslationOptions)
 
 # class DoctorsTranslationOptions(TranslationOptions):
 #     fields = ('name', 'description', 'position')

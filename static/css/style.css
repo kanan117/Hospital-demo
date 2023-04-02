@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+.img-invertable {
+  filter: invert(0.7);
+}
+
 /*
 Template Name: Mediclinis - Health and Medical HTML Template
 Author       : Theme_crazy
