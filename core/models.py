@@ -118,7 +118,7 @@ class Page(Basemodel):
 
     class Meta:
         verbose_name = _("Page")
-        verbose_name_plural = _("Pages")
+        verbose_name_plural = _("Page")
 
 
 class Story(Basemodel):
@@ -143,6 +143,7 @@ class Blogs(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='blogs')
     
     def __str__(self):
         return self.title
@@ -154,6 +155,11 @@ class Blogs(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_detail', args=[str(self.slug)])
+    
+
+    class Meta:
+        verbose_name = 'Blogs'
+        verbose_name_plural = 'Blogs'    
 
 class Contact(Basemodel):
     name = models.CharField(max_length=100)
@@ -192,7 +198,7 @@ class Doctors(models.Model):
     experience = models.CharField(max_length=2)
     is_published = models.BooleanField(default=True)
     image = models.ImageField(upload_to='Doctors')
-    educational_History = models.CharField(max_length=100, null=True, default="N/A")
+    educational_history = models.TextField(max_length=10000, null=True, default=" ")
     positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
 
     def __str__(self):

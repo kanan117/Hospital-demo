@@ -7,7 +7,7 @@
             <div class="col-12">
                 <nav class="header-navbar">
                     <div class="header-logo">
-                        <a href="{% url 'home' %}"><img src="{{setting.logo}}" alt="Logo"></a>
+                        <a href="{% url 'home' %}"><img src="{{setting.logo.url}}" alt="Logo"></a>
                     </div>
                     <!DOCTYPE html>
                     <html>
@@ -57,12 +57,19 @@
                                     <a class="nav-link" href="{% url 'about' %}">{% trans 'About' %}</a>
                                 </li>
                                 <li class="nav-item menu-dropdown">
-                                    <a class="nav-link">Services</a>
+                                    <a class="nav-link">Raport</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{% url 'service' %}">{% trans 'Service Page' %}</a></li>
-                                        <li><a href="{% url 'service_details' %}">S{% trans 'Service Details' %}</a></li>
+                                        <li><a href="{% url 'rapor_search' %}">{% trans 'Search Raport' %}</a></li>
+                                        {% if perms.raport.can_add_raport %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'rapor_add' %}" style="color: black;">Add Raport</a>
+                                        </li>
+                                       {% endif %}
+                                    
                                     </ul>
                                 </li>
+
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'doctor' %}">{% trans 'Doctors' %}</a>
                                 </li>

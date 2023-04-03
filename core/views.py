@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.views.generic import ListView
 from .models import Blogs, Doctors, Setting
 from core.forms import ContactForm
-
+import random
 
 def my_custom_permission_denied_view(request, exception=None):
   return render(request, 'error.html', {})

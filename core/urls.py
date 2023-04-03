@@ -3,6 +3,8 @@ from core import views
 from django.urls import path
 from django.conf.urls import handler403
 from . import views
+from django.urls import path
+
 
 handler403 = 'myapp.views.my_custom_permission_denied_view'
 from core.views import (home, about, appointment, base, booking_list, contact,
@@ -31,4 +33,5 @@ urlpatterns = [
   path('blog_details/', blog_details, name='blog_details'),
 
 ]
+
 

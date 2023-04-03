@@ -1,6 +1,6 @@
 from django.contrib import admin
-from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact,BlogImage
-
+from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
+from modeltranslation.admin import TranslationAdmin
 
 
 # Register your models here.
@@ -35,24 +35,24 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 @admin.register(Blogs)
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(TranslationAdmin):
     list_display = ('title', 'is_published')
     list_editable = ('is_published', )
-    fields = ['title', 'description', 'category', 'author', 'is_published']
+    fields = ['title','image', 'description', 'category', 'author', 'is_published']
 
-    # define inline for BlogImage
-    class BlogImageInline(admin.TabularInline):
-        model = BlogImage
+    # # define inline for BlogImage
+    # class BlogImageInline(admin.TabularInline):
+    #     model = BlogImage
 
-    inlines = [BlogImageInline]
+    # inlines = [BlogImageInline]
 
 
 
 @admin.register(Doctors)
-class DoctorAdmin(admin.ModelAdmin):
+class DoctorAdmin(TranslationAdmin):
     fields = [
         'name', 'age', 'email', 'number', 'facebook', 'instagram', 'twitter',
-        'experience', 'is_published', 'image', 'educational_History', 'positions'
+        'experience', 'is_published', 'image', 'educational_history', 'positions'
     ]
     list_display = (
         'name', 'age', 'number', 'is_published', 'email', 'positions'

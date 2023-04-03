@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    
+  'modeltranslation',
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -41,9 +41,12 @@ INSTALLED_APPS = [
   'django.contrib.staticfiles',
   'django.contrib.sites',
   "core",
+  'api',
+  'raport',
   'social_django',
   'baseuser.apps.BaseuserConfig',
-  'modeltranslation',
+  'rosetta',
+  
   
   
 
@@ -128,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-LANGUAGE_CODE = 'az'
+LANGUAGE_CODE = 'en'
 LANGUAGES = (
     ("en" , _("English")),
     ("az" , _("Azerbaijani")),
@@ -176,8 +179,8 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('link', 'profile_url'),
 ]
 
-LOGIN_URL = ''
-LOGIN_URL = '/auth/login/google-oauth2/'
+# LOGIN_URL = ''
+# LOGIN_URL = '/auth/login/google-oauth2/'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

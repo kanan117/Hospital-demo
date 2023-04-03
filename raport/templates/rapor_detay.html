@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ rapor.title }}</h1>
+  <p>{{ rapor.aciklama }}</p>
+  <p>{{ rapor.tarih }}</p>
+  <p>{{ rapor.sonuc }}</p>
+  {% if rapor.dosya %}
+    <p>Rapor dosyası: <a href="{{ rapor.dosya.url }}">Download</a></p>
+  {% endif %}
+{% endblock %}
