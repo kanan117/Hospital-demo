@@ -211,3 +211,4 @@ def search_doctors(request):
         doctors = []
     context = {'doctors': doctors, 'query': query , 'setting': Setting.objects.first()}
     return render(request, 'search_doctors.html', context )
+

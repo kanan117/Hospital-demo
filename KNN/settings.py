@@ -44,7 +44,7 @@ INSTALLED_APPS = [
   'social_django',
   'baseuser.apps.BaseuserConfig',
   'modeltranslation',
-  'dark',
+  
   
 
 ]

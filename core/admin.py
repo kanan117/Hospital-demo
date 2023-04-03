@@ -1,6 +1,8 @@
 from django.contrib import admin
 from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact,BlogImage
 
+
+
 # Register your models here.
 
 admin.site.site_header = 'Doctor Admin'

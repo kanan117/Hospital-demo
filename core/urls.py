@@ -29,4 +29,6 @@ urlpatterns = [
   path('service/', service, name='service'),
   path('services/', services, name='services'),
   path('blog_details/', blog_details, name='blog_details'),
+
 ]
+

@@ -209,3 +209,5 @@ class Doctors(models.Model):
     class Meta:
         verbose_name = _("Doctor")
         verbose_name_plural = _("Doctors")
+
+
