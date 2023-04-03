@@ -3,4 +3,4 @@ from .models import AnalizRaport
 
 @admin.register(AnalizRaport)
 class AnalizRaportAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'tarih') 
+    list_display = ('id', 'name_surname', 'tarih') 
