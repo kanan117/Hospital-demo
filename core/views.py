@@ -8,6 +8,7 @@ from .models import Blogs, Doctors, Setting
 from core.forms import ContactForm
 import random
 
+
 def my_custom_permission_denied_view(request, exception=None):
   return render(request, 'error.html', {})
 
@@ -19,7 +20,9 @@ def home(request):
 
 
 def about(request):
-  context = {'setting': Setting.objects.first(),}
+  context = {
+    'setting': Setting.objects.first(),
+  }
   return render(request, 'about.html', context)
 
 
@@ -119,14 +122,11 @@ def services(request):
   return render(request, 'services.html', context)
 
 
-
-
-
 class BlogsListView(ListView):
   model = Blogs
   template_name = 'blog.html'
   context_object_name = 'blog'
-  paginate_by = 3
+  paginate_by = 2
 
   def get_queryset(self):
     return Blogs.objects.filter(is_published=True)
@@ -137,9 +137,31 @@ class BlogsListView(ListView):
     return context
 
   def get_paginate_by(self, queryset):
-    return self.request.GET.get('paginate_by', self.paginate_by)
+    paginate_by = self.request.GET.get('paginate_by', self.paginate_by)
+    if paginate_by:
+      return int(paginate_by)
+    return self.paginate_by
 
 
+class DoctorsListView(ListView):
+  model = Doctors
+  template_name = 'doctor.html'
+  context_object_name = 'doctor'
+  paginate_by = 6
+
+  def get_queryset(self):
+    return Doctors.objects.filter(is_published=True)
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['setting'] = Setting.objects.first()
+    return context
+
+  def get_paginate_by(self, queryset):
+    paginate_by = self.request.GET.get('paginate_by', self.paginate_by)
+    if paginate_by:
+      return int(paginate_by)
+    return self.paginate_by
 
 
 def blog_details(request, slug):
@@ -148,43 +170,10 @@ def blog_details(request, slug):
   return render(request, 'blog_details.html', context)
 
 
-
-
-class DoctorsListView(ListView):
-    model = Doctors
-    template_name = 'doctor.html'
-    context_object_name = 'doctor'
-    paginate_by = 6
-
-    def get_queryset(self):
-        return Doctors.objects.filter(is_published=True)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['setting'] = Setting.objects.first()
-
-        # Retrieve doctors queryset and create a paginator
-        doctors_queryset = self.get_queryset()
-        paginator = Paginator(doctors_queryset, self.paginate_by)
-
-        # Get current page number from the request query parameters
-        page_number = self.request.GET.get('page')
-
-        # Get the page object for the current page number
-        current_page = paginator.get_page(page_number)
-
-        # Add current page and paginator object to the context
-        context['page_obj'] = current_page
-        context['paginator'] = paginator
-
-        return context
-
-
 def doctor_details(request, slug):
   doctor = Doctors.objects.get(slug=slug)
   context = {'doctor': doctor, 'setting': Setting.objects.first()}
   return render(request, 'doctor_details.html', context)
-
 
 
 def contact(request):
@@ -202,13 +191,15 @@ def contact(request):
   return render(request, 'contact.html', context)
 
 
-
 def search_doctors(request):
-    query = request.GET.get('q')
-    if query:
-        doctors = Doctors.objects.filter(name__icontains=query)
-    else:
-        doctors = []
-    context = {'doctors': doctors, 'query': query , 'setting': Setting.objects.first()}
-    return render(request, 'search_doctors.html', context )
-
+  query = request.GET.get('q')
+  if query:
+    doctors = Doctors.objects.filter(name__icontains=query)
+  else:
+    doctors = []
+  context = {
+    'doctors': doctors,
+    'query': query,
+    'setting': Setting.objects.first()
+  }
+  return render(request, 'search_doctors.html', context)

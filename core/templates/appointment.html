@@ -1,154 +1,134 @@
-
-{%extends  'base.html'%}
-
-{%load static%}
-{% block content %} 
-{% load i18n %}    
-
-        <main>
-            <!-- Banner Section  -->
-            <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-12">
-                            <div class="breadcrumbs">
-                                <nav aria-label="breadcrumb text-center">
-                                    <h2 class="text-white">Appointment</h2>
-                                    <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Appointment</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Banner Section  -->
-
-            <!-- Counter Section  -->
-            <section class="counter-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="500">
-                                <div class="counter-item">
-                                    <h2 class="counter counter-number">125+</h2>
-                                    <span class="counter-text">Expert Doctors</span>
-                                </div>
-                                <div class="counter-item">
-                                    <h2 class="counter counter-number">275+</h2>
-                                    <span class="counter-text">Total Medical Stuff</span>
-                                </div>
-                                <div class="counter-item">
-                                    <h2 class="counter counter-number">462k</h2>
-                                    <span class="counter-text">Online Appointments</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Counter Section  -->
-
-            <!-- Doctor-start-->
-            <section class="appointment-page overflow-hidden section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="booking-wrapper" data-cues="slideInLeft" data-delay="300">
-                                <div class="section-title">
-                                    <span class="subtitle">Book an Appointment</span>
-                                    <h3>Contact Our friendly Reception Staff With Any Inquiry.</h3>
-                                </div>
-                                <div class="booking-form">
-                                    <form>
-                                        <div class="pseudo-icon icon-user">
-                                            <input class="form-control" type="text" placeholder="Your Name"
-                                                aria-label="form-control">
-                                        </div>
-                                        <div class="pseudo-icon icon-envelope">
-                                            <input class="form-control" type="email" placeholder="Your Email"
-                                                aria-label="form-control">
-                                        </div>
-                                        <select class="select-control pseudo-icon icon-doctor">
-                                            <option data-display="Choose doctor">Choose doctor</option>
-                                            <option value="1">Dr. Williamson</option>
-                                            <option value="2">Dr. Camel</option>
-                                            <option value="4">Dr. Handy</option>
-                                        </select>
-                                        <select class="select-control pseudo-icon icon-date">
-                                            <option data-display="Choose date">Choose Date</option>
-                                            <option value="1">Dr. Williamson</option>
-                                            <option value="2">Dr. Camel</option>
-                                            <option value="4">Dr. Handy</option>
-                                        </select>
-                                        <select class="select-control pseudo-icon icon-history">
-                                            <option data-display="Choose time">Choose Time</option>
-                                            <option value="1">Dr. Williamson</option>
-                                            <option value="2">Dr. Camel</option>
-                                            <option value="4">Dr. Handy</option>
-                                        </select>
-                                        <div>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="Describe your problem"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Make
-                                            Appointment</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="booking-right-content">
-                                <div class="section-title" data-cues="slideInUp" data-delay="400">
-                                    <span class="subtitle">Contact</span>
-                                    <h3>
-                                        Emergency Contact Us.</h3>
-                                    <p>
-                                        Lorem Ipsum available the majority have suffered alteration
-                                        in some form, by injected humour, or randomized words
-                                        which don't look even slightly believable.</p>
-                                </div>
-                                <div class="booking-info-box" data-cues="slideInUp">
-                                    <div class="booking-icon">
-                                        <i class="fas fa-phone-alt"></i>
-                                    </div>
-                                    <div class="booking-text">
-                                        <span>Call us now</span>
-                                        <a href="tel:{{setting.number1}}">{{setting.number1}}</a>
-                                    </div>
-                                </div>
-                                <div class="booking-info-box" data-cues="slideInUp">
-                                    <div class="booking-icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div class="booking-text">
-                                        <span>Mail us now</span>
-                                        <a href="mailto:{{setting.e_mail}}">{{setting.e_mail}}</a>
-                                    </div>
-                                </div>
-                                <div class="subscribe-news-wrapper" data-cues="slideInUp">
-                                    <div class="subscribe-text">
-                                        <i class="fas fa-envelope-open-text"></i>
-                                        <h3>Subscribe your email for newsletter</h3>
-                                    </div>
-                                    <p>Lorem Ipsum available the majority have suffered alteration
-                                        in some form, by injected humour, or randomized words
-                                        which don't look even slightly believable.</p>
-                                    <form>
-                                        <input class="form-control" type="email" placeholder="Email address"
-                                            aria-label="form-control">
-                                        <button type="submit" class="btn btn-blue btn-xl btn-round">Subscribe</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Doctor-end -->
-        </main>
-
-        <!-- Footer Section End  -->
-        {% endblock %}
+{%extends  'base.html'%} {%load static%} {% block content %} {% load i18n %} <main>
+	<!-- Banner Section  -->
+	<div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-12">
+					<div class="breadcrumbs">
+						<nav aria-label="breadcrumb text-center">
+							<h2 class="text-white">Appointment</h2>
+							<ol class="breadcrumb justify-content-center">
+								<li class="breadcrumb-item">
+									<a href="index-2.html">Home</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Appointment</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Banner Section  -->
+	<!-- Counter Section  -->
+	<section class="counter-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="500">
+						<div class="counter-item">
+							<h2 class="counter counter-number">125+</h2>
+							<span class="counter-text">Expert Doctors</span>
+						</div>
+						<div class="counter-item">
+							<h2 class="counter counter-number">275+</h2>
+							<span class="counter-text">Total Medical Stuff</span>
+						</div>
+						<div class="counter-item">
+							<h2 class="counter counter-number">462k</h2>
+							<span class="counter-text">Online Appointments</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Counter Section  -->
+	<!-- Doctor-start-->
+	<section class="appointment-page overflow-hidden section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="booking-wrapper" data-cues="slideInLeft" data-delay="300">
+						<div class="section-title">
+							<span class="subtitle">Book an Appointment</span>
+							<h3>Contact Our friendly Reception Staff With Any Inquiry.</h3>
+						</div>
+						<div class="booking-form">
+							<form>
+								<div class="pseudo-icon icon-user">
+									<input class="form-control" type="text" placeholder="Your Name" aria-label="form-control">
+								</div>
+								<div class="pseudo-icon icon-envelope">
+									<input class="form-control" type="email" placeholder="Your Email" aria-label="form-control">
+								</div>
+								<select class="select-control pseudo-icon icon-doctor">
+									<option data-display="Choose doctor">Choose doctor</option>
+									<option value="1">Dr. Williamson</option>
+									<option value="2">Dr. Camel</option>
+									<option value="4">Dr. Handy</option>
+								</select>
+								<select class="select-control pseudo-icon icon-date">
+									<option data-display="Choose date">Choose Date</option>
+									<option value="1">Dr. Williamson</option>
+									<option value="2">Dr. Camel</option>
+									<option value="4">Dr. Handy</option>
+								</select>
+								<select class="select-control pseudo-icon icon-history">
+									<option data-display="Choose time">Choose Time</option>
+									<option value="1">Dr. Williamson</option>
+									<option value="2">Dr. Camel</option>
+									<option value="4">Dr. Handy</option>
+								</select>
+								<div>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe your problem"></textarea>
+								</div>
+								<button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Make Appointment</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="booking-right-content">
+						<div class="section-title" data-cues="slideInUp" data-delay="400">
+							<span class="subtitle">Contact</span>
+							<h3> Emergency Contact Us.</h3>
+							<p> Lorem Ipsum available the majority have suffered alteration in some form, by injected humour, or randomized words which don't look even slightly believable.</p>
+						</div>
+						<div class="booking-info-box" data-cues="slideInUp">
+							<div class="booking-icon">
+								<i class="fas fa-phone-alt"></i>
+							</div>
+							<div class="booking-text">
+								<span>Call us now</span>
+								<a href="tel:{{setting.number1}}">{{setting.number1}}</a>
+							</div>
+						</div>
+						<div class="booking-info-box" data-cues="slideInUp">
+							<div class="booking-icon">
+								<i class="fas fa-envelope"></i>
+							</div>
+							<div class="booking-text">
+								<span>Mail us now</span>
+								<a href="mailto:{{setting.e_mail}}">{{setting.e_mail}}</a>
+							</div>
+						</div>
+						<div class="subscribe-news-wrapper" data-cues="slideInUp">
+							<div class="subscribe-text">
+								<i class="fas fa-envelope-open-text"></i>
+								<h3>Subscribe your email for newsletter</h3>
+							</div>
+							<p>Lorem Ipsum available the majority have suffered alteration in some form, by injected humour, or randomized words which don't look even slightly believable.</p>
+							<form>
+								<input class="form-control" type="email" placeholder="Email address" aria-label="form-control">
+								<button type="submit" class="btn btn-blue btn-xl btn-round">Subscribe</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Doctor-end -->
+</main>
+<!-- Footer Section End  --> {% endblock %}

@@ -41,22 +41,18 @@ INSTALLED_APPS = [
   'django.contrib.staticfiles',
   'django.contrib.sites',
   "core",
-  'api',
   'raport',
+  'api',
   'social_django',
   'baseuser.apps.BaseuserConfig',
   'rosetta',
-  
-  
-  
-
 ]
 SITE_ID = 1
 
 MIDDLEWARE = [
   'django.middleware.security.SecurityMiddleware',
-  
   'django.contrib.sessions.middleware.SessionMiddleware',
+  'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.common.CommonMiddleware',
   'django.middleware.locale.LocaleMiddleware',
   'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,6 +61,13 @@ MIDDLEWARE = [
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 SESSION_COOKIE_AGE = 100000
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.mail.yahoo.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'k.karimli@yahoo.com'
+EMAIL_HOST_PASSWORD = 'Kk123456789kk'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
@@ -81,7 +84,6 @@ TEMPLATES = [
         'django.template.context_processors.request',
         'django.contrib.auth.context_processors.auth',
         'django.contrib.messages.context_processors.messages',
-
       ],
     },
   },
@@ -133,12 +135,12 @@ AUTH_PASSWORD_VALIDATORS = [
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 LANGUAGE_CODE = 'en'
 LANGUAGES = (
-    ("en" , _("English")),
-    ("az" , _("Azerbaijani")),
+  ("en", _("English")),
+  ("az", _("Azerbaijani")),
 )
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
+  os.path.join(BASE_DIR, 'locale'),
 ]
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -150,8 +152,7 @@ USE_TZ = True
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR , "media")
-
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -159,13 +160,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR , "media")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'baseuser.BaseUser'
 
-
-
-
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-    'social_core.backends.facebook.FacebookOAuth2',
+  'social_core.backends.google.GoogleOAuth2',
+  'django.contrib.auth.backends.ModelBackend',
+  'social_core.backends.facebook.FacebookOAuth2',
 )
 SOCIAL_AUTH_FACEBOOK_KEY = "1576388096164321"
 SOCIAL_AUTH_FACEBOOK_SECRET = "bd78bbcd0bb2e1fd6338e13572afe84b"
@@ -173,10 +171,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '377448027316-aghj6iuu8e90hi26qpb0v0o4l01ef9ho.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
-    ('name', 'name'),
-    ('email', 'email'),
-    ('picture', 'picture'),
-    ('link', 'profile_url'),
+  ('name', 'name'),
+  ('email', 'email'),
+  ('picture', 'picture'),
+  ('link', 'profile_url'),
 ]
 
 # LOGIN_URL = ''
@@ -187,8 +185,8 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
-    },
+  'default': {
+    'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+    'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+  },
 }

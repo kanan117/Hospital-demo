@@ -26,20 +26,16 @@ from django.conf import settings
 from django.urls import include, re_path
 
 urlpatterns = [
-path('', include('social_django.urls', namespace='social')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+  path('', include('social_django.urls', namespace='social')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-
-urlpatterns += i18n_patterns (
+urlpatterns += i18n_patterns(
   path('admin/', admin.site.urls),
   path('user/', include(baseuser_urlpatterns)),
-  path('raport/', include(raport_urlpatterns)),
+  path('report/', include(raport_urlpatterns)),
   path('', include(core_urls)),
   path('i18n/', include('django.conf.urls.i18n')),
-) 
+)
 
 if 'rosetta' in settings.INSTALLED_APPS:
-    urlpatterns += [
-        re_path('translation/', include('rosetta.urls'))
-    ]
+  urlpatterns += [re_path('translation/', include('rosetta.urls'))]

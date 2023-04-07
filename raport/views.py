@@ -1,44 +1,98 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from raport.models import AnalizRaport
 from raport.forms import AnalizRaportForm
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render
+from raport.models import AnalizRaport
+from core.models import Setting
+from django.core.paginator import Paginator
+from django.db.models import Max
 import random
 import os
-from django.contrib.auth.decorators import user_passes_test
 
 def rapor_detay(request, rapor_id):
-    rapor = get_object_or_404(AnalizRaport, id=rapor_id)
-    context = {'rapor': rapor}
-    return render(request, 'rapor_detay.html', context)
-
+  rapor = get_object_or_404(AnalizRaport, id=rapor_id)
+  context = {'rapor': rapor, 'setting': Setting.objects.first()}
+  return render(request, 'rapor_detay.html', context)
 
 
 def rapor_search(request):
-    if 'analiz_id' in request.GET and request.GET['analiz_id']:
-        try:
-            analiz_id = int(request.GET['analiz_id'])
-            rapor = AnalizRaport.objects.get(id=analiz_id)
-            return redirect('rapor_detay', rapor_id=rapor.id)
-        except (ValueError, AnalizRaport.DoesNotExist):
-            error_message = "Invalid report ID"
-            return render(request, 'rapor_search.html', {'error_message': error_message})
-    return render(request, 'rapor_search.html')
+
+  if 'analiz_id' in request.GET and request.GET['analiz_id']:
+    try:
+      analiz_id = int(request.GET['analiz_id'])
+      rapor = AnalizRaport.objects.get(id=analiz_id)
+      return redirect('rapor_detay', rapor_id=rapor.id)
+    except (ValueError, AnalizRaport.DoesNotExist):
+      error_message = "Invalid raport ID"
+      return render(request, 'rapor_search.html', {
+        'error_message': error_message,
+        'setting': Setting.objects.first()
+      })
+  return render(request, 'rapor_search.html',
+                {'setting': Setting.objects.first()})
+
+
+# Raport ID reqem+herflerden ibaret olmasi
+#errorlar sekil id si herflernden ibaret olmur nedense
+#raport_detail sehifesi error verecek sadece reqem daxil elemeye icaze verir
+# import string
+# import random
+
+# def generate_rapor_id():
+#     random_letters = ''.join(random.choices(string.ascii_letters, k=3))
+#     random_numbers = str(random.randint(100, 999))
+#     return f"{random_letters}{random_numbers}"
+
+#     rapor.id = generate_rapor_id() (bu kodu asagida random olan yere paste elemek lazidmi)
+
+
 
 
 @user_passes_test(lambda u: u.has_perm('raport.can_add_raport'))
 def rapor_add(request):
-    if request.method == "POST":
-        form = AnalizRaportForm(request.POST, request.FILES)
-        if form.is_valid():
-            rapor = form.save(commit=False)
-            rapor.id = random.randint(100000, 999999)
+  max_rapor_id = AnalizRaport.objects.aggregate(Max('id'))['id__max']
+  used_rapor_ids = set(AnalizRaport.objects.values_list('id', flat=True))
+  # id eyni olduqda yenisin yaradir
+  if request.method == "POST":
+    form = AnalizRaportForm(request.POST, request.FILES)
+    if form.is_valid():
+      rapor = form.save(commit=False)
+      while True:
+        rapor_id = random.randint(10000, 9999999)
+        if rapor_id not in used_rapor_ids:
+          break
+      rapor.id = rapor_id
 
-            # Dosya ismini rapor id ile aynı yap
-            dosya_adi, dosya_uzantisi = os.path.splitext(rapor.dosya.name)
-            rapor.dosya.name = f"{rapor.id}{dosya_uzantisi}"
-            rapor.save()
+      #file adi raport id ile eynilesdirilir
+      dosya_adi, dosya_uzantisi = os.path.splitext(rapor.dosya.name)
+      rapor.dosya.name = f"{rapor.id}{dosya_uzantisi}"
+      rapor.save()
 
-            return redirect('rapor_detay', rapor_id=rapor.id)
+      return redirect('rapor_detay', rapor_id=rapor.id)
+  else:
+    form = AnalizRaportForm()
+
+  return render(request, 'rapor_add.html', {
+    'form': form,
+    'setting': Setting.objects.first()
+  })
+
+
+@user_passes_test(lambda u: u.has_perm('raport.can_add_raport')) #admin pannelde analiz group
+def rapor_list(request):
+  raporlar = AnalizRaport.objects.all()
+
+  if 'search' in request.GET:
+    search_term = request.GET['search']
+    if search_term.isdigit():
+      raporlar = raporlar.filter(id=search_term)
     else:
-        form = AnalizRaportForm()
-    return render(request, 'rapor_add.html', {'form': form})
+      raporlar = raporlar.filter(name_surname__icontains=search_term)
 
+  paginator = Paginator(raporlar, 10)  # Show 10 raporlar per page
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
+  context = {'page_obj': page_obj, 'setting': Setting.objects.first()}
+  return render(request, 'rapor_list.html', context)

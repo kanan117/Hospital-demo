@@ -1,158 +1,135 @@
-
-{% extends  'base.html' %}
-
-{% load static %}
-
-{% load i18n %}
-{% block content %}     
-    <main>
-        <!-- Banner Section  -->
-        <div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-12">
-                        <div class="breadcrumbs">
-                            <nav aria-label="breadcrumb text-center">
-                                <h2 class="text-white">Conatct</h2>
-                                <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="{% url 'index_2' %}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Banner Section  -->
-
-        <!-- Counter Section  -->
-        <section class="counter-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="500">
-                            <div class="counter-item">
-                                <h2 class="counter counter-number">125+</h2>
-                                <span class="counter-text">Expert Doctors</span>
-                            </div>
-                            <div class="counter-item">
-                                <h2 class="counter counter-number">275+</h2>
-                                <span class="counter-text">Total Medical Stuff</span>
-                            </div>
-                            <div class="counter-item">
-                                <h2 class="counter counter-number">462k</h2>
-                                <span class="counter-text">Online Appointments</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Counter Section  -->
-
-        <!-- Contact Section  -->
-        <section class="contact-area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="section-title text-center text-lg-start" data-cues="slideInLeft" data-delay="500">
-                            <h2 class="title">Our Office Inforamtion</h2>
-                            <p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration
-                                some form, by injected humour, or randomized.</p>
-                        </div>
-                        <div class="contact-left-content">
-                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h3>Email Address:</h3>
-                                </div>
-                                <hr>
-                                <div class="contact-content">
-                                    <p>{{setting.e_mail}}</p>
-                                </div>
-                            </div>
-                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h3>Phone Number:</h3>
-                                </div>
-                                <hr>
-                                <div class="contact-content">
-                                    <p>{{setting.number1}}
-                                    </p>
-                                    <p>{{setting.number1}}</p>
-                                </div>
-                            </div>
-                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h3>Our Location:</h3>
-                                </div>
-                                <hr>
-                                <div class="contact-content">
-                                    <p>{{setting.address1}}
-                                    </p>
-                                    <p>{{setting.address2}}</p>
-                                </div>
-                            </div>
-                            <div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
-                                <div class="contact-icon">
-                                    <i class="fas fa-history"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h3>Open Hour:</h3>
-                                </div>
-                                <hr>
-                                <div class="contact-content">
-                                    <p>08:00 am to 10:00 pm
-                                    </p>
-                                    <p>Sunday to Thursday</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <form method="post" action="#">
-                        <div class="section-title text-center text-lg-start mt-5 mt-lg-0" data-cues="slideInRight"
-                            data-delay="500">
-                            {% csrf_token %}
-                            {% for field in contact %} 
-                            <div class="form-group">
-                            {{ field }}
-                            </div>
-                            {% endfor %}
-                            <h2 class="title">Contact for Any Inquiry</h2>
-                            <p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration
-                                form, by injected humour, or randomised words.</p>
-                        </div>
-
-                                    <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Get
-                                        Appointment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section  -->
-
-        <!-- Map Area -->
-        <div class="map-area overflow-hidden">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830843218!2d-74.11976411191142!3d40.69766374883451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1639760821808!5m2!1sen!2sbd"
-                width="1920" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <!-- Map Area -->
-    </main>
-
-
+{% extends  'base.html' %} {% load static %} {% load i18n %} {% block content %} <main>
+	<!-- Banner Section  -->
+	<div class="banner-area inner-banner" style="background-image: url('assets/img/bg/bg2.png');">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-12">
+					<div class="breadcrumbs">
+						<nav aria-label="breadcrumb text-center">
+							<h2 class="text-white">Conatct</h2>
+							<ol class="breadcrumb justify-content-center">
+								<li class="breadcrumb-item">
+									<a href="{% url 'index_2' %}">Home</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Contact</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Banner Section  -->
+	<!-- Counter Section  -->
+	<section class="counter-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="500">
+						<div class="counter-item">
+							<h2 class="counter counter-number">125+</h2>
+							<span class="counter-text">Expert Doctors</span>
+						</div>
+						<div class="counter-item">
+							<h2 class="counter counter-number">275+</h2>
+							<span class="counter-text">Total Medical Stuff</span>
+						</div>
+						<div class="counter-item">
+							<h2 class="counter counter-number">462k</h2>
+							<span class="counter-text">Online Appointments</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Counter Section  -->
+	<!-- Contact Section  -->
+	<section class="contact-area section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="section-title text-center text-lg-start" data-cues="slideInLeft" data-delay="500">
+						<h2 class="title">Our Office Inforamtion</h2>
+						<p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration some form, by injected humour, or randomized.</p>
+					</div>
+					<div class="contact-left-content">
+						<div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+							<div class="contact-icon">
+								<i class="fas fa-envelope"></i>
+							</div>
+							<div class="contact-text">
+								<h3>Email Address:</h3>
+							</div>
+							<hr>
+							<div class="contact-content">
+								<p>{{setting.e_mail}}</p>
+							</div>
+						</div>
+						<div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+							<div class="contact-icon">
+								<i class="fas fa-phone-alt"></i>
+							</div>
+							<div class="contact-text">
+								<h3>Phone Number:</h3>
+							</div>
+							<hr>
+							<div class="contact-content">
+								<p>{{setting.number1}}
+								</p>
+								<p>{{setting.number1}}</p>
+							</div>
+						</div>
+						<div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+							<div class="contact-icon">
+								<i class="fas fa-map-marker-alt"></i>
+							</div>
+							<div class="contact-text">
+								<h3>Our Location:</h3>
+							</div>
+							<hr>
+							<div class="contact-content">
+								<p>{{setting.address1}}
+								</p>
+								<p>{{setting.address2}}</p>
+							</div>
+						</div>
+						<div class="contact-item contact-item-2" data-cue="slideInLeft" data-delay="500">
+							<div class="contact-icon">
+								<i class="fas fa-history"></i>
+							</div>
+							<div class="contact-text">
+								<h3>Open Hour:</h3>
+							</div>
+							<hr>
+							<div class="contact-content">
+								<p>08:00 am to 10:00 pm </p>
+								<p>Sunday to Thursday</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<form method="post" action="#">
+						<div class="section-title text-center text-lg-start mt-5 mt-lg-0" data-cues="slideInRight" data-delay="500"> {% csrf_token %} {% for field in contact %} <div class="form-group">
+								{{ field }}
+							</div> {% endfor %} <h2 class="title">Contact for Any Inquiry</h2>
+							<p class="pt-4">Lorem Ipsum available, but the majority have suffered alteration form, by injected humour, or randomised words.</p>
+						</div>
+						<button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Get Appointment</button>
+				</div>
+			</div>
+			</form>
+		</div>
+		</div>
+		</div>
+	</section>
+	<!-- Contact Section  -->
+	<!-- Map Area -->
+	<div class="map-area overflow-hidden">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830843218!2d-74.11976411191142!3d40.69766374883451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1639760821808!5m2!1sen!2sbd" width="1920" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	</div>
+	<!-- Map Area -->
+</main>
 <!-- Mirrored from themecrazy.net/html/mediclinis/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Dec 2022 09:23:48 GMT -->
-</html>
-{% endblock %}
+</html> {% endblock %}

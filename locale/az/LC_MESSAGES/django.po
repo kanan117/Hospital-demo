@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-01 12:08+0000\n"
+"POT-Creation-Date: 2023-04-06 02:15+0400\n"
 "PO-Revision-Date: 2023-04-03 19:23+0000\n"
 "Last-Translator:   <admin@admin.admin>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,122 +19,227 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: KNN/settings.py:127
+#: KNN/settings.py:138
 msgid "English"
 msgstr "İngiliscə"
 
-#: KNN/settings.py:128
+#: KNN/settings.py:139
 msgid "Azerbaijani"
 msgstr "Azərbaycanca"
 
-#: core/models.py:29
-msgid "creator"
-msgstr "Yaradıcı"
+#: baseuser/forms.py:122
+msgid "Please enter only alphabets for your first name"
+msgstr ""
 
-#: core/models.py:38
+#: baseuser/forms.py:127
+msgid "First Name"
+msgstr ""
+
+#: baseuser/forms.py:135
+msgid "Please enter only alphabets for your last name"
+msgstr ""
+
+#: baseuser/forms.py:140
+msgid "Last Name"
+msgstr "Soyad"
+
+#: baseuser/forms.py:147
+msgid "Email Address"
+msgstr ""
+
+#: baseuser/forms.py:160
+msgid "Phone Number"
+msgstr "Telefon Nomresi"
+
+#: baseuser/forms.py:167
+#, fuzzy
+#| msgid "Position"
+msgid "Location"
+msgstr "Vəzifə"
+
+#: baseuser/forms.py:176
+msgid "New Password"
+msgstr ""
+
+#: baseuser/forms.py:180
+msgid "Optional. Enter a strong password with at least 8 characters."
+msgstr ""
+
+#: baseuser/forms.py:185
+msgid ""
+"Password must contain at least 8 characters with at least one uppercase "
+"letter, one lowercase letter, and one digit."
+msgstr ""
+
+#: baseuser/forms.py:196
+msgid "Confirm Password"
+msgstr ""
+
+#: baseuser/forms.py:199
+msgid "Optional. Re-enter the password to confirm."
+msgstr ""
+
+#: baseuser/forms.py:215 baseuser/forms.py:218
+msgid "This field is required."
+msgstr ""
+
+#: baseuser/forms.py:222
+msgid "Passwords do not match. Please try again."
+msgstr ""
+
+#: baseuser/templates/profile_edit.html:20
+msgid "Delete account"
+msgstr ""
+
+#: baseuser/views.py:111
+msgid "Password"
+msgstr ""
+
+#: core/models.py:54
 msgid "Setting"
 msgstr "Tənzimləmə"
 
-#: core/models.py:39
+#: core/models.py:55
 msgid "Settings"
 msgstr "Tənzimləmələr"
 
-#: core/models.py:53 core/models.py:54
+#: core/models.py:71 core/models.py:72
 msgid "News"
 msgstr "Xəbərlər"
 
-#: core/models.py:63
+#: core/models.py:82
 msgid "Category"
 msgstr "Kateqoriyalar"
 
-#: core/models.py:75
+#: core/models.py:98
 msgid "Comment"
 msgstr "Şərh"
 
-#: core/models.py:84
+#: core/models.py:108
 msgid "Tag"
 msgstr "Etiket"
 
-#: core/models.py:94
+#: core/models.py:119
 msgid "NewsTag"
 msgstr "Xəbər etiketi"
 
-#: core/models.py:104
+#: core/models.py:131 core/models.py:132
 msgid "Page"
 msgstr "Səhifə"
 
-#: core/models.py:105
-msgid "Pages"
-msgstr "Səhifələr"
-
-#: core/models.py:119
+#: core/models.py:146
 msgid "Story"
 msgstr "Hekayə"
 
-#: core/models.py:120
+#: core/models.py:147
 msgid "Stories"
 msgstr "Hekayələr"
 
-#: core/models.py:145 core/templates/partials/_navbar.html:55
-msgid "Blog"
-msgstr "Blog"
-
-#: core/models.py:146
-msgid "Blogs"
-msgstr "Bloglar"
-
-#: core/models.py:159 core/templates/partials/_navbar.html:59
+#: core/models.py:187 core/templates/partials/_navbar.html:61
 msgid "Contact"
 msgstr "Əlaqə"
 
-#: core/models.py:160
+#: core/models.py:188
 msgid "Contacts"
 msgstr "Əlaqələr"
 
-#: core/models.py:170
+#: core/models.py:198
 msgid "Position"
 msgstr "Vəzifə"
 
-#: core/models.py:171
+#: core/models.py:199
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:201
+#: core/models.py:231
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:202 core/templates/partials/_navbar.html:52
+#: core/models.py:232 core/templates/partials/_navbar.html:54
 msgid "Doctors"
 msgstr "Həkimlər"
 
-#: core/templates/partials/_navbar.html:39
+#: core/templates/base_site.html:1
+msgid "Django site admin"
+msgstr ""
+
+#: core/templates/base_site.html:2
+msgid "Django administration"
+msgstr ""
+
+#: core/templates/partials/_navbar.html:37
 msgid "Home"
 msgstr "Əsas səhifə"
 
-#: core/templates/partials/_navbar.html:42
+#: core/templates/partials/_navbar.html:40
 msgid "About"
 msgstr "Haqqımızda"
 
-#: core/templates/partials/_navbar.html:47
-msgid "Service Page"
-msgstr "Xidmət səhifəsi"
+#: core/templates/partials/_navbar.html:43
+msgid "Raport"
+msgstr "Online Neticeler"
+
+#: core/templates/partials/_navbar.html:46
+msgid "Search Raport"
+msgstr "Netice Axtarmaq"
 
 #: core/templates/partials/_navbar.html:48
-msgid "Service Details"
-msgstr "Xidmət məlumatları"
+msgid "Add Raport"
+msgstr "Netice Elave Etmek"
+
+#: core/templates/partials/_navbar.html:49
+msgid "Raport LIst"
+msgstr "Netice Melumatlari"
+
+#: core/templates/partials/_navbar.html:57
+msgid "Blog"
+msgstr "Blog"
 
 #: core/templates/partials/_navbar.html:65
 msgid "Account"
 msgstr "Hesab"
 
-#: core/templates/partials/_navbar.html:70
+#: core/templates/partials/_navbar.html:68
 msgid "Logout"
 msgstr "Çıxış"
 
-#: core/templates/partials/_navbar.html:85
+#: core/templates/partials/_navbar.html:69
+msgid "Profile"
+msgstr ""
+
+#: core/templates/partials/_navbar.html:76
 msgid "Login"
 msgstr "Daxil ol"
 
-#: core/templates/partials/_navbar.html:86
+#: core/templates/partials/_navbar.html:77
 msgid "Register"
 msgstr "Qeydiyyat"
+
+#: raport/templates/rapor_list.html:4
+#, fuzzy
+#| msgid "Search Raport"
+msgid "Search & Clear"
+msgstr "Netice Axtarmaq"
+
+#: raport/templates/rapor_list.html:15
+msgid "No results found. Please enter another search term."
+msgstr "Nəticə tapılmadı. Xahiş edirik başqa bir axtarış termini daxil edin."
+
+#: raport/validate.py:11
+msgid "Unsupported file extension. Only {} are supported."
+msgstr "Dəstəklənməyən fayl uzantısı. Yalnız {} dəstəklənir."
+
+#~ msgid "creator"
+#~ msgstr "Yaradıcı"
+
+#~ msgid "Pages"
+#~ msgstr "Səhifələr"
+
+#~ msgid "Blogs"
+#~ msgstr "Bloglar"
+
+#~ msgid "Service Page"
+#~ msgstr "Xidmət səhifəsi"
+
+#~ msgid "Service Details"
+#~ msgstr "Xidmət məlumatları"

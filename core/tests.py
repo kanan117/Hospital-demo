@@ -1,12 +1,12 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import Blog
+from .models import Blogs
 
 
-class BlogTests(TestCase):
+class BlogsTests(TestCase):
 
   def setUp(self):
-    self.blog = Blog.objects.create(
+    self.blog = Blogs.objects.create(
       title='Test Blog',
       author='Test Author',
       description='This is a test blog description')

@@ -33,4 +33,3 @@ class ContactForm(forms.ModelForm):
         'placeholder': 'Message'
       })
     }
-

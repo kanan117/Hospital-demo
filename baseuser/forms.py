@@ -1,11 +1,15 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core import validators
 from django.core.exceptions import ValidationError
 from django.forms.widgets import SelectDateWidget
-from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import RegexValidator
+from django.utils.translation import gettext_lazy as _
+from phonenumber_field.formfields import PhoneNumberField
 from .models import BaseUser
+from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password
 
 
 #registration form
@@ -37,9 +41,6 @@ class BaseUserForm(UserCreationForm):
         'title': 'Only alphabetical characters are allowed.'
       }))
 
-  date_of_birth = forms.DateField(
-    required=True, widget=SelectDateWidget(years=range(1955, 2023)))
-
   password1 = forms.CharField(
     strip=False,
     widget=forms.PasswordInput(attrs={
@@ -66,7 +67,7 @@ class BaseUserForm(UserCreationForm):
       'last_name',
       'password1',
       'password2',
-      'date_of_birth',
+      # 'date_of_birth',
     ]
     widgets = {
       'username':
@@ -109,85 +110,115 @@ class LoginForm(AuthenticationForm):
     }))
 
 
-#update user area
+BaseUser = get_user_model()
 
-# class UserUpdateForm(forms.ModelForm):
-#   email = forms.EmailField(widget=forms.EmailInput(attrs={
-#     'class': 'form-control',
-#     'placeholder': 'Email'
-#   }))
 
-#   first_name = forms.CharField(
-#     max_length=20,
-#     widget=forms.TextInput(
-#       attrs={
-#         'class': 'form-control',
-#         'placeholder': 'First Name',
-#         'pattern': '[A-Za-z]+',
-#         'title': 'Only alphabetical characters are allowed.'
-#       }))
+class BaseUserUpdateForm(forms.ModelForm):
+  first_name = forms.CharField(
+    label=(''),
+    validators=[
+      RegexValidator(
+        regex=r'^[a-zA-Z]+$',
+        message=_('Please enter only alphabets for your first name'),
+        code='invalid_first_name')
+    ],
+    widget=forms.TextInput(attrs={
+      'class': 'form-control',
+      'placeholder': _('First Name')
+    }))
 
-#   last_name = forms.CharField(
-#     max_length=20,
-#     widget=forms.TextInput(
-#       attrs={
-#         'class': 'form-control',
-#         'placeholder': 'Last Name',
-#         'pattern': '[A-Za-z]+',
-#         'title': 'Only alphabetical characters are allowed.'
-#       }))
+  last_name = forms.CharField(
+    label=(''),
+    validators=[
+      RegexValidator(
+        regex=r'^[a-zA-Z]+$',
+        message=_('Please enter only alphabets for your last name'),
+        code='invalid_last_name')
+    ],
+    widget=forms.TextInput(attrs={
+      'class': 'form-control',
+      'placeholder': _('Last Name')
+    }))
 
-#   phone_number = forms.CharField(
-#     max_length=13,
-#     widget=forms.TextInput(
-#       attrs={
-#         'class': 'form-control',
-#         'placeholder': 'Phone Number',
-#         'pattern': '\d*',
-#         'title': 'Enter a valid phone number with only numeric digits, up to 13 characters.'
-#       }),
-#     required=False)
+  email = forms.EmailField(
+    label=(''),
+    widget=forms.EmailInput(attrs={
+      'class': 'form-control',
+      'placeholder': _('Email Address')
+    }))
 
-#   password = forms.CharField(
-#     widget=forms.PasswordInput(
-#       attrs={
-#         'class': 'form-control',
-#         'placeholder': 'Password',
-#         'title': 'Password must be at least 8 characters long and start with a capital letter.'
-#       }),
-#     required=False,
-#     validators=[
-#       validators.MinLengthValidator(8, message="Password must be at least 8 characters long."),
-#       validators.RegexValidator(
-#         regex=r'[A-Z].*',
-#         message="Password must start with a capital letter.",
-#       ),
-#     ])
+  date_of_birth = forms.DateField(label=(''),
+                                  widget=forms.DateInput(attrs={
+                                    'class': 'form-control',
+                                    'type': 'date'
+                                  }))
 
-#   confirm_password = forms.CharField(
-#     widget=forms.PasswordInput(
-#       attrs={
-#         'class': 'form-control',
-#         'placeholder': 'Confirm Password',
-#         'title': 'Please confirm your password.',
-#       }),
-#     required=False)
+  phone_number = PhoneNumberField(
+    label=(''),
+    widget=forms.TextInput(attrs={
+      'class': 'form-control',
+      'placeholder': _('Phone Number')
+    }))
 
-#   def clean(self):
-#     cleaned_data = super().clean()
-#     password = cleaned_data.get('password')
-#     confirm_password = cleaned_data.get('confirm_password')
+  location = forms.CharField(
+    label=(''),
+    widget=forms.TextInput(attrs={
+      'class': 'form-control',
+      'placeholder': _('Location')
+    }))
 
-#     if password and confirm_password and password != confirm_password:
-#       raise forms.ValidationError("Passwords do not match.")
+  password = forms.CharField(
+    label=(''),
+    widget=forms.PasswordInput(
+      attrs={
+        'autocomplete': 'new-password',
+        'class': 'form-control',
+        'placeholder': _('New Password')
+      }),
+    required=False,
+    help_text=_(
+      'Optional. Enter a strong password with at least 8 characters.'),
+    validators=[
+      RegexValidator(
+        regex=r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$',
+        message=_(
+          'Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, and one digit.'
+        ),
+        code='invalid_password')
+    ])
 
-#     return cleaned_data
+  password_confirmation = forms.CharField(
+    label=(''),
+    widget=forms.PasswordInput(
+      attrs={
+        'autocomplete': 'new-password',
+        'class': 'form-control',
+        'placeholder': _('Confirm Password')
+      }),
+    required=False,
+    help_text=_('Optional. Re-enter the password to confirm.'),
+  )
 
-#   class Meta:
-#     model = BaseUser
-#     fields = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'confirm_password']
+  class Meta:
+    model = BaseUser
+    fields = [
+      'first_name', 'last_name', 'email', 'date_of_birth', 'phone_number',
+      'location'
+    ]
 
-# class ProfileUpdateForm(forms.ModelForm):
-#   class Meta:
-#     model = BaseUser
-#     fields = []
+  def clean(self):
+    cleaned_data = super().clean()
+    password = cleaned_data.get('password')
+    password_confirmation = cleaned_data.get('password_confirmation')
+
+    if password and not password_confirmation:
+      self.add_error('password_confirmation', _('This field is required.'))
+
+    if password_confirmation and not password:
+      self.add_error('password', _('This field is required.'))
+
+    if password and password_confirmation and password != password_confirmation:
+      raise forms.ValidationError(
+        _('Passwords do not match. Please try again.'))
+
+    return cleaned_data

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <h3>Delete Account</h3>
+  <p>Are you sure you want to delete your account?</p>
+  <form method="post">
+    {% csrf_token %}
+    <label for="password">Enter your password:</label>
+    <input type="password" id="password" name="password"><br>
+    <label for="confirm_delete">I confirm that I want to delete my account:</label>
+    <input type="checkbox" id="confirm_delete" name="confirm_delete" value="yes"><br>
+    <button type="submit">Delete Account</button>
+    {% if form.errors %}
+      <p class="error">{{ form.errors }}</p>
+    {% endif %}
+  </form>
+{% endblock %}
