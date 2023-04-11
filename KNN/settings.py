@@ -25,9 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rh87(0_ed1^!%slec7ug!eafc)l_c6yeg*e6&gp&5h@nl@s8t2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# settings.py
 DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = []
+# # Error handlers
+# handler404 = 'path.to.your.views.error'
+
+
 
 # Application definition
 
@@ -46,6 +51,8 @@ INSTALLED_APPS = [
   'social_django',
   'baseuser.apps.BaseuserConfig',
   'rosetta',
+  'rest_framework',
+  'django_celery_beat',
 ]
 SITE_ID = 1
 
@@ -62,12 +69,22 @@ MIDDLEWARE = [
 ]
 SESSION_COOKIE_AGE = 100000
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.mail.yahoo.com'
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Baku'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kenansdq@gmail.com'
+EMAIL_HOST_PASSWORD = 'qfmctsymrvcrlgcq'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'k.karimli@yahoo.com'
-EMAIL_HOST_PASSWORD = 'Kk123456789kk'
+
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 

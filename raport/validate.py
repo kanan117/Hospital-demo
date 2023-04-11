@@ -3,7 +3,7 @@ from django import forms
 import os
 
 
-def validate_file_extension(value):
+def validate_KNN(value):
   ext = os.path.splitext(value.name)[1]
   valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.pdf']
   if not ext.lower() in valid_extensions:

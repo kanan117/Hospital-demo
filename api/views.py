@@ -2,8 +2,9 @@
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from api.serializers import ContactSerializer
-from core.models import Contact
+from api.serializers import ContactSerializer ,SubscriberSerializer
+from core.models import Contact ,Subscriber
+from rest_framework import status
 
 
 class ContactViewSet(APIView):
@@ -43,4 +44,13 @@ class ContactDetailViewSet(APIView):
         Contact = Contact.objects.filter(id=id).first()
         Contact.delete()
         return Response('deleted')
-    
+from rest_framework.response import Response
+
+class SubscriberAPIview(APIView):
+
+    def post(self, request ,*args , **kwargs):
+        serializer = SubscriberSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.validated_data , status=status.HTTP_201_CREATED)
+        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)

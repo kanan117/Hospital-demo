@@ -1,5 +1,5 @@
 from core.views import base
-from core import views
+from core import views ,tasks
 from django.urls import path
 from django.conf.urls import handler403
 from . import views
@@ -25,7 +25,7 @@ from core.views import (
 )
 from django.urls import path
 
-handler403 = 'myapp.views.my_custom_permission_denied_view'
+handler404 = 'myapp.views.my_custom_permission_denied_view'
 
 urlpatterns = [
   path('', home, name='home'),
@@ -45,4 +45,5 @@ urlpatterns = [
   path('service-details/', service_details, name='service_details'),
   path('service/', service, name='service'),
   path('services/', services, name='services'),
+  path('send_email/', views.send_email, name='send_email'),
 ]

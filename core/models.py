@@ -230,3 +230,10 @@ class Doctors(models.Model):
   class Meta:
     verbose_name = _("Doctor")
     verbose_name_plural = _("Doctors")
+
+class Subscriber(Basemodel):
+  email = models.EmailField()
+  is_active = models.BooleanField(default=True)
+
+  def __str__(self) :
+    return self.email

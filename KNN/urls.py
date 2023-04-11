@@ -14,19 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from core.urls import urlpatterns as core_urls
-from django.conf import settings
-from django.conf.urls.static import static
 from baseuser.urls import urlpatterns as baseuser_urlpatterns
+from api.urls import urlpatterns as api_urlpatterns
 from raport.urls import urlpatterns as raport_urlpatterns
-from django.conf.urls.i18n import i18n_patterns
-from django.conf import settings
-from django.urls import include, re_path
 
 urlpatterns = [
-  path('', include('social_django.urls', namespace='social')),
+    path('api/', include((api_urlpatterns))),
+    path('', include('social_django.urls', namespace='social')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
@@ -38,4 +37,5 @@ urlpatterns += i18n_patterns(
 )
 
 if 'rosetta' in settings.INSTALLED_APPS:
-  urlpatterns += [re_path('translation/', include('rosetta.urls'))]
+  urlpatterns += [re_path('translate/', include('rosetta.urls')) ]
+

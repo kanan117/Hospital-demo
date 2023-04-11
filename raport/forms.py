@@ -1,7 +1,7 @@
 from django.utils.translation import gettext as _
 from django import forms
 from raport.models import AnalizRaport
-from .validate import validate_file_extension
+from .validate import validate_KNN
 
 
 class AnalizRaportForm(forms.ModelForm):
@@ -21,7 +21,7 @@ class AnalizRaportForm(forms.ModelForm):
       'multiple': True,
       'class': 'form-control-file'
     }),
-    validators=[validate_file_extension])
+    validators=[validate_KNN])
 
   class Meta:
     model = AnalizRaport

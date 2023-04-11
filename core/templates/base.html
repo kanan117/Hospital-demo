@@ -20,7 +20,10 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %} "> {% block extrahead %}
 	<link href="{% static 'css/dark.css' %} " type="text/css" media="(prefers-color-scheme: dark)" rel="stylesheet"> {% endblock %}
 </head>
-<body> {% include "partials/_navbar.html" %} {% block content %} {% endblock %} {% include "partials/_footer.html" %} <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<body> {% include "partials/_navbar.html" %} 
+	{% block content %} 
+	{% endblock %}
+	 {% include "partials/_footer.html" %} <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script src="{% static 'js/app.js' %}"></script>
 	<script src="{% static 'js/jquery-3.6.0.min.js' %} "></script>
 	<script src="{% static 'js/modernizr-3.11.2.min.js' %} "></script>

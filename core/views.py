@@ -7,10 +7,20 @@ from django.views.generic import ListView
 from .models import Blogs, Doctors, Setting
 from core.forms import ContactForm
 import random
+from django.shortcuts import render
+from django.shortcuts import render
+from django.core.mail import send_mail
 
 
-def my_custom_permission_denied_view(request, exception=None):
-  return render(request, 'error.html', {})
+from django.core.mail import EmailMultiAlternatives, send_mail
+from django.shortcuts import render
+from django.conf import settings
+from .models import Subscriber
+from baseuser.models import BaseUser
+from django.db.models import Q
+from celery import shared_task
+from django.contrib.auth.decorators import user_passes_test
+
 
 
 # Create your views here.
@@ -203,3 +213,56 @@ def search_doctors(request):
     'setting': Setting.objects.first()
   }
   return render(request, 'search_doctors.html', context)
+
+
+
+from django.core.mail import send_mail
+from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.db.models import Q
+from .models import Subscriber, Setting
+
+
+@shared_task
+def send_mail_to_subscribers():
+    subscribers = Subscriber.objects.filter(is_active=True)
+    subscriber_emails = subscribers.values_list('email', flat=True)
+    return subscriber_emails
+
+def send_email(request):
+    setting = Setting.objects.first() # get the setting object
+
+    if request.method == 'POST':
+        recipient_list = []
+        to_subscribers = request.POST.get('to_subscribers')
+        to_baseusers = request.POST.get('to_baseusers')
+        subject = request.POST['subject']
+        message = request.POST['message']
+        sender = 'your-email@example.com'
+
+        if 'recipient_list[]' in request.POST:
+            recipient_list = request.POST.getlist('recipient_list[]')
+
+        if to_subscribers:
+            subscriber_emails = send_mail_to_subscribers()
+            recipient_list += list(subscriber_emails)
+
+        if to_baseusers:
+            baseuser_emails = BaseUser.objects.filter(Q(is_active=True) & Q(email__isnull=False)).values_list('email', flat=True)
+            recipient_list += list(baseuser_emails)
+
+        recipient_list = list(set(recipient_list)) # remove duplicates
+
+        send_mail(
+            subject,
+            message,
+            sender,
+            recipient_list,
+            fail_silently=False,
+            
+        )
+
+        context = {'message': 'Email has been sent successfully!', 'setting': setting}
+        return render(request, 'email_sent.html', context)
+
+    return render(request, 'send_email.html', {'setting': setting})

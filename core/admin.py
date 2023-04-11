@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Setting, Doctors, Positions, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
+from core.models import Setting, Doctors, Positions,Subscriber, News, Category, Comment, Tag, NewsTag, Page, Story, Blogs, Contact
 from modeltranslation.admin import TranslationAdmin
 
 # Register your models here.
@@ -15,7 +15,13 @@ admin.site.register(NewsTag)
 admin.site.register(Page)
 admin.site.register(Story)
 
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+  list_display = ['email', 'created_at']
+  list_filter = ['email', 'created_at']
+  search_fields = ['email', 'created_at']
 
+  
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
   list_display = ['name', 'created_at']
@@ -50,3 +56,5 @@ class DoctorAdmin(TranslationAdmin):
   list_display = ('name', 'age', 'number', 'is_published', 'email',
                   'positions')
   list_editable = ('is_published', )
+
+
