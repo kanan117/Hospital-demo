@@ -4,22 +4,15 @@ from django.contrib import messages
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.views.generic import ListView
-from .models import Blogs, Doctors, Setting
+from .models import Blogs, Doctors, Setting, Subscriber
 from core.forms import ContactForm
-import random
-from django.shortcuts import render
-from django.shortcuts import render
-from django.core.mail import send_mail
-
-
-from django.core.mail import EmailMultiAlternatives, send_mail
-from django.shortcuts import render
-from django.conf import settings
-from .models import Subscriber
-from baseuser.models import BaseUser
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template.loader import render_to_string
 from django.db.models import Q
+from baseuser.models import BaseUser
 from celery import shared_task
 from django.contrib.auth.decorators import user_passes_test
+from django.conf import settings
 
 
 
@@ -214,15 +207,7 @@ def search_doctors(request):
   }
   return render(request, 'search_doctors.html', context)
 
-
-
-from django.core.mail import send_mail
-from django.shortcuts import render
-from django.template.loader import render_to_string
-from django.db.models import Q
-from .models import Subscriber, Setting
-
-
+# @user_passes_test(lambda u: u.has_perm('Subscriber.can_send_email'))
 @shared_task
 def send_mail_to_subscribers():
     subscribers = Subscriber.objects.filter(is_active=True)
