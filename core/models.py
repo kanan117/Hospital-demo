@@ -226,7 +226,7 @@ class Doctors(models.Model):
 
   def get_absolute_url(self):
     return reverse('doctor_detail', args=[str(self.slug)])
-
+  
   class Meta:
     verbose_name = _("Doctor")
     verbose_name_plural = _("Doctors")
