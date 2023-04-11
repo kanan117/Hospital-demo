@@ -36,6 +36,9 @@
 								<li class="nav-item">
 									<a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
 								</li>
+								<li> {% if perms.Subscriber.can_send_email %} </li class="nav-item">
+									<a class="nav-link" href="{% url 'send_email' %}">{% trans 'Email' %}</a>
+								</li> {% endif %}
 								<li class="nav-item">
 									<a class="nav-link" href="{% url 'about' %}">{% trans 'About' %}</a>
 								</li>
@@ -71,7 +74,7 @@
 								</li>
 								<li class="nav-item"> {% csrf_token %} </form>
 								</li> {% else %} <li class="nav-item menu-dropdown black-text">
-									<a class="nav-link">Account</a>
+									<a class="nav-link">{% trans 'Account' %}</a>
 									<ul class="sub-menu black-text">
 										<a class="nav-link" href="{% url 'login' %}" style="color:black;">{% trans 'Login' %}</a>
 										<a class="nav-link" href="{% url 'register' %}" style="color:black;">{% trans 'Register' %}</a>

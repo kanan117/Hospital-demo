@@ -238,5 +238,5 @@ class Subscriber(Basemodel):
   def __str__(self) :
     return self.email
   
-  # class Meta:
-  #   permissions = (('can_send_email', 'Can Send Emails'), )
+  class Meta:
+     permissions = (('can_send_email', 'Can Send Emails'), )

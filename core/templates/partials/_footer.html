@@ -1,10 +1,57 @@
 {% load static %} {% load i18n %}      
+<form action="#" >
+	<div class="input-group">
+		<label for="email"></label>
+		<input id="email-input" type="email" class="form-control" placeholder="{% trans 'Enter your email' %}" required aria-label="Recipient's username" aria-describedby="button-addon2">
+		<button id="subscribe-btn" class="btn btn-primary btn-xl" type="submit">{% trans 'Subscribe Now' %}</button> 
+	</div>
+</form>
+<script>
+	const subscriberLogic = {
+		emailManager(email) {
+			fetch('/api/subscriber/', {
+				method: 'POST',
+				credentials: 'include',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': '{{ csrf_token }}'
+				},
+				body: JSON.stringify({
+					'email': email,
+				})
+			})
+				.then(response => response.json())
+				.then(data => {
+					console.log('Data:', data);
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		}
+	}
+
+	const subscribeButton = document.getElementById('subscribe-btn');
+	const emailInput = document.getElementById('email-input');
+
+	subscribeButton.onclick = function (e) {
+		e.preventDefault();
+		const email = emailInput.value;
+		subscriberLogic.emailManager(email);
+		emailInput.value = '';
+	}
+
+</script>
+
 <footer class="footer-area">
+	
 	<div class="container">
+		
 		<div class="footer-client-logo">
 			<div class="row">
+				
 				<div class="col-12">
 					<div class="swiper client-slider-active">
+						
 						<div class="swiper-wrapper client-logo-list">
 							<div class="swiper-slide">
 								<img src="{% static 'img/client/client.png' %}" alt="Client Logo">

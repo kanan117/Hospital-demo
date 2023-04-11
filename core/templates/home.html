@@ -40,55 +40,6 @@
 				</div>
 			</div>
 		</div>
-		<form action="#" class="card-content" >
-			<div class="container">
-				<div class="image">
-					<i class="fas fa-envelope"></i>
-				</div>
-				<h1>Subscribe</h1>
-				<p>Subscribe to our newsletter and stay updated.</p>
-			</div>
-			<div class="form-input">
-				<label for="email">Email:</label>
-				<input id="email-input" type="email" placeholder="Your Email" required>
-				<button id="subscribe-btn" class="subscribe-btn">Subscribe</button>
-			</div>
-		</form>
-		<script>
-			const subscriberLogic = {
-				emailManager(email) {
-					fetch('/api/subscriber/', {
-						method: 'POST',
-						credentials: 'include',
-						headers: {
-							'Content-Type': 'application/json',
-							'X-CSRFToken': '{{ csrf_token }}'
-						},
-						body: JSON.stringify({
-							'email': email,
-						})
-					})
-						.then(response => response.json())
-						.then(data => {
-							console.log('Data:', data);
-						})
-						.catch(error => {
-							console.error('Error:', error);
-						});
-				}
-			}
-		
-			const subscribeButton = document.getElementById('subscribe-btn');
-			const emailInput = document.getElementById('email-input');
-		
-			subscribeButton.onclick = function (e) {
-				e.preventDefault();
-				const email = emailInput.value;
-				subscriberLogic.emailManager(email);
-				emailInput.value = '';
-			}
-		
-		</script>
 		 
 		<div class="col-md-6">
 			<div class="banner-right-content">

@@ -16,6 +16,7 @@ from django.conf import settings
 
 
 
+
 # Create your views here.
 def home(request):
   context = {'setting': Setting.objects.first()}
@@ -207,13 +208,15 @@ def search_doctors(request):
   }
   return render(request, 'search_doctors.html', context)
 
-# @user_passes_test(lambda u: u.has_perm('Subscriber.can_send_email'))
+
 @shared_task
 def send_mail_to_subscribers():
     subscribers = Subscriber.objects.filter(is_active=True)
     subscriber_emails = subscribers.values_list('email', flat=True)
     return subscriber_emails
 
+
+@user_passes_test(lambda u: u.has_perm('subscriber.can_send_email'))
 def send_email(request):
     setting = Setting.objects.first() # get the setting object
 
