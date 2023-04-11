@@ -6,7 +6,7 @@ from .utils import slugify_KNN
 from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.utils.translation import gettext as _
-
+from ckeditor.fields import RichTextField 
 
 
 class BlogImage(models.Model):
@@ -57,7 +57,7 @@ class Setting(Basemodel):
 
 class News(Basemodel):
   title = models.CharField(max_length=200)
-  content = models.TextField()
+  content = RichTextField()
   pub_date = models.DateTimeField(auto_now_add=True)
   image = models.ImageField(upload_to='news_images', blank=True, null=True)
   author = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -83,7 +83,7 @@ class Category(Basemodel):
 
 
 class Comment(Basemodel):
-  text = models.TextField()
+  text =  RichTextField()
   pub_date = models.DateTimeField(auto_now_add=True)
   author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -121,7 +121,7 @@ class NewsTag(Basemodel):
 
 class Page(Basemodel):
   title = models.CharField(max_length=200)
-  content = models.TextField()
+  content = RichTextField()
   slug = models.SlugField(max_length=100, unique=True)
 
   def __str__(self):
@@ -134,7 +134,7 @@ class Page(Basemodel):
 
 class Story(Basemodel):
   title = models.CharField(max_length=100)
-  description = models.TextField()
+  description = RichTextField()
   image = models.ImageField(upload_to="stories")
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
   tags = models.ManyToManyField(Tag)
@@ -150,7 +150,7 @@ class Story(Basemodel):
 class Blogs(models.Model):
   title = models.CharField(max_length=100)
   slug = models.SlugField(unique=True, blank=True)
-  description = models.TextField(max_length=10000)
+  description = RichTextField()
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
   is_published = models.BooleanField(default=True)
   author = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -178,7 +178,7 @@ class Contact(Basemodel):
   name = models.CharField(max_length=100)
   email = models.EmailField()
   phone_number = models.CharField(max_length=100)
-  message = models.TextField()
+  message = models.CharField(max_length=100000)
 
   def __str__(self):
     return self.name
@@ -211,7 +211,7 @@ class Doctors(models.Model):
   experience = models.CharField(max_length=2)
   is_published = models.BooleanField(default=True)
   image = models.ImageField(upload_to='Doctors')
-  educational_history = models.TextField(max_length=10000,
+  educational_history = RichTextField(max_length=10000,
                                          null=True,
                                          default=" ")
   positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
@@ -236,7 +236,8 @@ class Subscriber(Basemodel):
   is_active = models.BooleanField(default=True)
 
   def __str__(self) :
-    return self.email
+     return self.email
   
   class Meta:
-     permissions = (('can_send_email', 'Can Send Emails'), )
+     permissions = (('can_send_email', 'Can Send Email'), )
+

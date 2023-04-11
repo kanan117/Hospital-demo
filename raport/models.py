@@ -9,7 +9,8 @@ class AnalizRaport(models.Model):
   dosya = models.ImageField(upload_to='Report_files/', blank=True)
 
   def __str__(self):
-    return self.title
+    return self.name_surname
 
   class Meta:
-    permissions = (('can_add_raport', 'Can add raport'), )
+     permissions = (('can_add_raport', 'Can add raport'), )
+

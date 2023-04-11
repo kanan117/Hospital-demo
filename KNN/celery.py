@@ -1,13 +1,13 @@
-# import os
-# from celery import Celery
-# from django.conf import settings
+import os
+from celery import Celery
+from django.conf import settings
 
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'KNN.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'KNN.settings')
 
-# app = Celery('KNN')
-# app.config_from_object('django.conf:settings', namespace='CELERY')
-# app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
+app = Celery('KNN')
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
-# @app.task(bind=True)
-# def debug_task(self):
-#     print(f'Request: {self.request!r}')
+@app.task(bind=True)
+def debug_task(self):
+    print(f'Request: {self.request!r}')

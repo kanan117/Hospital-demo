@@ -47,6 +47,7 @@ INSTALLED_APPS = [
   'django.contrib.sites',
   "core",
   'raport',
+  'ckeditor',
   'api',
   'social_django',
   'baseuser.apps.BaseuserConfig',

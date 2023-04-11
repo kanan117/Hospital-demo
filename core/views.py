@@ -13,6 +13,8 @@ from baseuser.models import BaseUser
 from celery import shared_task
 from django.contrib.auth.decorators import user_passes_test
 from django.conf import settings
+from django.db.models import Q
+from .models import Subscriber, Setting,  Contact
 
 
 
@@ -209,21 +211,23 @@ def search_doctors(request):
   return render(request, 'search_doctors.html', context)
 
 
+# @shared_task
+# @user_passes_test(lambda u: u.has_perm('subscriber.can_send_email'))
+# def send_mail_to_subscribers():
+#     subscribers = Subscriber.objects.filter(is_active=True)
+#     subscriber_emails = subscribers.values_list('email', flat=True)
+#     return subscriber_emails
+
 @shared_task
-def send_mail_to_subscribers():
-    subscribers = Subscriber.objects.filter(is_active=True)
-    subscriber_emails = subscribers.values_list('email', flat=True)
-    return subscriber_emails
-
-
 @user_passes_test(lambda u: u.has_perm('subscriber.can_send_email'))
 def send_email(request):
-    setting = Setting.objects.first() # get the setting object
+    setting = Setting.objects.first()
 
     if request.method == 'POST':
         recipient_list = []
         to_subscribers = request.POST.get('to_subscribers')
         to_baseusers = request.POST.get('to_baseusers')
+        to_contacts = request.POST.get('to_contacts')
         subject = request.POST['subject']
         message = request.POST['message']
         sender = 'your-email@example.com'
@@ -232,14 +236,19 @@ def send_email(request):
             recipient_list = request.POST.getlist('recipient_list[]')
 
         if to_subscribers:
-            subscriber_emails = send_mail_to_subscribers()
+            subscribers = Subscriber.objects.filter(is_active=True)
+            subscriber_emails = subscribers.values_list('email', flat=True)
             recipient_list += list(subscriber_emails)
 
         if to_baseusers:
             baseuser_emails = BaseUser.objects.filter(Q(is_active=True) & Q(email__isnull=False)).values_list('email', flat=True)
             recipient_list += list(baseuser_emails)
 
-        recipient_list = list(set(recipient_list)) # remove duplicates
+        if to_contacts:
+            contact_emails = Contact.objects.filter(Q(email__isnull=False)).values_list('email', flat=True)
+            recipient_list += list(contact_emails)
+
+        recipient_list = list(set(recipient_list))
 
         send_mail(
             subject,
@@ -247,7 +256,6 @@ def send_email(request):
             sender,
             recipient_list,
             fail_silently=False,
-            
         )
 
         context = {'message': 'Email has been sent successfully!', 'setting': setting}
