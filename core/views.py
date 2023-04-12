@@ -16,7 +16,17 @@ from django.conf import settings
 from django.db.models import Q
 from .models import Subscriber, Setting,  Contact
 
+def base(request):
+  context = {
+    'setting': Setting.objects.first(),
+  }
+  return render(request, 'base.html', context)
 
+def base_site(request):
+  context = {
+    'setting': Setting.objects.first(),
+  }
+  return render(request, 'base_site.html', context)
 
 
 # Create your views here.
