@@ -1,7 +1,7 @@
 from subprocess import call
 
 
-
+# call(['sudo', 'fuser', '-k', '8000/tcp'])
 call(["docker", "compose" , "down"])
 call(["docker", "compose" , "up" , "-d"])
 call(["./manage.py", "makemigrations"])
