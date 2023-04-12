@@ -2,8 +2,8 @@ from datetime import date
 from subprocess import call
 
 today = date.today().strftime("%d-%m-%Y")
-commit_message = f"Changes made on {today}"
+x = f"Update {today}"
 
 call(["sudo", "git", "add", "."])
-call(["sudo", "git", "commit", "-m", commit_message])
+call(["sudo", "git", "commit", "-m", x])
 call(["git", "push"])
