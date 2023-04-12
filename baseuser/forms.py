@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.core import validators
 from django.core.exceptions import ValidationError
@@ -112,7 +112,7 @@ class LoginForm(AuthenticationForm):
 
 BaseUser = get_user_model()
 
-
+#update
 class BaseUserUpdateForm(forms.ModelForm):
   first_name = forms.CharField(
     label=(''),
