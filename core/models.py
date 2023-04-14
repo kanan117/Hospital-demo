@@ -92,7 +92,8 @@ class Comment(Basemodel):
                            related_name='comments')
 
   def __str__(self):
-    return f"{self.news} haberi için {self.author} tarafından yapılan yorum"
+      return f"Comment made by {self.author} for the news {self.news}"
+
 
   class Meta:
     verbose_name_plural = _("Comment")
@@ -113,7 +114,8 @@ class NewsTag(Basemodel):
   tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
   def __str__(self):
-    return f"{self.news} haberi için {self.tag} etiketi"
+      return f"{self.tag} tag for the news {self.news}"
+
 
   class Meta:
     verbose_name_plural = _("NewsTag")
@@ -169,8 +171,8 @@ class Blogs(models.Model):
     return reverse('blog_detail', args=[str(self.slug)])
 
   class Meta:
-    verbose_name = 'Blogs'
-    verbose_name_plural = 'Blogs'
+    verbose_name = _('Blogs')
+    verbose_name_plural = _('Blogs')
 
 
 class Contact(Basemodel):

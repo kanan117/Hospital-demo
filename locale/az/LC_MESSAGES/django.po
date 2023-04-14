@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 11:21+0000\n"
-"PO-Revision-Date: 2023-04-03 19:23+0000\n"
-"Last-Translator:   <admin@admin.admin>\n"
+"POT-Creation-Date: 2023-04-14 11:34+0000\n"
+"PO-Revision-Date: 2023-04-14 11:32+0000\n"
+"Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -92,8 +92,6 @@ msgid "Phone Number"
 msgstr "Telefon Nomresi"
 
 #: baseuser/forms.py:167
-#, fuzzy
-#| msgid "Position"
 msgid "Location"
 msgstr "Vəzifə"
 
@@ -129,7 +127,7 @@ msgstr ""
 
 #: baseuser/templates/profile_edit.html:19
 msgid "Delete account"
-msgstr ""
+msgstr "Hesab Silme"
 
 #: baseuser/views.py:68
 msgid "Your profile was updated successfully."
@@ -149,7 +147,7 @@ msgstr ""
 
 #: baseuser/views.py:99
 msgid "yes"
-msgstr ""
+msgstr "Beli"
 
 #: baseuser/views.py:111
 msgid "Your password is incorrect."
@@ -179,51 +177,55 @@ msgstr "Xəbərlər"
 msgid "Category"
 msgstr "Kateqoriyalar"
 
-#: core/models.py:98
+#: core/models.py:99
 msgid "Comment"
 msgstr "Şərh"
 
-#: core/models.py:108
+#: core/models.py:109
 msgid "Tag"
 msgstr "Etiket"
 
-#: core/models.py:119
+#: core/models.py:121
 msgid "NewsTag"
 msgstr "Xəbər etiketi"
 
-#: core/models.py:131 core/models.py:132
+#: core/models.py:133 core/models.py:134
 msgid "Page"
 msgstr "Səhifə"
 
-#: core/models.py:146
+#: core/models.py:148
 msgid "Story"
 msgstr "Hekayə"
 
-#: core/models.py:147
+#: core/models.py:149
 msgid "Stories"
 msgstr "Hekayələr"
 
-#: core/models.py:187 core/templates/partials/_navbar.html:66
+#: core/models.py:174 core/models.py:175
+msgid "Blogs"
+msgstr "Bloglar"
+
+#: core/models.py:189 core/templates/partials/_navbar.html:66
 msgid "Contact"
 msgstr "Əlaqə"
 
-#: core/models.py:188
+#: core/models.py:190
 msgid "Contacts"
 msgstr "Əlaqələr"
 
-#: core/models.py:198
+#: core/models.py:200
 msgid "Position"
 msgstr "Vəzifə"
 
-#: core/models.py:199
+#: core/models.py:201
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:231
+#: core/models.py:233
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:232 core/templates/partials/_navbar.html:59
+#: core/models.py:234 core/templates/partials/_navbar.html:59
 msgid "Doctors"
 msgstr "Həkimlər"
 
@@ -237,7 +239,7 @@ msgstr ""
 
 #: core/templates/partials/_footer.html:5
 msgid "Enter your email"
-msgstr ""
+msgstr "Emailinizi daxil edin"
 
 #: core/templates/partials/_footer.html:6
 msgid "Subscribe Now"
@@ -249,7 +251,7 @@ msgstr "Əsas səhifə"
 
 #: core/templates/partials/_navbar.html:42
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: core/templates/partials/_navbar.html:45
 msgid "About"
@@ -286,7 +288,7 @@ msgstr "Çıxış"
 
 #: core/templates/partials/_navbar.html:74
 msgid "Profile"
-msgstr ""
+msgstr "Hesab"
 
 #: core/templates/partials/_navbar.html:81
 msgid "Login"
@@ -301,14 +303,10 @@ msgid "Name Surname"
 msgstr ""
 
 #: raport/forms.py:16
-#, fuzzy
-#| msgid "Position"
 msgid "Description"
 msgstr "Vəzifə"
 
 #: raport/templates/rapor_list.html:4
-#, fuzzy
-#| msgid "Search Raport"
 msgid "Search & Clear"
 msgstr "Netice Axtarmaq"
 
@@ -325,9 +323,6 @@ msgstr "Dəstəklənməyən fayl uzantısı. Yalnız {} dəstəklənir."
 
 #~ msgid "Pages"
 #~ msgstr "Səhifələr"
-
-#~ msgid "Blogs"
-#~ msgstr "Bloglar"
 
 #~ msgid "Service Page"
 #~ msgstr "Xidmət səhifəsi"
