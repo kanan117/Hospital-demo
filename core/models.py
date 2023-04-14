@@ -201,6 +201,8 @@ class Positions(models.Model):
     verbose_name_plural = _("Positions")
 
 
+
+
 class Doctors(models.Model):
   name = models.CharField(max_length=50)
   age = models.CharField(max_length=2)
@@ -217,6 +219,7 @@ class Doctors(models.Model):
                                          null=True,
                                          default=" ")
   positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
+
 
   def __str__(self):
     return self.name
@@ -236,6 +239,7 @@ class Doctors(models.Model):
 class Subscriber(Basemodel):
   email = models.EmailField()
   is_active = models.BooleanField(default=True)
+  
 
   def __str__(self) :
      return self.email

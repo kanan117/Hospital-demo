@@ -1,14 +1,47 @@
-{% extends 'base.html' %} {% load static custom_tags %} {% load i18n %} {% block content %} <form action="{% url 'search_doctors' %}" method="GET">
+{% extends 'base.html' %} {% load static custom_tags %} {% load i18n %} {% block content %}
+	<section class="counter-area" style="padding-top: 50px;padding-bottom: 20px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="5">
+						<div class="counter-item">
+							<h2 class="counter counter-number"> {{ doctor_count }} +</h2>
+							<span class="counter-text">Expert Doctors</span>
+						</div>
+						<div class="counter-item">
+							<h2 class="counter counter-number">275+</h2>
+							<span class="counter-text">Total Medical Stuff</span>
+						</div>
+						<div class="counter-item">
+							<h2 class="counter counter-number">462k</h2>
+							<span class="counter-text">Online Appointments</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+ <form action="{% url 'search_doctors' %}" method="GET">
 	<div class="input-group" style="width: 400px;">
 		<input type="text" class="form-control" name="q" placeholder="Search Doctor by name..." style="height: 40px; font-size: 16px; padding: 10px;">
 		<div class="input-group-append">
-			<button class="btn btn-primary" type="submit" style="height: 4px; font-size: 4px; padding: 4px;">
-				<i class="fas fa-search"></i>
+			<button class="btn btn-primary" type="submit" style="height: 4px; font-size: 4px; padding: 4px;"></button>
+				
 			</button>
 		</div>
 	</div>
-</form>
-<main>
+</form>	
+<!-- 
+<div class="col-12">
+	<form action="" method="GET">
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Search" name="news">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="submit">Search</button>
+			</div>
+		</div>
+	</form>
+</div> -->
 	<!-- Doctor-start-->
 	<section class="doctor-area section-padding">
 		<div class="container">

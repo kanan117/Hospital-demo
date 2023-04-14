@@ -18,10 +18,25 @@ from .models import Subscriber, Setting,  Contact
 
 
 
+def doctor_count(request):
+    doctor_count = Doctors.objects.count()
+    print(doctor_count)  
+    return {'doctor_count': doctor_count}
+
+
+# from django.shortcuts import render
+# from .models import Doctors
+
+# def home(request):
+    
+#     return render(request, 'home.html', {'doctor_count': doctor_count})
+
 # Create your views here.
 def home(request):
-  context = {'setting': Setting.objects.first()}
-  return render(request, 'home.html', context)
+    context = {'setting': Setting.objects.first()}
+    doctor_count = Doctors.objects.count()
+    context['doctor_count'] = doctor_count
+    return render(request, 'home.html', context)
 
 
 def about(request):
@@ -149,24 +164,26 @@ class BlogsListView(ListView):
 
 
 class DoctorsListView(ListView):
-  model = Doctors
-  template_name = 'doctor.html'
-  context_object_name = 'doctor'
-  paginate_by = 6
+    model = Doctors
+    template_name = 'doctor.html'
+    context_object_name = 'doctor'
+    paginate_by = 6
 
-  def get_queryset(self):
-    return Doctors.objects.filter(is_published=True)
+    def get_queryset(self):
+        return Doctors.objects.filter(is_published=True)
 
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['setting'] = Setting.objects.first()
-    return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['setting'] = Setting.objects.first()
+        context['doctor_count'] = Doctors.objects.count()
+        return context
 
-  def get_paginate_by(self, queryset):
-    paginate_by = self.request.GET.get('paginate_by', self.paginate_by)
-    if paginate_by:
-      return int(paginate_by)
-    return self.paginate_by
+    def get_paginate_by(self, queryset):
+        paginate_by = self.request.GET.get('paginate_by', self.paginate_by)
+        if paginate_by:
+            return int(paginate_by)
+        return self.paginate_by
+
 
 
 def blog_details(request, slug):
@@ -200,6 +217,7 @@ def search_doctors(request):
   query = request.GET.get('q')
   if query:
     doctors = Doctors.objects.filter(name__icontains=query)
+
   else:
     doctors = []
   context = {
@@ -210,12 +228,7 @@ def search_doctors(request):
   return render(request, 'search_doctors.html', context)
 
 
-# @shared_task
-# @user_passes_test(lambda u: u.has_perm('subscriber.can_send_email'))
-# def send_mail_to_subscribers():
-#     subscribers = Subscriber.objects.filter(is_active=True)
-#     subscriber_emails = subscribers.values_list('email', flat=True)
-#     return subscriber_emails
+
 
 @shared_task
 @user_passes_test(lambda u: u.has_perm('subscriber.can_send_email'))

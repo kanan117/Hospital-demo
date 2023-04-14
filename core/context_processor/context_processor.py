@@ -5,3 +5,7 @@ def settings(request):
         'setting' : Setting.objects.all()
     }
 
+from core.models import Doctors
+
+def doctor_count(request):
+    return {'doctor_count': Doctors.objects.count()}
