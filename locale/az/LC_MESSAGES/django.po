@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 11:34+0000\n"
+"POT-Creation-Date: 2023-04-14 21:54+0000\n"
 "PO-Revision-Date: 2023-04-14 11:32+0000\n"
 "Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,11 +221,11 @@ msgstr "Vəzifə"
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:233
+#: core/models.py:236
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:234 core/templates/partials/_navbar.html:59
+#: core/models.py:237 core/templates/partials/_navbar.html:59
 msgid "Doctors"
 msgstr "Həkimlər"
 

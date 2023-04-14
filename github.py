@@ -2,7 +2,7 @@ from datetime import date
 from subprocess import call
 
 today = date.today().strftime("%d-%m-%Y")
-x = "doctorcount"
+x = "user count+doctor count"
 # f"Update {today}"
 
 call(["sudo", "git", "add", "."])

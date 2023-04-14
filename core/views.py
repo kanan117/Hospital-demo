@@ -18,10 +18,6 @@ from .models import Subscriber, Setting,  Contact
 
 
 
-def doctor_count(request):
-    doctor_count = Doctors.objects.count()
-    print(doctor_count)  
-    return {'doctor_count': doctor_count}
 
 
 # from django.shortcuts import render
@@ -33,9 +29,11 @@ def doctor_count(request):
 
 # Create your views here.
 def home(request):
-    context = {'setting': Setting.objects.first()}
-    doctor_count = Doctors.objects.count()
-    context['doctor_count'] = doctor_count
+    context = {
+       'setting': Setting.objects.first(),
+       'doctor_count': Doctors.objects.count(),
+        'user_count': BaseUser.objects.count(),
+}
     return render(request, 'home.html', context)
 
 
@@ -49,6 +47,8 @@ def about(request):
 def appointment(request):
   context = {
     'setting': Setting.objects.first(),
+    'doctor_count': Doctors.objects.count(),
+    'user_count': BaseUser.objects.count(),
   }
   return render(request, 'appointment.html', context)
 
@@ -176,6 +176,7 @@ class DoctorsListView(ListView):
         context = super().get_context_data(**kwargs)
         context['setting'] = Setting.objects.first()
         context['doctor_count'] = Doctors.objects.count()
+        context['user_count'] = BaseUser.objects.count()
         return context
 
     def get_paginate_by(self, queryset):
@@ -208,6 +209,8 @@ def contact(request):
 
   context = {
     'setting': Setting.objects.first(),
+    'doctor_count': Doctors.objects.count(),
+    'user_count': BaseUser.objects.count(),
     'contact': form,
   }
   return render(request, 'contact.html', context)
