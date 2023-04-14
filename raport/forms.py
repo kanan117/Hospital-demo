@@ -8,12 +8,12 @@ class AnalizRaportForm(forms.ModelForm):
   name_surname = forms.CharField(widget=forms.TextInput(
     attrs={
       'class': 'form-control',
-      'placeholder': 'Name Surname'
+      'placeholder': _('Name Surname')
     }))
   aciklama = forms.CharField(widget=forms.Textarea(
     attrs={
       'class': 'form-control',
-      'placeholder': 'Description',
+      'placeholder': _('Description'),
       'rows': '3'
     }))
   dosya = forms.FileField(

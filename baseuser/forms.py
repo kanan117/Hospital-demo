@@ -15,7 +15,7 @@ from django.contrib.auth.hashers import make_password
 #registration form
 class BaseUserForm(UserCreationForm):
   email = forms.EmailField(max_length=35,
-                           help_text='Required. Enter a valid email address.',
+                           help_text=_('Required. Enter a valid email address.'),
                            widget=forms.EmailInput(attrs={
                              'class': 'form-control',
                              'placeholder': 'Email'
@@ -26,9 +26,9 @@ class BaseUserForm(UserCreationForm):
     widget=forms.TextInput(
       attrs={
         'class': 'form-control',
-        'placeholder': 'First Name',
+        'placeholder': _('First Name'),
         'pattern': '[A-Za-z]+',
-        'title': 'Only alphabetical characters are allowed.'
+        'title': _('Only alphabetical characters are allowed.')
       }))
 
   last_name = forms.CharField(
@@ -36,16 +36,16 @@ class BaseUserForm(UserCreationForm):
     widget=forms.TextInput(
       attrs={
         'class': 'form-control',
-        'placeholder': 'Last Name',
+        'placeholder': _('Last Name'),
         'pattern': '[A-Za-z]+',
-        'title': 'Only alphabetical characters are allowed.'
+        'title': _('Only alphabetical characters are allowed.')
       }))
 
   password1 = forms.CharField(
     strip=False,
     widget=forms.PasswordInput(attrs={
       'class': 'form-control',
-      'placeholder': 'Password'
+      'placeholder': _('Password')
     }),
   )
   #help_text='Your password must contain at least 8 characters, at least one digit, and can\'t be entirely alphabetical or entirely numeric.')
@@ -54,9 +54,9 @@ class BaseUserForm(UserCreationForm):
     strip=False,
     widget=forms.PasswordInput(attrs={
       'class': 'form-control',
-      'placeholder': 'Confirm Password'
+      'placeholder': _('Confirm Password')
     }),
-    help_text='Enter the same password as before, for verification.')
+    help_text=_('Enter the same password as before, for verification.'))
 
   class Meta:
     model = BaseUser
@@ -81,18 +81,18 @@ class BaseUserForm(UserCreationForm):
     password1 = self.cleaned_data.get('password1')
     if len(password1) < 8:
       raise forms.ValidationError(
-        "Your password must contain at least 8 characters.")
+        _("Your password must contain at least 8 characters."))
     elif any(char.isdigit() for char in password1) == False:
       raise forms.ValidationError(
-        "Your password must contain at least one digit.")
+        _("Your password must contain at least one digit."))
     elif password1.isalpha():
       raise forms.ValidationError(
-        "Your password can't be entirely alphabetical.")
+        _("Your password can't be entirely alphabetical."))
     elif password1.isnumeric():
-      raise forms.ValidationError("Your password can't be entirely numeric.")
+      raise forms.ValidationError(_("Your password can't be entirely numeric."))
     elif not password1[0].isupper():
       raise forms.ValidationError(
-        "Your password must start with a capital letter.")
+        _("Your password must start with a capital letter."))
     return password1
 
 
@@ -177,14 +177,14 @@ class BaseUserUpdateForm(forms.ModelForm):
       }),
     required=False,
     help_text=_(
-      'Optional. Enter a strong password with at least 8 characters.'),
+      _('Optional. Enter a strong password with at least 8 characters.')),
     validators=[
       RegexValidator(
         regex=r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$',
         message=_(
-          'Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, and one digit.'
+          _('Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, and one digit.')
         ),
-        code='invalid_password')
+        code=_('invalid_password'))
     ])
 
   password_confirmation = forms.CharField(

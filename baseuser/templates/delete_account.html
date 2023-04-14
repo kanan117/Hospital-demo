@@ -10,8 +10,10 @@
     <label for="confirm_delete">I confirm that I want to delete my account:</label>
     <input type="checkbox" id="confirm_delete" name="confirm_delete" value="yes"><br>
     <button type="submit">Delete Account</button>
-    {% if form.errors %}
-      <p class="error">{{ form.errors }}</p>
-    {% endif %}
   </form>
+  
+  {% for message in messages %}
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+  {% endfor %}
+  
 {% endblock %}
