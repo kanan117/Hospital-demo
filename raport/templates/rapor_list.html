@@ -10,7 +10,7 @@
 		<a href="{% url 'rapor_detay' rapor.id %}">
 			<strong style="color:black">{{ rapor.id }}</strong>
 		</a>
-	</li>
+	</li>                                                                                                 
 	<li></li> {% empty %} <li>
 		<p style="color: red; font-weight: bold;">{% trans 'No results found. Please enter another search term.' %}</p>
 	</li> {% endfor %}

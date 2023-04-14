@@ -33,7 +33,7 @@ msgstr ""
 
 #: baseuser/forms.py:29 baseuser/forms.py:127
 msgid "First Name"
-msgstr ""
+msgstr "Ad"
 
 #: baseuser/forms.py:31 baseuser/forms.py:41
 msgid "Only alphabetical characters are allowed."
