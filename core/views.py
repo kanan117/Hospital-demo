@@ -14,7 +14,7 @@ from celery import shared_task
 from django.contrib.auth.decorators import user_passes_test
 from django.conf import settings
 from django.db.models import Q
-from .models import Subscriber, Setting,  Contact
+from .models import Subscriber, Setting,  Contact 
 
 
 
@@ -33,13 +33,17 @@ def home(request):
        'setting': Setting.objects.first(),
        'doctor_count': Doctors.objects.count(),
         'user_count': BaseUser.objects.count(),
+        'contact_count' : Contact.objects.count(),
 }
     return render(request, 'home.html', context)
 
 
 def about(request):
   context = {
-    'setting': Setting.objects.first(),
+           'setting': Setting.objects.first(),
+       'doctor_count': Doctors.objects.count(),
+        'user_count': BaseUser.objects.count(),
+        'contact_count' : Contact.objects.count(),
   }
   return render(request, 'about.html', context)
 
@@ -49,6 +53,7 @@ def appointment(request):
     'setting': Setting.objects.first(),
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'appointment.html', context)
 
@@ -56,6 +61,7 @@ def appointment(request):
 def base(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'base.html', context)
 
@@ -63,6 +69,7 @@ def base(request):
 def blog_details(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'blog_details.html', context)
 
@@ -70,6 +77,7 @@ def blog_details(request):
 def booking_list(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'booking_list.html', context)
 
@@ -77,6 +85,9 @@ def booking_list(request):
 def contact(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count': Contact.objects.count(),
+       
+
   }
   return render(request, 'contact.html', context)
 
@@ -84,27 +95,30 @@ def contact(request):
 def doctor_details(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'doctor_details.html', context)
 
 
-def doctor(request):
-  context = {
-    'setting': Setting.objects.first(),
-  }
-  return render(request, 'doctor.html', context)
+# def doctor(request):
+#   context = {
+#     'setting': Setting.objects.first(),
+#     'contact_count': Contact.objects.count()
+#   }
+#   return render(request, 'doctor.html', context)
 
 
-def doctors(request):
-  context = {
-    'setting': Setting.objects.first(),
-  }
-  return render(request, 'doctors.html', context)
+# def doctors(request):
+#   context = {
+#     'setting': Setting.objects.first(),
+#   }
+#   return render(request, 'doctors.html', context)
 
 
 def error(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'error.html', context)
 
@@ -112,6 +126,7 @@ def error(request):
 def faq(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'faq.html', context)
 
@@ -124,6 +139,7 @@ def index_2(request):
 def service_details(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'service_details.html', context)
 
@@ -131,6 +147,7 @@ def service_details(request):
 def service(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'service.html', context)
 
@@ -138,6 +155,7 @@ def service(request):
 def services(request):
   context = {
     'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count(),
   }
   return render(request, 'services.html', context)
 
@@ -154,6 +172,7 @@ class BlogsListView(ListView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context['setting'] = Setting.objects.first()
+    context['contact_count'] = Contact.objects.count()
     return context
 
   def get_paginate_by(self, queryset):
@@ -177,6 +196,7 @@ class DoctorsListView(ListView):
         context['setting'] = Setting.objects.first()
         context['doctor_count'] = Doctors.objects.count()
         context['user_count'] = BaseUser.objects.count()
+        context['contact_count'] = Contact.objects.count()
         return context
 
     def get_paginate_by(self, queryset):
@@ -211,6 +231,7 @@ def contact(request):
     'setting': Setting.objects.first(),
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
+    'contact_count' : Contact.objects.count(),
     'contact': form,
   }
   return render(request, 'contact.html', context)
@@ -227,7 +248,8 @@ def search_doctors(request):
   context = {
     'doctors': doctors,
     'query': query,
-    'setting': Setting.objects.first()
+    'setting': Setting.objects.first(),
+    'contact_count' : Contact.objects.count()
   }
   return render(request, 'search_doctors.html', context)
 

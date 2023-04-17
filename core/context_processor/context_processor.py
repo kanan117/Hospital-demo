@@ -1,7 +1,7 @@
 from core.models import Setting
 from django.shortcuts import render
 from baseuser.models import BaseUser
-from core.models import Doctors
+from core.models import Doctors , Contact
 
 def settings(request):
     return{
@@ -18,4 +18,10 @@ def user_count(request):
     return {
         'user_count': BaseUser.objects.count()
         }
+
+def contact_count(request):
+    return {
+        'contact_count': Contact.objects.count(),
+        
+    }
 

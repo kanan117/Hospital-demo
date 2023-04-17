@@ -187,7 +187,7 @@ class Contact(Basemodel):
 
   class Meta:
     verbose_name = _("Contact")
-    verbose_name_plural = _("Contacts")
+    verbose_name_plural = _("Contact")
 
 
 class Positions(models.Model):
