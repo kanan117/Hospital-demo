@@ -220,6 +220,7 @@ def search_doctors(request):
   query = request.GET.get('q')
   if query:
     doctors = Doctors.objects.filter(name__icontains=query)
+    
 
   else:
     doctors = []
