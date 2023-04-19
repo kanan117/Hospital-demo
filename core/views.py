@@ -14,36 +14,30 @@ from celery import shared_task
 from django.contrib.auth.decorators import user_passes_test
 from django.conf import settings
 from django.db.models import Q
-from .models import Subscriber, Setting,  Contact 
+from .models import Subscriber, Setting, Contact
+from django.utils.translation import gettext as _
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
-
-
-
-# from django.shortcuts import render
-# from .models import Doctors
-
-# def home(request):
-    
-#     return render(request, 'home.html', {'doctor_count': doctor_count})
-
-# Create your views here.
 def home(request):
-    context = {
-       'setting': Setting.objects.first(),
-       'doctor_count': Doctors.objects.count(),
-        'user_count': BaseUser.objects.count(),
-        'contact_count' : Contact.objects.count(),
-}
-    return render(request, 'home.html', context)
+  context = {
+    'setting': Setting.objects.first(),
+    'doctor_count': Doctors.objects.count(),
+    'user_count': BaseUser.objects.count(),
+    'contact_count': Contact.objects.count(),
+  }
+  return render(request, 'home.html', context)
 
 
 def about(request):
   context = {
-           'setting': Setting.objects.first(),
-       'doctor_count': Doctors.objects.count(),
-        'user_count': BaseUser.objects.count(),
-        'contact_count' : Contact.objects.count(),
+    'setting': Setting.objects.first(),
+    'doctor_count': Doctors.objects.count(),
+    'user_count': BaseUser.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'about.html', context)
 
@@ -53,7 +47,7 @@ def appointment(request):
     'setting': Setting.objects.first(),
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'appointment.html', context)
 
@@ -61,7 +55,7 @@ def appointment(request):
 def base(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'base.html', context)
 
@@ -69,7 +63,7 @@ def base(request):
 def blog_details(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'blog_details.html', context)
 
@@ -77,7 +71,7 @@ def blog_details(request):
 def booking_list(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'booking_list.html', context)
 
@@ -86,39 +80,14 @@ def contact(request):
   context = {
     'setting': Setting.objects.first(),
     'contact_count': Contact.objects.count(),
-       
-
   }
   return render(request, 'contact.html', context)
-
-
-def doctor_details(request):
-  context = {
-    'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
-  }
-  return render(request, 'doctor_details.html', context)
-
-
-# def doctor(request):
-#   context = {
-#     'setting': Setting.objects.first(),
-#     'contact_count': Contact.objects.count()
-#   }
-#   return render(request, 'doctor.html', context)
-
-
-# def doctors(request):
-#   context = {
-#     'setting': Setting.objects.first(),
-#   }
-#   return render(request, 'doctors.html', context)
 
 
 def error(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'error.html', context)
 
@@ -126,7 +95,7 @@ def error(request):
 def faq(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'faq.html', context)
 
@@ -139,7 +108,7 @@ def index_2(request):
 def service_details(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'service_details.html', context)
 
@@ -147,7 +116,7 @@ def service_details(request):
 def service(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'service.html', context)
 
@@ -155,7 +124,7 @@ def service(request):
 def services(request):
   context = {
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
   }
   return render(request, 'services.html', context)
 
@@ -183,28 +152,27 @@ class BlogsListView(ListView):
 
 
 class DoctorsListView(ListView):
-    model = Doctors
-    template_name = 'doctor.html'
-    context_object_name = 'doctor'
-    paginate_by = 6
+  model = Doctors
+  template_name = 'doctor.html'
+  context_object_name = 'doctor'
+  paginate_by = 6
 
-    def get_queryset(self):
-        return Doctors.objects.filter(is_published=True)
+  def get_queryset(self):
+    return Doctors.objects.filter(is_published=True)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['setting'] = Setting.objects.first()
-        context['doctor_count'] = Doctors.objects.count()
-        context['user_count'] = BaseUser.objects.count()
-        context['contact_count'] = Contact.objects.count()
-        return context
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['setting'] = Setting.objects.first()
+    context['doctor_count'] = Doctors.objects.count()
+    context['user_count'] = BaseUser.objects.count()
+    context['contact_count'] = Contact.objects.count()
+    return context
 
-    def get_paginate_by(self, queryset):
-        paginate_by = self.request.GET.get('paginate_by', self.paginate_by)
-        if paginate_by:
-            return int(paginate_by)
-        return self.paginate_by
-
+  def get_paginate_by(self, queryset):
+    paginate_by = self.request.GET.get('paginate_by', self.paginate_by)
+    if paginate_by:
+      return int(paginate_by)
+    return self.paginate_by
 
 
 def blog_details(request, slug):
@@ -215,33 +183,65 @@ def blog_details(request, slug):
 
 def doctor_details(request, slug):
   doctor = Doctors.objects.get(slug=slug)
-  context = {'doctor': doctor, 'setting': Setting.objects.first()}
+  context = {
+    'doctor': doctor,
+    'setting': Setting.objects.first(),
+    'contact_count': Contact.objects.count(),
+    'doctor_count': Doctors.objects.count(),
+    'user_count': BaseUser.objects.count()
+  }
   return render(request, 'doctor_details.html', context)
 
 
 def contact(request):
-  form = ContactForm()
   if request.method == 'POST':
     form = ContactForm(request.POST)
     if form.is_valid():
       form.save()
-      form = ContactForm()
+      #FORM DATA
+      name = form.cleaned_data['name']
+      email = form.cleaned_data['email']
+      message = form.cleaned_data['message']
+
+      # E-MAIL message  CREATE
+      subject = 'New Contact Form Recived'
+      body = f'Name: {name}\nE-mail: {email}\nMessage: {message}'
+      from_email = settings.DEFAULT_FROM_EMAIL
+      recipient_list = [Setting.objects.first().contact_form_email
+                        ]  #settings modelinden gelir :D
+
+      # E-mail send
+      send_mail(subject, body, from_email, recipient_list, fail_silently=True)
+
+      #forward
+      return HttpResponseRedirect(reverse('thank-you'))
+  else:
+    form = ContactForm()
 
   context = {
     'setting': Setting.objects.first(),
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
-    'contact_count' : Contact.objects.count(),
+    'contact_count': Contact.objects.count(),
     'contact': form,
+    'message': 'Message has been sent successfully!'
   }
+
   return render(request, 'contact.html', context)
+
+
+def thank_you(request):
+  context = {
+    'setting': Setting.objects.first(),
+    'message': _('Message has been sent successfully!')
+  }
+  return render(request, 'thank_you.html', context)
 
 
 def search_doctors(request):
   query = request.GET.get('q')
   if query:
     doctors = Doctors.objects.filter(name__icontains=query)
-    
 
   else:
     doctors = []
@@ -249,54 +249,76 @@ def search_doctors(request):
     'doctors': doctors,
     'query': query,
     'setting': Setting.objects.first(),
-    'contact_count' : Contact.objects.count()
+    'contact_count': Contact.objects.count()
   }
   return render(request, 'search_doctors.html', context)
 
 
+def site_search(request):
+  query = request.GET.get('site_search')
+  if query:
+    doctors = Doctors.objects.filter(name__icontains=query)
+    blogs = Blogs.objects.filter(title__icontains=query)
+  else:
+    doctors = []
+    blogs = []
+  context = {
+    'doctors': doctors,
+    'blogs': blogs,
+    'query': query,
+    'setting': Setting.objects.first(),
+    'contact_count': Contact.objects.count()
+  }
+  return render(request, 'site_search.html', context)
 
 
 @shared_task
 @user_passes_test(lambda u: u.has_perm('subscriber.can_send_email'))
 def send_email(request):
-    setting = Setting.objects.first()
+  setting = Setting.objects.first()
 
-    if request.method == 'POST':
-        recipient_list = []
-        to_subscribers = request.POST.get('to_subscribers')
-        to_baseusers = request.POST.get('to_baseusers')
-        to_contacts = request.POST.get('to_contacts')
-        subject = request.POST['subject']
-        message = request.POST['message']
-        sender = 'your-email@example.com'
+  if request.method == 'POST':
+    recipient_list = []
+    to_subscribers = request.POST.get('to_subscribers')
+    to_baseusers = request.POST.get('to_baseusers')
+    to_contacts = request.POST.get('to_contacts')
+    subject = request.POST['subject']
+    message = request.POST['message']
+    sender = 'your-email@example.com'
 
-        if 'recipient_list[]' in request.POST:
-            recipient_list = request.POST.getlist('recipient_list[]')
+    if 'recipient_list[]' in request.POST:
+      recipient_list = request.POST.getlist('recipient_list[]')
 
-        if to_subscribers:
-            subscribers = Subscriber.objects.filter(is_active=True)
-            subscriber_emails = subscribers.values_list('email', flat=True)
-            recipient_list += list(subscriber_emails)
+    if to_subscribers:
+      subscribers = Subscriber.objects.filter(is_active=True)
+      subscriber_emails = subscribers.values_list('email', flat=True)
+      recipient_list += list(subscriber_emails)
 
-        if to_baseusers:
-            baseuser_emails = BaseUser.objects.filter(Q(is_active=True) & Q(email__isnull=False)).values_list('email', flat=True)
-            recipient_list += list(baseuser_emails)
+    if to_baseusers:
+      baseuser_emails = BaseUser.objects.filter(
+        Q(is_active=True) & Q(email__isnull=False)).values_list('email',
+                                                                flat=True)
+      recipient_list += list(baseuser_emails)
 
-        if to_contacts:
-            contact_emails = Contact.objects.filter(Q(email__isnull=False)).values_list('email', flat=True)
-            recipient_list += list(contact_emails)
+    if to_contacts:
+      contact_emails = Contact.objects.filter(
+        Q(email__isnull=False)).values_list('email', flat=True)
+      recipient_list += list(contact_emails)
 
-        recipient_list = list(set(recipient_list))
+    recipient_list = list(set(recipient_list))
 
-        send_mail(
-            subject,
-            message,
-            sender,
-            recipient_list,
-            fail_silently=False,
-        )
+    send_mail(
+      subject,
+      message,
+      sender,
+      recipient_list,
+      fail_silently=False,
+    )
 
-        context = {'message': 'Email has been sent successfully!', 'setting': setting}
-        return render(request, 'email_sent.html', context)
+    context = {
+      'message': 'Email has been sent successfully!',
+      'setting': setting
+    }
+    return render(request, 'email_sent.html', context)
 
-    return render(request, 'send_email.html', {'setting': setting})
+  return render(request, 'send_email.html', {'setting': setting})

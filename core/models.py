@@ -6,7 +6,7 @@ from .utils import slugify_KNN
 from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.utils.translation import gettext as _
-from ckeditor.fields import RichTextField 
+from ckeditor.fields import RichTextField
 
 
 class BlogImage(models.Model):
@@ -46,6 +46,7 @@ class Setting(Basemodel):
   creator = models.CharField(max_length=20)
   address1 = models.CharField(max_length=20)
   address2 = models.CharField(max_length=20)
+  contact_form_email = models.EmailField()
 
   def __str__(self):
     return "Setting"
@@ -83,7 +84,7 @@ class Category(Basemodel):
 
 
 class Comment(Basemodel):
-  text =  RichTextField()
+  text = RichTextField()
   pub_date = models.DateTimeField(auto_now_add=True)
   author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -92,8 +93,7 @@ class Comment(Basemodel):
                            related_name='comments')
 
   def __str__(self):
-      return f"Comment made by {self.author} for the news {self.news}"
-
+    return f"Comment made by {self.author} for the news {self.news}"
 
   class Meta:
     verbose_name_plural = _("Comment")
@@ -114,8 +114,7 @@ class NewsTag(Basemodel):
   tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
   def __str__(self):
-      return f"{self.tag} tag for the news {self.news}"
-
+    return f"{self.tag} tag for the news {self.news}"
 
   class Meta:
     verbose_name_plural = _("NewsTag")
@@ -201,8 +200,6 @@ class Positions(models.Model):
     verbose_name_plural = _("Positions")
 
 
-
-
 class Doctors(models.Model):
   name = models.CharField(max_length=50)
   age = models.CharField(max_length=2)
@@ -215,11 +212,8 @@ class Doctors(models.Model):
   experience = models.CharField(max_length=2)
   is_published = models.BooleanField(default=True)
   image = models.ImageField(upload_to='Doctors')
-  educational_history = RichTextField(max_length=10000,
-                                         null=True,
-                                         default=" ")
+  educational_history = RichTextField(max_length=10000, null=True, default=" ")
   positions = models.ForeignKey(Positions, on_delete=models.CASCADE)
-
 
   def __str__(self):
     return self.name
@@ -231,19 +225,18 @@ class Doctors(models.Model):
 
   def get_absolute_url(self):
     return reverse('doctor_detail', args=[str(self.slug)])
-  
+
   class Meta:
     verbose_name = _("Doctor")
     verbose_name_plural = _("Doctors")
 
+
 class Subscriber(Basemodel):
   email = models.EmailField()
   is_active = models.BooleanField(default=True)
-  
 
-  def __str__(self) :
-     return self.email
-  
+  def __str__(self):
+    return self.email
+
   class Meta:
-     permissions = (('can_send_email', 'Can Send Email'), )
-
+    permissions = (('can_send_email', 'Can Send Email'), )

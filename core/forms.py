@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Contact 
+from core.models import Contact
 
 
 class ContactForm(forms.ModelForm):
@@ -33,4 +33,3 @@ class ContactForm(forms.ModelForm):
         'placeholder': 'Message'
       })
     }
-

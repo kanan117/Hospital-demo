@@ -12,5 +12,4 @@ class AnalizRaport(models.Model):
     return self.name_surname
 
   class Meta:
-     permissions = (('can_add_raport', 'Can add raport'), )
-
+    permissions = (('can_add_raport', 'Can add raport'), )

@@ -10,6 +10,7 @@ from django.db.models import Max
 import random
 import os
 
+
 def rapor_detay(request, rapor_id):
   rapor = get_object_or_404(AnalizRaport, id=rapor_id)
   context = {'rapor': rapor, 'setting': Setting.objects.first()}
@@ -47,8 +48,6 @@ def rapor_search(request):
 #     rapor.id = generate_rapor_id() (bu kodu asagida random olan yere paste elemek lazidmi)
 
 
-
-
 @user_passes_test(lambda u: u.has_perm('raport.can_add_raport'))
 def rapor_add(request):
   max_rapor_id = AnalizRaport.objects.aggregate(Max('id'))['id__max']
@@ -79,7 +78,8 @@ def rapor_add(request):
   })
 
 
-@user_passes_test(lambda u: u.has_perm('raport.can_add_raport')) #admin pannelde analiz group
+@user_passes_test(lambda u: u.has_perm('raport.can_add_raport')
+                  )  #admin pannelde analiz group
 def rapor_list(request):
   raporlar = AnalizRaport.objects.all()
 

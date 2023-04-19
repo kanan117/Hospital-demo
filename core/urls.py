@@ -1,5 +1,5 @@
 from core.views import base
-from core import views ,tasks
+from core import views, tasks
 from django.urls import path
 from django.conf.urls import handler403
 from . import views
@@ -37,6 +37,7 @@ urlpatterns = [
   path('doctor/', DoctorsListView.as_view(), name='doctor'),
   path('doctor/<slug:slug>/', doctor_details, name='doctor_details'),
   path('error/', error, name='error'),
+  path('search/', views.site_search, name='site_search'),
   path('doctors/search/', views.search_doctors, name='search_doctors'),
   path('faq/', faq, name='faq'),
   path('index-2/', index_2, name='index_2'),
@@ -44,4 +45,5 @@ urlpatterns = [
   path('service/', service, name='service'),
   path('services/', services, name='services'),
   path('send_email/', views.send_email, name='send_email'),
+  path('thank-you/', views.thank_you, name='thank-you'),
 ]

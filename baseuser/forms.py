@@ -14,12 +14,13 @@ from django.contrib.auth.hashers import make_password
 
 #registration form
 class BaseUserForm(UserCreationForm):
-  email = forms.EmailField(max_length=35,
-                           help_text=_('Required. Enter a valid email address.'),
-                           widget=forms.EmailInput(attrs={
-                             'class': 'form-control',
-                             'placeholder': 'Email'
-                           }))
+  email = forms.EmailField(
+    max_length=35,
+    help_text=_('Required. Enter a valid email address.'),
+    widget=forms.EmailInput(attrs={
+      'class': 'form-control',
+      'placeholder': 'Email'
+    }))
 
   first_name = forms.CharField(
     max_length=30,
@@ -89,7 +90,8 @@ class BaseUserForm(UserCreationForm):
       raise forms.ValidationError(
         _("Your password can't be entirely alphabetical."))
     elif password1.isnumeric():
-      raise forms.ValidationError(_("Your password can't be entirely numeric."))
+      raise forms.ValidationError(
+        _("Your password can't be entirely numeric."))
     elif not password1[0].isupper():
       raise forms.ValidationError(
         _("Your password must start with a capital letter."))
@@ -111,6 +113,7 @@ class LoginForm(AuthenticationForm):
 
 
 BaseUser = get_user_model()
+
 
 #update
 class BaseUserUpdateForm(forms.ModelForm):
@@ -146,12 +149,13 @@ class BaseUserUpdateForm(forms.ModelForm):
       'class': 'form-control',
       'placeholder': _('Email Address')
     }))
-
-  date_of_birth = forms.DateField(label=(''),
-                                  widget=forms.DateInput(attrs={
-                                    'class': 'form-control',
-                                    'type': 'date'
-                                  }))
+  date_of_birth = forms.DateField(
+    label=(''),
+    widget=forms.DateInput(attrs={
+      'class': 'form-control',
+      'type': 'date',
+      'input_formats': ['%d-%m-%Y'],
+    }))
 
   phone_number = PhoneNumberField(
     label=(''),
@@ -182,8 +186,8 @@ class BaseUserUpdateForm(forms.ModelForm):
       RegexValidator(
         regex=r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$',
         message=_(
-          _('Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, and one digit.')
-        ),
+          _('Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, and one digit.'
+            )),
         code=_('invalid_password'))
     ])
 

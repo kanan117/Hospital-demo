@@ -13,6 +13,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import user_passes_test
 
+
 def register(request):
   form = BaseUserForm()
   if request.method == 'POST':
@@ -69,60 +70,61 @@ def profile_edit(request):
       return redirect('home')
   else:
     form = BaseUserUpdateForm(instance=request.user)
+
+
 #user status
-
-
 
   user = request.user
   if user.is_superuser:
-      user_status = _("Superuser")
+    user_status = _("Superuser")
   elif user.is_staff:
-      user_status = _("Staff")
+    user_status = _("Staff")
   else:
-      user_status = _("User")
+    user_status = _("User")
 
   context = {
-      'setting': Setting.objects.first(),
-      'form': form,
-      'title': f' Edit Profile - {request.user.username} - {user_status}',
+    'setting': Setting.objects.first(),
+    'form': form,
+    'title': f' Edit Profile - {request.user.username} - {user_status}',
   }
-
 
   return render(request, 'profile_edit.html', context)
 from django.contrib import messages
 
+
 @login_required
 def delete_account(request):
-    setting = Setting.objects.first()
+  setting = Setting.objects.first()
 
-    if request.method == 'POST':
-        if request.POST.get('confirm_delete', '') == _('yes'):
-            #staff ve super user silinmir burdan
-            if not request.user.is_staff and not request.user.is_superuser:
-                if request.user.check_password(request.POST.get('password', '')):
-                    # hesabi sil
-                    user = request.user
-                    user.delete()
+  if request.method == 'POST':
+    if request.POST.get('confirm_delete', '') == _('yes'):
+      #staff ve super user silinmir burdan
+      if not request.user.is_staff and not request.user.is_superuser:
+        if request.user.check_password(request.POST.get('password', '')):
+          # hesabi sil
+          user = request.user
+          user.delete()
 
-                    # silenden sonra homa_("Settings")
-                    logout(request)
-                    return redirect(reverse('home'))
-                else:
-                    messages.error(request, _('Your password is incorrect.'))
-            else:
-                messages.error(request,
-                               _('You do not have permission to delete this account.'))
+          # silenden sonra homa_("Settings")
+          logout(request)
+          return redirect(reverse('home'))
         else:
-            messages.error(request,
-                           _('You must confirm that you want to delete your account.'))
+          messages.error(request, _('Your password is incorrect.'))
+      else:
+        messages.error(request,
+                       _('You do not have permission to delete this account.'))
+    else:
+      messages.error(
+        request, _('You must confirm that you want to delete your account.'))
 
-    context = {
-        'setting': setting,
-        'email_attrs': {
-            'class': 'form-control',
-            'placeholder': _('Password')
-        },
-        'messages': messages.get_messages(request), # Add error messages to context
-    }
+  context = {
+    'setting': setting,
+    'email_attrs': {
+      'class': 'form-control',
+      'placeholder': _('Password')
+    },
+    'messages':
+    messages.get_messages(request),  # Add error messages to context
+  }
 
-    return render(request, 'delete_account.html', context)
+  return render(request, 'delete_account.html', context)

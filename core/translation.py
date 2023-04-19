@@ -11,7 +11,7 @@ class BlogsTranslationOptions(TranslationOptions):
 
 translator.register(Blogs, BlogsTranslationOptions)
 
-
+ 
 class DoctorsTranslationOptions(TranslationOptions):
   fields = ('educational_history', )
 
