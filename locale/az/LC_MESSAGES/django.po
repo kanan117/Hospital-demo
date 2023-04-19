@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 21:06+0000\n"
-"PO-Revision-Date: 2023-04-14 11:32+0000\n"
+"POT-Creation-Date: 2023-04-19 21:28+0000\n"
+"PO-Revision-Date: 2023-04-19 21:35+0000\n"
 "Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -29,7 +29,7 @@ msgstr "Azərbaycanca"
 
 #: baseuser/forms.py:19
 msgid "Required. Enter a valid email address."
-msgstr ""
+msgstr "Tələb olunur. Etibarlı e-poçt ünvanı daxil edin."
 
 #: baseuser/forms.py:30 baseuser/forms.py:130
 msgid "First Name"
@@ -37,7 +37,7 @@ msgstr "Ad"
 
 #: baseuser/forms.py:32 baseuser/forms.py:42
 msgid "Only alphabetical characters are allowed."
-msgstr ""
+msgstr "Yalnız əlifba simvollarına icazə verilir."
 
 #: baseuser/forms.py:40 baseuser/forms.py:143
 msgid "Last Name"
@@ -45,47 +45,47 @@ msgstr "Soyad"
 
 #: baseuser/forms.py:49 baseuser/views.py:124
 msgid "Password"
-msgstr ""
+msgstr "Şifrə"
 
 #: baseuser/forms.py:58 baseuser/forms.py:200
 msgid "Confirm Password"
-msgstr ""
+msgstr "Şifrə Təstiqi"
 
 #: baseuser/forms.py:60
 msgid "Enter the same password as before, for verification."
-msgstr ""
+msgstr "Doğrulama üçün əvvəlki parolu daxil edin."
 
 #: baseuser/forms.py:85
 msgid "Your password must contain at least 8 characters."
-msgstr ""
+msgstr "Parolunuz ən azı 8 simvoldan ibarət olmalıdır."
 
 #: baseuser/forms.py:88
 msgid "Your password must contain at least one digit."
-msgstr ""
+msgstr "Parolunuz ən azı bir rəqəmdən ibarət olmalıdır."
 
 #: baseuser/forms.py:91
 msgid "Your password can't be entirely alphabetical."
-msgstr ""
+msgstr "Parolunuz tamamilə əlifba sırası ilə ola bilməz."
 
 #: baseuser/forms.py:94
 msgid "Your password can't be entirely numeric."
-msgstr ""
+msgstr "Parolunuz tam rəqəm ola bilməz."
 
 #: baseuser/forms.py:97
 msgid "Your password must start with a capital letter."
-msgstr ""
+msgstr "Şifrəniz böyük hərflə başlamalıdır."
 
 #: baseuser/forms.py:125
 msgid "Please enter only alphabets for your first name"
-msgstr ""
+msgstr "Zəhmət olmasa, adınız üçün yalnız əlifbaları daxil edin"
 
 #: baseuser/forms.py:138
 msgid "Please enter only alphabets for your last name"
-msgstr ""
+msgstr "Zəhmət olmasa soyadınız üçün yalnız əlifbalar daxil edin"
 
 #: baseuser/forms.py:150
 msgid "Email Address"
-msgstr ""
+msgstr "E-poçt ünvanı"
 
 #: baseuser/forms.py:164
 msgid "Phone Number"
@@ -97,33 +97,35 @@ msgstr "Vəzifə"
 
 #: baseuser/forms.py:180
 msgid "New Password"
-msgstr ""
+msgstr "Yeni Şifrə"
 
 #: baseuser/forms.py:184
 msgid "Optional. Enter a strong password with at least 8 characters."
-msgstr ""
+msgstr "Könüllü. Ən azı 8 simvoldan ibarət güclü parol daxil edin."
 
 #: baseuser/forms.py:189
 msgid ""
 "Password must contain at least 8 characters with at least one uppercase "
 "letter, one lowercase letter, and one digit."
 msgstr ""
+"Parol ən azı bir böyük hərf, bir kiçik hərf və bir rəqəmdən ibarət ən azı 8 "
+"simvoldan ibarət olmalıdır."
 
 #: baseuser/forms.py:191
 msgid "invalid_password"
-msgstr ""
+msgstr "yalnış_şirfə"
 
 #: baseuser/forms.py:203
 msgid "Optional. Re-enter the password to confirm."
-msgstr ""
+msgstr "Könüllü. Təsdiq etmək üçün parolu yenidən daxil edin."
 
 #: baseuser/forms.py:219 baseuser/forms.py:222
 msgid "This field is required."
-msgstr ""
+msgstr "Bu xananın doldurulması məcburidir."
 
 #: baseuser/forms.py:226
 msgid "Passwords do not match. Please try again."
-msgstr ""
+msgstr "Şifrəniz Uyğun deyil"
 
 #: baseuser/templates/profile_edit.html:19
 msgid "Delete account"
@@ -131,19 +133,19 @@ msgstr "Hesab Silme"
 
 #: baseuser/views.py:69
 msgid "Your profile was updated successfully."
-msgstr ""
+msgstr "Profiliniz uğurla yeniləndi."
 
 #: baseuser/views.py:79
 msgid "Superuser"
-msgstr ""
+msgstr "Superuser"
 
 #: baseuser/views.py:81
 msgid "Staff"
-msgstr ""
+msgstr "Staff"
 
 #: baseuser/views.py:83
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: baseuser/views.py:100
 msgid "yes"
@@ -151,15 +153,15 @@ msgstr "Beli"
 
 #: baseuser/views.py:112
 msgid "Your password is incorrect."
-msgstr ""
+msgstr "Sizin Şifrəniz doğru deyil"
 
 #: baseuser/views.py:115
 msgid "You do not have permission to delete this account."
-msgstr ""
+msgstr "Bu hesabı silmək üçün icazəniz yoxdur."
 
 #: baseuser/views.py:118
 msgid "You must confirm that you want to delete your account."
-msgstr ""
+msgstr "Hesabınızı silmək istədiyinizi təsdiq etməlisiniz."
 
 #: core/models.py:55
 msgid "Setting"
@@ -226,13 +228,21 @@ msgstr "Həkim"
 msgid "Doctors"
 msgstr "Həkimlər"
 
+#: core/templates/appointment.html:6
+msgid "Coming Soon"
+msgstr "Tezliklə"
+
+#: core/templates/appointment.html:7
+msgid "We are working hard to bring something amazing to you. Stay tuned!"
+msgstr "Sizə heyrətamiz bir şey gətirmək üçün çox çalışırıq. Bizimlə qalın!"
+
 #: core/templates/base_site.html:1
 msgid "Django site admin"
-msgstr ""
+msgstr "Django sayt admini"
 
 #: core/templates/base_site.html:2
 msgid "Django administration"
-msgstr ""
+msgstr "Django administrasiyası"
 
 #: core/templates/partials/_footer.html:5
 msgid "Enter your email"
@@ -240,7 +250,7 @@ msgstr "Emailinizi daxil edin"
 
 #: core/templates/partials/_footer.html:6
 msgid "Subscribe Now"
-msgstr ""
+msgstr "İndi abunə olun"
 
 #: core/templates/partials/_navbar.html:40
 msgid "Home"
@@ -296,20 +306,20 @@ msgid "Register"
 msgstr "Qeydiyyat"
 
 #: core/views.py:207
-msgid "New Contact Form Recived"
-msgstr ""
+msgid "New Contact Form Received"
+msgstr "Yeni Əlaqə Forması Alındı"
 
 #: core/views.py:227 core/views.py:236
 msgid "Message has been sent successfully!"
-msgstr ""
+msgstr "Mesaj uğurla göndərildi!"
 
 #: core/views.py:321
 msgid "Email has been sent successfully!"
-msgstr ""
+msgstr "E-poçt uğurla göndərildi!"
 
 #: raport/forms.py:11
 msgid "Name Surname"
-msgstr ""
+msgstr "Ad Soyad"
 
 #: raport/forms.py:16
 msgid "Description"
@@ -329,7 +339,7 @@ msgstr "Dəstəklənməyən fayl uzantısı. Yalnız {} dəstəklənir."
 
 #: raport/views.py:28
 msgid "Invalid raport ID"
-msgstr ""
+msgstr "Yanlış hesabat ID-si"
 
 #~ msgid "Contacts"
 #~ msgstr "Əlaqələr"

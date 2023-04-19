@@ -204,7 +204,7 @@ def contact(request):
       message = form.cleaned_data['message']
 
       # E-MAIL message  CREATE
-      subject = _('New Contact Form Recived')
+      subject = _('New Contact Form Received')
       body = f'Name: {name}\nE-mail: {email}\nMessage: {message}'
       from_email = settings.DEFAULT_FROM_EMAIL
       recipient_list = [Setting.objects.first().contact_form_email

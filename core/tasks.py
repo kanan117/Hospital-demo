@@ -4,7 +4,7 @@
 
 # @shared_task
 # def send_contact_email(name, email, message):
-#     subject = 'New Contact Form Recived'
+#     subject = 'New Contact Form Received'
 #     body = f'Name: {name}\nE-mail: {email}\nMessage: {message}'
 #     from_email = settings.DEFAULT_FROM_EMAIL
 #     recipient_list = ['krmlknn@gmail.com']
