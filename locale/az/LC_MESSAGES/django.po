@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 20:42+0000\n"
+"POT-Creation-Date: 2023-04-19 21:06+0000\n"
 "PO-Revision-Date: 2023-04-14 11:32+0000\n"
 "Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,8 +295,16 @@ msgstr "Daxil ol"
 msgid "Register"
 msgstr "Qeydiyyat"
 
-#: core/views.py:236
+#: core/views.py:207
+msgid "New Contact Form Recived"
+msgstr ""
+
+#: core/views.py:227 core/views.py:236
 msgid "Message has been sent successfully!"
+msgstr ""
+
+#: core/views.py:321
+msgid "Email has been sent successfully!"
 msgstr ""
 
 #: raport/forms.py:11
@@ -318,6 +326,10 @@ msgstr "Nəticə tapılmadı. Xahiş edirik başqa bir axtarış termini daxil e
 #: raport/validate.py:11
 msgid "Unsupported file extension. Only {} are supported."
 msgstr "Dəstəklənməyən fayl uzantısı. Yalnız {} dəstəklənir."
+
+#: raport/views.py:28
+msgid "Invalid raport ID"
+msgstr ""
 
 #~ msgid "Contacts"
 #~ msgstr "Əlaqələr"

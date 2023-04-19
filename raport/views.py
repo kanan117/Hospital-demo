@@ -9,7 +9,7 @@ from django.core.paginator import Paginator
 from django.db.models import Max
 import random
 import os
-
+from django.utils.translation import gettext as _
 
 def rapor_detay(request, rapor_id):
   rapor = get_object_or_404(AnalizRaport, id=rapor_id)
@@ -25,7 +25,7 @@ def rapor_search(request):
       rapor = AnalizRaport.objects.get(id=analiz_id)
       return redirect('rapor_detay', rapor_id=rapor.id)
     except (ValueError, AnalizRaport.DoesNotExist):
-      error_message = "Invalid raport ID"
+      error_message = _("Invalid raport ID")
       return render(request, 'rapor_search.html', {
         'error_message': error_message,
         'setting': Setting.objects.first()

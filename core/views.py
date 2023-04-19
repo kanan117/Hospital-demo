@@ -204,7 +204,7 @@ def contact(request):
       message = form.cleaned_data['message']
 
       # E-MAIL message  CREATE
-      subject = 'New Contact Form Recived'
+      subject = _('New Contact Form Recived')
       body = f'Name: {name}\nE-mail: {email}\nMessage: {message}'
       from_email = settings.DEFAULT_FROM_EMAIL
       recipient_list = [Setting.objects.first().contact_form_email
@@ -224,7 +224,7 @@ def contact(request):
     'user_count': BaseUser.objects.count(),
     'contact_count': Contact.objects.count(),
     'contact': form,
-    'message': 'Message has been sent successfully!'
+    'message': _('Message has been sent successfully!')
   }
 
   return render(request, 'contact.html', context)
@@ -242,6 +242,7 @@ def search_doctors(request):
   query = request.GET.get('q')
   if query:
     doctors = Doctors.objects.filter(name__icontains=query)
+    
 
   else:
     doctors = []
@@ -251,6 +252,7 @@ def search_doctors(request):
     'setting': Setting.objects.first(),
     'contact_count': Contact.objects.count()
   }
+  
   return render(request, 'search_doctors.html', context)
 
 
@@ -316,7 +318,7 @@ def send_email(request):
     )
 
     context = {
-      'message': 'Email has been sent successfully!',
+      'message': _('Email has been sent successfully!'),
       'setting': setting
     }
     return render(request, 'email_sent.html', context)
