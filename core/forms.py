@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Contact
+from core.models import Contact , Comment
 
 
 class ContactForm(forms.ModelForm):
@@ -33,8 +33,7 @@ class ContactForm(forms.ModelForm):
         'placeholder': 'Message'
       })
     }
-from django import forms
-from .models import Comment
+
 
 class CommentForm(forms.ModelForm):
     class Meta:

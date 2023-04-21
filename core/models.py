@@ -153,6 +153,7 @@ class Blogs(models.Model):
   title = models.CharField(max_length=100)
   slug = models.SlugField(unique=True, blank=True)
   description = RichTextField()
+  created_at = models.DateTimeField(auto_now_add=True)
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
   is_published = models.BooleanField(default=True)
   author = models.ForeignKey(settings.AUTH_USER_MODEL,

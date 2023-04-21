@@ -49,7 +49,7 @@ class BlogAdmin(TranslationAdmin):
   list_display = ('title', 'is_published', 'slug')
   list_editable = ('is_published', )
   fields = [
-    'title', 'image', 'description', 'category', 'author', 'is_published'
+    'title', 'image', 'description', 'category', 'author', 'is_published' ,
   ]
 
 

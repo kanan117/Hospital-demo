@@ -7,22 +7,22 @@
     <div class="form-group">
         <label for="recipient_list" style="width: 50%;">Recipients:</label>
         <input type="email" name="recipient_list[]" class="form-control" style="width: 50%;">
-        <div class="form-check" style="width: 5%;">
+        <div class="form-check" style="width: 15%;">
             <input class="form-check-input" type="checkbox" name="to_subscribers" id="to_subscribers">
             <label class="form-check-label" for="to_subscribers">
-            Subscribers
+            Subscribers - {{ subscriber_count }}
             </label>
         </div>        
-        <div class="form-check" style="width: 5%;">
+        <div class="form-check" style="width: 15%;">
             <input class="form-check-input" type="checkbox" name="to_baseusers" id="to_baseusers">
             <label class="form-check-label" for="to_baseusers">
-            Users
+            Users - {{ user_count }}
             </label>
         </div>
-        <div class="form-check" style="width: 5%;">
+        <div class="form-check" style="width: 15%;">
             <input class="form-check-input" type="checkbox" name="to_contacts" id="to_contacts">
             <label class="form-check-label" for="to_contacts">
-            Contacts
+            Contacts - {{ contact_count }}
             </label>
         </div>
     </div>

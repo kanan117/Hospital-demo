@@ -20,6 +20,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from raport.models import AnalizRaport
 
 
 def home(request):
@@ -28,6 +29,7 @@ def home(request):
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
     'contact_count': Contact.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'home.html', context)
 
@@ -38,6 +40,7 @@ def about(request):
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
     'contact_count': Contact.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'about.html', context)
 
@@ -48,6 +51,7 @@ def appointment(request):
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
     'contact_count': Contact.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'appointment.html', context)
 
@@ -56,6 +60,7 @@ def base(request):
   context = {
     'setting': Setting.objects.first(),
     'contact_count': Contact.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'base.html', context)
 
@@ -64,6 +69,7 @@ def blog_details(request):
   context = {
     'setting': Setting.objects.first(),
     'contact_count': Contact.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'blog_details.html', context)
 
@@ -72,16 +78,18 @@ def booking_list(request):
   context = {
     'setting': Setting.objects.first(),
     'contact_count': Contact.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'booking_list.html', context)
 
 
-def contact(request):
-  context = {
-    'setting': Setting.objects.first(),
-    'contact_count': Contact.objects.count(),
-  }
-  return render(request, 'contact.html', context)
+# def contact(request):
+#   context = {
+#     'setting': Setting.objects.first(),
+#     'contact_count': Contact.objects.count(),
+#     'report_count': AnalizRaport.objects.count()
+#   }
+#   return render(request, 'contact.html', context)
 
 
 def error(request):
@@ -142,6 +150,7 @@ class BlogsListView(ListView):
     context = super().get_context_data(**kwargs)
     context['setting'] = Setting.objects.first()
     context['contact_count'] = Contact.objects.count()
+    context['report_count'] = AnalizRaport.objects.count()
     return context
 
   def get_paginate_by(self, queryset):
@@ -166,6 +175,7 @@ class DoctorsListView(ListView):
     context['doctor_count'] = Doctors.objects.count()
     context['user_count'] = BaseUser.objects.count()
     context['contact_count'] = Contact.objects.count()
+    context['report_count'] = AnalizRaport.objects.count()
     return context
 
   def get_paginate_by(self, queryset):
@@ -188,7 +198,8 @@ def doctor_details(request, slug):
     'setting': Setting.objects.first(),
     'contact_count': Contact.objects.count(),
     'doctor_count': Doctors.objects.count(),
-    'user_count': BaseUser.objects.count()
+    'user_count': BaseUser.objects.count(),
+    'report_count': AnalizRaport.objects.count()
   }
   return render(request, 'doctor_details.html', context)
 
@@ -222,8 +233,9 @@ def contact(request):
     'setting': Setting.objects.first(),
     'doctor_count': Doctors.objects.count(),
     'user_count': BaseUser.objects.count(),
+    'report_count': AnalizRaport.objects.count(),
     'contact_count': Contact.objects.count(),
-    'contact': form,
+        'contact': form,
     'message': _('Message has been sent successfully!')
   }
 
@@ -319,11 +331,14 @@ def send_email(request):
 
     context = {
       'message': _('Email has been sent successfully!'),
-      'setting': setting
+      'setting': setting,
+      'contact_count': Contact.objects.count(),
+          'user_count': BaseUser.objects.count(),
+    'subscriber_count': Subscriber.objects.count(),
     }
     return render(request, 'email_sent.html', context)
 
-  return render(request, 'send_email.html', {'setting': setting})
+  return render(request, 'send_email.html', {'user_count': BaseUser.objects.count(),'subscriber_count': Subscriber.objects.count(),'setting': setting,'contact_count': Contact.objects.count()})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
