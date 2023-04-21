@@ -83,20 +83,21 @@ class Category(Basemodel):
     verbose_name_plural = _("Category")
 
 
-class Comment(Basemodel):
-  text = RichTextField()
-  pub_date = models.DateTimeField(auto_now_add=True)
-  author = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
-  news = models.ForeignKey(News,
-                           on_delete=models.CASCADE,
-                           related_name='comments')
+# class Comment(Basemodel):
+#   text = RichTextField()
+#   pub_date = models.DateTimeField(auto_now_add=True)
+#   author = models.ForeignKey(settings.AUTH_USER_MODEL,
+#                              on_delete=models.CASCADE)
+#   news = models.ForeignKey(News,
+#                            on_delete=models.CASCADE,
+#                            related_name='comments')
 
-  def __str__(self):
-    return f"Comment made by {self.author} for the news {self.news}"
+#   def __str__(self):
+#     return f"Comment made by {self.author} for the news {self.news}"
 
-  class Meta:
-    verbose_name_plural = _("Comment")
+#   class Meta:
+#     verbose_name_plural = _("Comment")
+
 
 
 class Tag(Basemodel):
@@ -174,6 +175,20 @@ class Blogs(models.Model):
     verbose_name_plural = _('Blogs')
 
 
+class Comment(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    blog = models.ForeignKey(Blogs, on_delete=models.CASCADE, related_name='comments')
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    @staticmethod
+    def search_feed(query):
+        return Comment.objects.filter(text__icontains=query)
+
+    class Meta:
+        ordering = ('-created_at', )
+        
+
+
 class Contact(Basemodel):
 
   name = models.CharField(max_length=100)
@@ -240,3 +255,4 @@ class Subscriber(Basemodel):
 
   class Meta:
     permissions = (('can_send_email', 'Can Send Email'), )
+

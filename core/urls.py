@@ -18,6 +18,7 @@ from core.views import (
   service_details,
   service,
   services,
+  add_comment,
   blog_details,
   BlogsListView,
   DoctorsListView,
@@ -46,4 +47,5 @@ urlpatterns = [
   path('services/', services, name='services'),
   path('send_email/', views.send_email, name='send_email'),
   path('thank-you/', views.thank_you, name='thank-you'),
+  path('blog/<slug:slug>/comment/', add_comment, name='add_comment'),
 ]

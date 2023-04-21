@@ -26,15 +26,13 @@
 									<a href="{% url 'blog_details' blog.slug %}">
 										<h3>{{ blog.title }}</h3>
 									</a>
-									<p>{{ blog.description|truncatechars:100 }}</p>
+									<p>{{ blog.description|truncatechars:100|safe }}</p>
 									<div class="blog-btn">
 										<a href="{% url 'blog_details' blog.slug %}" class="btn blog-link">Read More <i class="bi bi-arrow-right"></i>
 										</a>
 										<div class="blog-comment-share d-none d-md-block">
 											<span class="comment">
-												<i class="far fa-comments"></i> Comment 120 </span>
-											<span class="share">
-												<i class="fas fa-share-alt"></i> Share 03 </span>
+												<i class="far fa-comments"></i> Comment {{ blog.comments.count }} </span>
 										</div>
 									</div>
 									<hr>

@@ -324,3 +324,31 @@ def send_email(request):
     return render(request, 'email_sent.html', context)
 
   return render(request, 'send_email.html', {'setting': setting})
+
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import Blogs, Comment
+from .forms import CommentForm
+
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def add_comment(request, slug):
+    blog = get_object_or_404(Blogs, slug=slug)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.blog = blog
+            comment.save()
+            messages.success(request, 'Your comment was successfully added.')
+            return redirect('blog_details', slug=blog.slug)
+    else:
+        form = CommentForm()
+
+    return render(request, 'blog_details.html', {'blog': blog, 'form': form})
+
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 21:28+0000\n"
+"POT-Creation-Date: 2023-04-21 20:52+0000\n"
 "PO-Revision-Date: 2023-04-19 21:35+0000\n"
 "Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,52 +179,48 @@ msgstr "Xəbərlər"
 msgid "Category"
 msgstr "Kateqoriyalar"
 
-#: core/models.py:99
-msgid "Comment"
-msgstr "Şərh"
-
-#: core/models.py:109
+#: core/models.py:110
 msgid "Tag"
 msgstr "Etiket"
 
-#: core/models.py:120
+#: core/models.py:121
 msgid "NewsTag"
 msgstr "Xəbər etiketi"
 
-#: core/models.py:132 core/models.py:133
+#: core/models.py:133 core/models.py:134
 msgid "Page"
 msgstr "Səhifə"
 
-#: core/models.py:147
+#: core/models.py:148
 msgid "Story"
 msgstr "Hekayə"
 
-#: core/models.py:148
+#: core/models.py:149
 msgid "Stories"
 msgstr "Hekayələr"
 
-#: core/models.py:173 core/models.py:174
+#: core/models.py:174 core/models.py:175
 msgid "Blogs"
 msgstr "Bloglar"
 
-#: core/models.py:188 core/models.py:189
+#: core/models.py:203 core/models.py:204
 #: core/templates/partials/_navbar.html:67
 msgid "Contact"
 msgstr "Əlaqə"
 
-#: core/models.py:199
+#: core/models.py:214
 msgid "Position"
 msgstr "Vəzifə"
 
-#: core/models.py:200
+#: core/models.py:215
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:230
+#: core/models.py:245
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:231 core/templates/partials/_navbar.html:60
+#: core/models.py:246 core/templates/partials/_navbar.html:60
 msgid "Doctors"
 msgstr "Həkimlər"
 
@@ -340,6 +336,9 @@ msgstr "Dəstəklənməyən fayl uzantısı. Yalnız {} dəstəklənir."
 #: raport/views.py:28
 msgid "Invalid raport ID"
 msgstr "Yanlış hesabat ID-si"
+
+#~ msgid "Comment"
+#~ msgstr "Şərh"
 
 #~ msgid "Contacts"
 #~ msgstr "Əlaqələr"
