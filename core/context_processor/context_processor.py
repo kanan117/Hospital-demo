@@ -16,18 +16,15 @@ def doctor_count(request):
     'doctor_count': Doctors.objects.count(),
   }
 
-
 def user_count(request):
   return {
     'user_count': BaseUser.objects.count(),
   }
 
-
 def contact_count(request):
   return {
     'contact_count': Contact.objects.count(),
   }
-
 
 def subscriber_count(request):
   return {

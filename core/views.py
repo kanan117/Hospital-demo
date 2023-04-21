@@ -1,26 +1,22 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.views.generic import ListView
-from .models import Blogs, Doctors, Setting, Subscriber
 from core.forms import ContactForm
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.db.models import Q
 from baseuser.models import BaseUser
 from celery import shared_task
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.conf import settings
-from django.db.models import Q
-from .models import Subscriber, Setting, Contact
-from django.utils.translation import gettext as _
-from django.core.mail import send_mail
-from django.conf import settings
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from .models import Blogs, Doctors, Setting, Subscriber, Contact, Comment
 from raport.models import AnalizRaport
+from django.utils.translation import gettext as _
+from .forms import CommentForm
+
 
 
 def home(request):
@@ -341,12 +337,6 @@ def send_email(request):
   return render(request, 'send_email.html', {'user_count': BaseUser.objects.count(),'subscriber_count': Subscriber.objects.count(),'setting': setting,'contact_count': Contact.objects.count()})
 
 
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
-from .models import Blogs, Comment
-from .forms import CommentForm
-
-from django.contrib.auth.decorators import login_required
 
 @login_required
 def add_comment(request, slug):
