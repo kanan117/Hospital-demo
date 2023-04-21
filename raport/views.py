@@ -13,7 +13,7 @@ from django.utils.translation import gettext as _
 
 def rapor_detay(request, rapor_id):
   rapor = get_object_or_404(AnalizRaport, id=rapor_id)
-  context = {'rapor': rapor, 'setting': Setting.objects.first()}
+  context = {'rapor': rapor, 'setting': Setting.objects.first(),'report_count': AnalizRaport.objects.count()}
   return render(request, 'rapor_detay.html', context)
 
 
@@ -28,7 +28,9 @@ def rapor_search(request):
       error_message = _("Invalid raport ID")
       return render(request, 'rapor_search.html', {
         'error_message': error_message,
-        'setting': Setting.objects.first()
+        'setting': Setting.objects.first(),
+        'report_count': AnalizRaport.objects.count()
+
       })
   return render(request, 'rapor_search.html',
                 {'setting': Setting.objects.first()})
@@ -74,7 +76,8 @@ def rapor_add(request):
 
   return render(request, 'rapor_add.html', {
     'form': form,
-    'setting': Setting.objects.first()
+    'setting': Setting.objects.first(),
+    'report_count': AnalizRaport.objects.count()
   })
 
 
@@ -94,5 +97,5 @@ def rapor_list(request):
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 
-  context = {'page_obj': page_obj, 'setting': Setting.objects.first()}
+  context = {'page_obj': page_obj, 'setting': Setting.objects.first(),'report_count': AnalizRaport.objects.count()}
   return render(request, 'rapor_list.html', context)

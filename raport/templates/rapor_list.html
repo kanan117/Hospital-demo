@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load i18n %} {% block content %} <form action="{% url 'rapor_list' %}" method="get">
 	<label for="search" style="font-weight: bold;">Search:</label>
 	<input type="text" name="search" id="search" style="margin-left: 10px; padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
-	<button type="submit" style="background-color: #4CAF50; color: white; border-radius: 5px; border: none; padding: 8px 16px; margin-left: 10px; cursor: pointer;">{% trans 'Search & Clear' %}</button>
+	<button type="submit" style="background-color: #4CAF50; color: white; border-radius: 5px; border: none; padding: 8px 16px; margin-left: 10px; cursor: pointer;">{% trans 'Search & Clear' %}</button> {% trans 'Total Report Count' %} - {{ report_count }}
 </form>
 <ul> {% for rapor in page_obj %} <li>
 		<strong style="color:black">Name Surname:</strong>

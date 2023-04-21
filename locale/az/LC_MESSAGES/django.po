@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-21 20:52+0000\n"
-"PO-Revision-Date: 2023-04-19 21:35+0000\n"
+"POT-Creation-Date: 2023-04-21 22:25+0000\n"
+"PO-Revision-Date: 2023-04-21 22:19+0000\n"
 "Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -199,28 +199,28 @@ msgstr "Hekayə"
 msgid "Stories"
 msgstr "Hekayələr"
 
-#: core/models.py:174 core/models.py:175
+#: core/models.py:175 core/models.py:176
 msgid "Blogs"
 msgstr "Bloglar"
 
-#: core/models.py:203 core/models.py:204
-#: core/templates/partials/_navbar.html:67
+#: core/models.py:204 core/models.py:205
+#: core/templates/partials/_navbar.html:61
 msgid "Contact"
 msgstr "Əlaqə"
 
-#: core/models.py:214
+#: core/models.py:215
 msgid "Position"
 msgstr "Vəzifə"
 
-#: core/models.py:215
+#: core/models.py:216
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:245
+#: core/models.py:246
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:246 core/templates/partials/_navbar.html:60
+#: core/models.py:247 core/templates/partials/_navbar.html:54
 msgid "Doctors"
 msgstr "Həkimlər"
 
@@ -248,68 +248,68 @@ msgstr "Emailinizi daxil edin"
 msgid "Subscribe Now"
 msgstr "İndi abunə olun"
 
-#: core/templates/partials/_navbar.html:40
+#: core/templates/partials/_navbar.html:34
 msgid "Home"
 msgstr "Əsas səhifə"
 
-#: core/templates/partials/_navbar.html:43
+#: core/templates/partials/_navbar.html:37
 msgid "Email"
 msgstr "Email"
 
-#: core/templates/partials/_navbar.html:46
+#: core/templates/partials/_navbar.html:40
 msgid "About"
 msgstr "Haqqımızda"
 
-#: core/templates/partials/_navbar.html:49
+#: core/templates/partials/_navbar.html:43
 msgid "Raport"
 msgstr "Online Neticeler"
 
-#: core/templates/partials/_navbar.html:52
+#: core/templates/partials/_navbar.html:46
 msgid "Search Raport"
 msgstr "Netice Axtarmaq"
 
-#: core/templates/partials/_navbar.html:54
+#: core/templates/partials/_navbar.html:48
 msgid "Add Raport"
 msgstr "Netice Elave Etmek"
 
-#: core/templates/partials/_navbar.html:55
+#: core/templates/partials/_navbar.html:49
 msgid "Raport LIst"
 msgstr "Netice Melumatlari"
 
-#: core/templates/partials/_navbar.html:63
+#: core/templates/partials/_navbar.html:57
 msgid "Blog"
 msgstr "Blog"
 
-#: core/templates/partials/_navbar.html:71
-#: core/templates/partials/_navbar.html:80
+#: core/templates/partials/_navbar.html:65
+#: core/templates/partials/_navbar.html:74
 msgid "Account"
 msgstr "Hesab"
 
-#: core/templates/partials/_navbar.html:74
+#: core/templates/partials/_navbar.html:68
 msgid "Logout"
 msgstr "Çıxış"
 
-#: core/templates/partials/_navbar.html:75
+#: core/templates/partials/_navbar.html:69
 msgid "Profile"
 msgstr "Hesab"
 
-#: core/templates/partials/_navbar.html:82
+#: core/templates/partials/_navbar.html:76
 msgid "Login"
 msgstr "Daxil ol"
 
-#: core/templates/partials/_navbar.html:83
+#: core/templates/partials/_navbar.html:77
 msgid "Register"
 msgstr "Qeydiyyat"
 
-#: core/views.py:207
+#: core/views.py:214
 msgid "New Contact Form Received"
 msgstr "Yeni Əlaqə Forması Alındı"
 
-#: core/views.py:227 core/views.py:236
+#: core/views.py:235 core/views.py:244
 msgid "Message has been sent successfully!"
 msgstr "Mesaj uğurla göndərildi!"
 
-#: core/views.py:321
+#: core/views.py:329
 msgid "Email has been sent successfully!"
 msgstr "E-poçt uğurla göndərildi!"
 
@@ -323,7 +323,11 @@ msgstr "Vəzifə"
 
 #: raport/templates/rapor_list.html:4
 msgid "Search & Clear"
-msgstr "Netice Axtarmaq"
+msgstr "Axtar & Temizle"
+
+#: raport/templates/rapor_list.html:4
+msgid "Total Report Count"
+msgstr ""
 
 #: raport/templates/rapor_list.html:15
 msgid "No results found. Please enter another search term."

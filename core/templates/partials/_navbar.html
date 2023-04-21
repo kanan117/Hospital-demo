@@ -1,5 +1,6 @@
 {% load static %} {% load i18n %} 
 
+
 <header class="header-area">
 	<div class="container-md">
 		<div class="row">
@@ -12,13 +13,6 @@
 					</div>
 					<!DOCTYPE html>
 					<html>
-						<!-- <head><meta charset="UTF-8"><title>My Website</title><style>
-                            a[hreflang="az"], a[hreflang="en"] {
-                                color: black;
-                            }
-                        </style></head> -->
-						<!-- <body><div><a hreflang="az" href="http://127.0.0.1:8000/az/">AZ</a> | 
-                            <a hreflang="en" href="http://127.0.0.1:8000/en/">EN</a></div></body> -->
 						<form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;"> {% csrf_token %} <input type="hidden" name="next" value="{{ request.path }}">
 							<select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()"> {% get_current_language as LANGUAGE_CODE %} {{ LANGUAGE_CODE }} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %} {% for language in languages %} <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
 									{{ language.code }}
@@ -71,7 +65,7 @@
 									<a class="nav-link">{% trans 'Account' %}</a>
 									<ul class="sub-menu">
 										<form method="POST" action="{% url 'logout' %}">
-											<button type="submit" class="nav-link btn btn-link text-black">{% trans 'Logout' %}</button>
+											<button type="submit" class="nav-link btn btn-link text-black ">{% trans 'Logout' %}</button>
 											<a class="nav-link" href="{% url 'profile_edit' %}" style="color:black;">{% trans 'Profile' %}</a>											
 									</ul>
 								</li>
@@ -95,7 +89,3 @@
 		</div>
 	</div>
 </header>
-<!-- <form class="form-inline my-2 my-lg-0" action="{% url 'site_search' %}" method="GET">
-	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="site_search">
-	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form> -->
