@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-21 22:25+0000\n"
-"PO-Revision-Date: 2023-04-21 22:19+0000\n"
+"POT-Creation-Date: 2023-04-27 20:40+0000\n"
+"PO-Revision-Date: 2023-04-27 20:41+0000\n"
 "Last-Translator: Karim Karimli <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -163,64 +163,64 @@ msgstr "Bu hesabı silmək üçün icazəniz yoxdur."
 msgid "You must confirm that you want to delete your account."
 msgstr "Hesabınızı silmək istədiyinizi təsdiq etməlisiniz."
 
-#: core/models.py:55
+#: core/models.py:56
 msgid "Setting"
 msgstr "Tənzimləmə"
 
-#: core/models.py:56
+#: core/models.py:57
 msgid "Settings"
 msgstr "Tənzimləmələr"
 
-#: core/models.py:72 core/models.py:73
+#: core/models.py:73 core/models.py:74
 msgid "News"
 msgstr "Xəbərlər"
 
-#: core/models.py:83
+#: core/models.py:84
 msgid "Category"
 msgstr "Kateqoriyalar"
 
-#: core/models.py:110
+#: core/models.py:94
 msgid "Tag"
 msgstr "Etiket"
 
-#: core/models.py:121
+#: core/models.py:105
 msgid "NewsTag"
 msgstr "Xəbər etiketi"
 
-#: core/models.py:133 core/models.py:134
+#: core/models.py:117 core/models.py:118
 msgid "Page"
 msgstr "Səhifə"
 
-#: core/models.py:148
+#: core/models.py:132
 msgid "Story"
 msgstr "Hekayə"
 
-#: core/models.py:149
+#: core/models.py:133
 msgid "Stories"
 msgstr "Hekayələr"
 
-#: core/models.py:175 core/models.py:176
+#: core/models.py:159 core/models.py:160
 msgid "Blogs"
 msgstr "Bloglar"
 
-#: core/models.py:204 core/models.py:205
+#: core/models.py:188 core/models.py:189
 #: core/templates/partials/_navbar.html:61
 msgid "Contact"
 msgstr "Əlaqə"
 
-#: core/models.py:215
+#: core/models.py:199
 msgid "Position"
 msgstr "Vəzifə"
 
-#: core/models.py:216
+#: core/models.py:200 core/templates/doctor_details.html:99
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:246
+#: core/models.py:230
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:247 core/templates/partials/_navbar.html:54
+#: core/models.py:231 core/templates/partials/_navbar.html:54
 msgid "Doctors"
 msgstr "Həkimlər"
 
@@ -239,6 +239,23 @@ msgstr "Django sayt admini"
 #: core/templates/base_site.html:2
 msgid "Django administration"
 msgstr "Django administrasiyası"
+
+#: core/templates/doctor_details.html:103
+msgid "Experience"
+msgstr "Təcrübə"
+
+#: core/templates/doctor_details.html:107
+#| msgid "Ages"
+msgid "Age"
+msgstr "Yaş"
+
+#: core/templates/doctor_details.html:115
+msgid "Phone"
+msgstr "Telefon"
+
+#: core/templates/doctor_details.html:121
+msgid "Educational History"
+msgstr "Təhsil Tarixi"
 
 #: core/templates/partials/_footer.html:5
 msgid "Enter your email"
@@ -327,7 +344,7 @@ msgstr "Axtar & Temizle"
 
 #: raport/templates/rapor_list.html:4
 msgid "Total Report Count"
-msgstr ""
+msgstr "Ümumi Hesabat Sayı"
 
 #: raport/templates/rapor_list.html:15
 msgid "No results found. Please enter another search term."

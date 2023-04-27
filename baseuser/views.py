@@ -124,7 +124,7 @@ def delete_account(request):
       'placeholder': _('Password')
     },
     'messages':
-    messages.get_messages(request),  # Add error messages to context
+    messages.get_messages(request),  
   }
 
   return render(request, 'delete_account.html', context)

@@ -93,19 +93,18 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="details-right-content">
-						<h3>The art of medicine was to be properly learned only from its practice and its exercise.</h3>
-						<p>Lorem Ipsum available, but the majority have suffered alteration some form, by injected humour, or randomized words which don't look even slightly believable. If you are going to use a passage of lorem Ipsum you need to be sure there isn't anything.</p>
+
 						<ul class="doctor-details-position">
 							<li>
-								<h4>Positions:</h4>
+								<h4>{% trans 'Positions' %}:</h4>
 								<span>{{doctor.positions}}</span>
 							</li>
 							<li>
-								<h4>Experience:</h4>
+								<h4>{% trans 'Experience' %}:</h4>
 								<span>Almost {{doctor.experience}} Year</span>
 							</li>
 							<li>
-								<h4>Ages:</h4>
+								<h4>{% trans 'Age' %}:</h4>
 								<span>{{doctor.age}}</span>
 							</li>
 							<li>
@@ -113,15 +112,15 @@
 								<a href="mailto:{{doctor.email}}">{{doctor.email}}</a>
 							</li>
 							<li>
-								<h4>Phone:</h4>
+								<h4>{% trans 'Phone' %}:</h4>
 								<span>
 									<a href="tel:{{doctor.number}}">{{doctor.number}}</a>
 								</span>
 							</li>
 						</ul>
-						<h3 class="pt-5">Educational History</h3>
+						<h3 class="pt-5">{% trans 'Educational History' %}</h3>
 						<ul class="doctor-details-list">
-							{{doctor.educational_history}}
+							{{ doctor.educational_history|safe }}
 						</ul>
 					</div>
 				</div>

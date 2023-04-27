@@ -36,20 +36,6 @@ def rapor_search(request):
                 {'setting': Setting.objects.first()})
 
 
-# Raport ID reqem+herflerden ibaret olmasi
-#errorlar sekil id si herflernden ibaret olmur nedense
-#raport_detail sehifesi error verecek sadece reqem daxil elemeye icaze verir
-# import string
-# import random
-
-# def generate_rapor_id():
-#     random_letters = ''.join(random.choices(string.ascii_letters, k=3))
-#     random_numbers = str(random.randint(100, 999))
-#     return f"{random_letters}{random_numbers}"
-
-#     rapor.id = generate_rapor_id() (bu kodu asagida random olan yere paste elemek lazidmi)
-
-
 @user_passes_test(lambda u: u.has_perm('raport.can_add_raport'))
 def rapor_add(request):
   max_rapor_id = AnalizRaport.objects.aggregate(Max('id'))['id__max']

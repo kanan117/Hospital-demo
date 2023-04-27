@@ -5,5 +5,5 @@ today = date.today().strftime("%d-%m-%Y")
 x = f"Update {today}"
 
 call(["sudo", "git", "add", "."])
-call(["sudo", "git", "commit", "-m", x])
+call(["sudo", "git", "commit", "-m", "FINAL"])
 call(["git", "push"])

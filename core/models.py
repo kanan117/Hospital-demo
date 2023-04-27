@@ -84,23 +84,6 @@ class Category(Basemodel):
     verbose_name_plural = _("Category")
 
 
-# class Comment(Basemodel):
-#   text = RichTextField()
-#   pub_date = models.DateTimeField(auto_now_add=True)
-#   author = models.ForeignKey(settings.AUTH_USER_MODEL,
-#                              on_delete=models.CASCADE)
-#   news = models.ForeignKey(News,
-#                            on_delete=models.CASCADE,
-#                            related_name='comments')
-
-#   def __str__(self):
-#     return f"Comment made by {self.author} for the news {self.news}"
-
-#   class Meta:
-#     verbose_name_plural = _("Comment")
-
-
-
 class Tag(Basemodel):
   name = models.CharField(max_length=50)
 

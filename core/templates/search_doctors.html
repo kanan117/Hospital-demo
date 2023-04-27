@@ -10,9 +10,9 @@
 		<div class="row"> {% if doctors %} {% for doctor in doctors %} <div class="col-sm-6 col-lg-4">
 				<div class="doctor-item">
 					<div class="doctor-thumb">
-						<div class="doctor-img">
-							<img src="{{ doctor.image.url }}" alt="Image">
-						</div>
+						<a href="{% url 'doctor_details' doctor.slug %}">
+							<img src="{{ doctor.image.url }}" alt="Image" width="350" height="300">
+						</a>
 						<ul class="social-link">
 							<li>
 								<a href="{{ doctor.facebook }}">
