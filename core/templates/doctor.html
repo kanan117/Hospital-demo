@@ -4,10 +4,12 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="counter-wrapper counter-wrapper-2" data-cues="slideInRight" data-delay="5">
-						<div class="counter-item">
-							<h2 class="counter counter-number"> {{ doctor_count }} +</h2>
-							<span class="counter-text">Expert Doctors</span>
-						</div>
+						<a href="{% url 'doctor' %}">
+							<div class="counter-item">
+								<h2 class="counter counter-number">{{ doctor_count }} +</h2>
+								<span class="counter-text">Expert Doctors</span>
+							</div>
+						</a>
 						<div class="counter-item">
 							<h2 class="counter counter-number">{{ user_count }}+</h2>
 							<span class="counter-text">Total Registered User</span>
@@ -48,7 +50,9 @@
 					<div class="doctor-item">
 						<div class="doctor-thumb">
 							<div class="doctor-img">
-								<img src="{{ doctor.image.url }}" alt="Image">
+								<a href="{% url 'doctor_details' doctor.slug %}">
+									<img src="{{ doctor.image.url }}" alt="Image">
+								</a>
 							</div>
 							<ul class="social-link">
 								<li>
@@ -70,7 +74,7 @@
 						</div>
 						<div class="doctor-content">
 							<h3 class="title">
-								<a href="#">{{ doctor.name }}</a>
+								<a href="{% url 'doctor_details' doctor.slug %}">{{ doctor.name }}</a>
 							</h3>
 							<span>{{doctor.positions}}</span>
 							<a href="{% url 'doctor_details' doctor.slug %}" class="doctor-link">

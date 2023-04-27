@@ -27,10 +27,12 @@
 				</form>
 				<a href="{% url 'service' %}" class="btn btn-outline-white btn-xl btn-round" data-cue="slideInLeft" data-duration="3000">Explore Our Services</a>
 				<div class="counter-wrapper d-none d-md-flex" data-cues="slideInLeft" data-duration="2000">
-					<div class="counter-item text-white">
-						<h2 class="counter counter-number"> {{ doctor_count }} +</h2>
-						<span class="counter-text">Expert Doctors</span>
-					</div>
+					<a href="{% url 'doctor' %}">
+						<div class="counter-item">
+							<h2 class="counter counter-number">{{ doctor_count }} +</h2>
+							<span class="counter-text">Expert Doctors</span>
+						</div>
+					</a>
 					<div class="counter-item">
 						<h2 class="counter counter-number">{{ user_count }}+</h2>
 						<span class="counter-text">Total Registered User</span>
