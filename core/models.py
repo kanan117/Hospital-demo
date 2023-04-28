@@ -48,6 +48,7 @@ class Setting(Basemodel):
   address2 = models.CharField(max_length=20)
   contact_form_email = models.EmailField()
   location = models.URLField(max_length=2000)
+  slogan = models.CharField(max_length=2000)
 
   def __str__(self):
     return "Setting"

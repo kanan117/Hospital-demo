@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="container mt-5">
 <form method="POST" action="{% url 'send_email' %}">
     {% csrf_token %}
     <div class="form-group">
@@ -36,4 +36,5 @@
     </div>
     <button type="submit" class="btn btn-primary">Send</button>
 </form>
+</div>
 {% endblock %}

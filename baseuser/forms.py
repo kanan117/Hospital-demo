@@ -54,6 +54,7 @@ class BaseUserForm(UserCreationForm):
   password2 = forms.CharField(
     strip=False,
     widget=forms.PasswordInput(attrs={
+      ''
       'class': 'form-control',
       'placeholder': _('Confirm Password')
     }),
@@ -70,6 +71,9 @@ class BaseUserForm(UserCreationForm):
       'password2',
       # 'date_of_birth',
     ]
+    labels = {
+    'password2': 'Writer',
+    }
     widgets = {
       'username':
       forms.TextInput(attrs={
