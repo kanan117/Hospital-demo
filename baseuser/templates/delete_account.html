@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
+<div class="container mt-5">
   <h3>Delete Account</h3>
   <p>Are you sure you want to delete your account?</p>
   <form method="post">
@@ -15,5 +16,5 @@
   {% for message in messages %}
     <div class="alert alert-danger" role="alert">{{ message }}</div>
   {% endfor %}
-  
+</div>
 {% endblock %}

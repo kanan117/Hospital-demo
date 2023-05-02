@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% load i18n %} {% block content %} <form action="{% url 'rapor_list' %}" method="get">
+{% extends 'base.html' %} {% load i18n %} {% block content %} 
+<div class="container mt-5"></div><form action="{% url 'rapor_list' %}" method="get">
 	<label for="search" style="font-weight: bold;">Search:</label>
 	<input type="text" name="search" id="search" style="margin-left: 10px; padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
 	<button type="submit" style="background-color: #4CAF50; color: white; border-radius: 5px; border: none; padding: 8px 16px; margin-left: 10px; cursor: pointer;">{% trans 'Search & Clear' %}</button> {% trans 'Total Report Count' %} - {{ report_count }}
@@ -19,6 +20,7 @@
 	<span class="step-links"> {% if page_obj.has_previous %} <a href="?page=1">&laquo; first</a>
 		<a href="?page={{ page_obj.previous_page_number }}">previous</a> {% endif %} <span class="current-page"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}">next</a>
 		<a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> {% endif %} </span>
+</div>
 </div>
 <style>
 	.pagination {
