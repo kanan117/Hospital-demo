@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 20:40+0000\n"
+"POT-Creation-Date: 2023-05-09 20:26+0000\n"
 "PO-Revision-Date: 2023-05-06 10:44+0000\n"
 "Last-Translator: kananan Karimliii <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "Azərbaycanca"
 msgid "Required. Enter a valid email address."
 msgstr "Tələb olunur. Etibarlı e-poçt ünvanı daxil edin."
 
-#: baseuser/forms.py:30 baseuser/forms.py:130
+#: baseuser/forms.py:30 baseuser/forms.py:134
 msgid "First Name"
 msgstr "Ad"
 
@@ -39,7 +39,7 @@ msgstr "Ad"
 msgid "Only alphabetical characters are allowed."
 msgstr "Yalnız əlifba simvollarına icazə verilir."
 
-#: baseuser/forms.py:40 baseuser/forms.py:143
+#: baseuser/forms.py:40 baseuser/forms.py:147
 msgid "Last Name"
 msgstr "Soyad"
 
@@ -47,63 +47,63 @@ msgstr "Soyad"
 msgid "Password"
 msgstr "Şifrə"
 
-#: baseuser/forms.py:58 baseuser/forms.py:200
+#: baseuser/forms.py:59 baseuser/forms.py:204
 msgid "Confirm Password"
 msgstr "Şifrə Təstiqi"
 
-#: baseuser/forms.py:60
+#: baseuser/forms.py:61
 msgid "Enter the same password as before, for verification."
 msgstr "Doğrulama üçün əvvəlki parolu daxil edin."
 
-#: baseuser/forms.py:85
+#: baseuser/forms.py:89
 msgid "Your password must contain at least 8 characters."
 msgstr "Parolunuz ən azı 8 simvoldan ibarət olmalıdır."
 
-#: baseuser/forms.py:88
+#: baseuser/forms.py:92
 msgid "Your password must contain at least one digit."
 msgstr "Parolunuz ən azı bir rəqəmdən ibarət olmalıdır."
 
-#: baseuser/forms.py:91
+#: baseuser/forms.py:95
 msgid "Your password can't be entirely alphabetical."
 msgstr "Parolunuz tamamilə əlifba sırası ilə ola bilməz."
 
-#: baseuser/forms.py:94
+#: baseuser/forms.py:98
 msgid "Your password can't be entirely numeric."
 msgstr "Parolunuz tam rəqəm ola bilməz."
 
-#: baseuser/forms.py:97
+#: baseuser/forms.py:101
 msgid "Your password must start with a capital letter."
 msgstr "Şifrəniz böyük hərflə başlamalıdır."
 
-#: baseuser/forms.py:125
+#: baseuser/forms.py:129
 msgid "Please enter only alphabets for your first name"
 msgstr "Zəhmət olmasa, adınız üçün yalnız əlifbaları daxil edin"
 
-#: baseuser/forms.py:138
+#: baseuser/forms.py:142
 msgid "Please enter only alphabets for your last name"
 msgstr "Zəhmət olmasa soyadınız üçün yalnız əlifbalar daxil edin"
 
-#: baseuser/forms.py:150
+#: baseuser/forms.py:154
 msgid "Email Address"
 msgstr "E-poçt ünvanı"
 
-#: baseuser/forms.py:164
+#: baseuser/forms.py:168
 msgid "Phone Number"
 msgstr "Telefon Nomresi"
 
-#: baseuser/forms.py:171
+#: baseuser/forms.py:175
 msgid "Location"
 msgstr "Vəzifə"
 
-#: baseuser/forms.py:180
+#: baseuser/forms.py:184
 msgid "New Password"
 msgstr "Yeni Şifrə"
 
-#: baseuser/forms.py:184
+#: baseuser/forms.py:188
 msgid "Optional. Enter a strong password with at least 8 characters."
 msgstr "Könüllü. Ən azı 8 simvoldan ibarət güclü parol daxil edin."
 
-#: baseuser/forms.py:189
+#: baseuser/forms.py:193
 msgid ""
 "Password must contain at least 8 characters with at least one uppercase "
 "letter, one lowercase letter, and one digit."
@@ -111,19 +111,19 @@ msgstr ""
 "Parol ən azı bir böyük hərf, bir kiçik hərf və bir rəqəmdən ibarət ən azı 8 "
 "simvoldan ibarət olmalıdır."
 
-#: baseuser/forms.py:191
+#: baseuser/forms.py:195
 msgid "invalid_password"
 msgstr "yalnış_şirfə"
 
-#: baseuser/forms.py:203
+#: baseuser/forms.py:207
 msgid "Optional. Re-enter the password to confirm."
 msgstr "Könüllü. Təsdiq etmək üçün parolu yenidən daxil edin."
 
-#: baseuser/forms.py:219 baseuser/forms.py:222
+#: baseuser/forms.py:223 baseuser/forms.py:226
 msgid "This field is required."
 msgstr "Bu xananın doldurulması məcburidir."
 
-#: baseuser/forms.py:226
+#: baseuser/forms.py:230
 msgid "Passwords do not match. Please try again."
 msgstr "Şifrəniz Uyğun deyil"
 
@@ -163,64 +163,64 @@ msgstr "Bu hesabı silmək üçün icazəniz yoxdur."
 msgid "You must confirm that you want to delete your account."
 msgstr "Hesabınızı silmək istədiyinizi təsdiq etməlisiniz."
 
-#: core/models.py:56
+#: core/models.py:57
 msgid "Setting"
 msgstr "Tənzimləmə"
 
-#: core/models.py:57
+#: core/models.py:58
 msgid "Settings"
 msgstr "Tənzimləmələr"
 
-#: core/models.py:73 core/models.py:74
+#: core/models.py:74 core/models.py:75
 msgid "News"
 msgstr "Xəbərlər"
 
-#: core/models.py:84
+#: core/models.py:85
 msgid "Category"
 msgstr "Kateqoriyalar"
 
-#: core/models.py:94
+#: core/models.py:95
 msgid "Tag"
 msgstr "Etiket"
 
-#: core/models.py:105
+#: core/models.py:106
 msgid "NewsTag"
 msgstr "Xəbər etiketi"
 
-#: core/models.py:117 core/models.py:118
+#: core/models.py:118 core/models.py:119
 msgid "Page"
 msgstr "Səhifə"
 
-#: core/models.py:132
+#: core/models.py:133
 msgid "Story"
 msgstr "Hekayə"
 
-#: core/models.py:133
+#: core/models.py:134
 msgid "Stories"
 msgstr "Hekayələr"
 
-#: core/models.py:159 core/models.py:160
+#: core/models.py:160 core/models.py:161
 msgid "Blogs"
 msgstr "Bloglar"
 
-#: core/models.py:188 core/models.py:189
+#: core/models.py:189 core/models.py:190
 #: core/templates/partials/_navbar.html:61
 msgid "Contact"
 msgstr "Əlaqə"
 
-#: core/models.py:199
+#: core/models.py:200
 msgid "Position"
 msgstr "Vəzifə"
 
-#: core/models.py:200 core/templates/doctor_details.html:99
+#: core/models.py:201 core/templates/doctor_details.html:99
 msgid "Positions"
 msgstr "Vəzifələr"
 
-#: core/models.py:230
+#: core/models.py:231
 msgid "Doctor"
 msgstr "Həkim"
 
-#: core/models.py:231 core/templates/partials/_navbar.html:54
+#: core/models.py:232 core/templates/partials/_navbar.html:54
 msgid "Doctors"
 msgstr "Həkimlər"
 
@@ -245,7 +245,6 @@ msgid "Experience"
 msgstr "Təcrübə"
 
 #: core/templates/doctor_details.html:107
-#| msgid "Ages"
 msgid "Age"
 msgstr "Yaş"
 
@@ -338,15 +337,15 @@ msgstr "Ad Soyad"
 msgid "Description"
 msgstr "Vəzifə"
 
-#: raport/templates/rapor_list.html:4
+#: raport/templates/rapor_list.html:5
 msgid "Search & Clear"
 msgstr "Axtar & Temizle"
 
-#: raport/templates/rapor_list.html:4
+#: raport/templates/rapor_list.html:5
 msgid "Total Report Count"
 msgstr "Ümumi Hesabat Sayı"
 
-#: raport/templates/rapor_list.html:15
+#: raport/templates/rapor_list.html:16
 msgid "No results found. Please enter another search term."
 msgstr "Nəticə tapılmadı. Xahiş edirik başqa bir axtarış termini daxil edin."
 
