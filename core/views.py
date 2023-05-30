@@ -199,7 +199,7 @@ def doctor_details(request, slug):
   }
   return render(request, 'doctor_details.html', context)
 
-
+####contact
 def contact(request):
   if request.method == 'POST':
     form = ContactForm(request.POST)
