@@ -4,13 +4,15 @@ from subprocess import call
 # call(["docker", "compose" , "down"])
 # call(["docker", "compose" , "up" , "-d"])
 call(["./manage.py", "makemigrations"])
-# call(["./manage.py", "migrate"])
-#call(["./manage.py", "runserver"])
+call(["./manage.py", "migrate"])
+call(["./manage.py", "runserver"])
 
 
 #sudo fuser -k 8000/tcp
 
-# docker stop $(docker ps -aq)
+# docker rm -f $(docker ps -aq)
+# docker rmi -f $(docker images -q)
+
 
 
 # pip install --no-cache-dir -r requirements.txt
