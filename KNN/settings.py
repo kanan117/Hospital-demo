@@ -118,6 +118,7 @@ TEMPLATES = [
     },
   },
 ]
+STATIC_ROOT = '/app/static/'
 
 WSGI_APPLICATION = 'KNN.wsgi.application'
 
