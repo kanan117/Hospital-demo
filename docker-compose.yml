@@ -9,9 +9,9 @@ services:
       volumes:
         -  ./data:/var/lib/postgresql/data
       environment:
-        POSTGRES_PASSWORD: KNN
-        POSTGRES_USER: KNN
-        POSTGRES_DB: KNN
+        POSTGRES_PASSWORD: 112233
+        POSTGRES_USER: user
+        POSTGRES_DB: hospital
 
     adminer:
         image: adminer

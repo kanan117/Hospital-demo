@@ -135,9 +135,9 @@ WSGI_APPLICATION = 'KNN.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'KNN',
-    'USER': 'KNN',
-    'PASSWORD': 'KNN',
+    'NAME': 'hospital',
+    'USER': 'user',
+    'PASSWORD': '112233',
     'PORT': 5432,
     'HOST': 'localhost',
   }
