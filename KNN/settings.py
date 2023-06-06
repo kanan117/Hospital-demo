@@ -184,6 +184,8 @@ STATICFILES_DIRS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project_name.settings')
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_URL = '/static/'
