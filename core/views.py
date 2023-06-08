@@ -356,4 +356,3 @@ def add_comment(request, slug):
 
     return render(request, 'blog_details.html', {'blog': blog, 'form': form})
 
-
